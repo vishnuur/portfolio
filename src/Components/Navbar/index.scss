@@ -1,0 +1,52 @@
+.navbar-wrap {
+  background: transparent;
+  backdrop-filter: blur(1px);
+  height: 54px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 24px 54px;
+  z-index: 102;
+  display: flex;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+
+  .toggle-button {
+    -webkit-appearance: none;
+    outline: none;
+    width: 40px;
+    height: 20px;
+    background-color: #212121;
+    border-radius: 50px;
+    position: relative;
+    transition: 0.4s;
+  }
+
+  .toggle-button:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    top: 0;
+    bottom: 0;
+    background-color: #bdbdbd;
+    transition: 0.4s;
+  }
+
+  .toggle-button:checked {
+    background-color: #bdbdbd;
+  }
+
+  .toggle-button:checked:before {
+    transform: translate(100%);
+    background-color: #212121;
+    transition: 0.4s;
+  }
+}

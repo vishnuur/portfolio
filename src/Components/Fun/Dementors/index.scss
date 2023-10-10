@@ -1,0 +1,144 @@
+/* ImageAnimation.css */
+
+.image-animation {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  img {
+    width: 240px;
+    height: 240px;
+    z-index: 1000;
+  }
+  button {
+    background-color: white;
+    z-index: 1000;
+  }
+}
+
+.animated-image {
+  position: absolute;
+  width: 100px; /* Set your desired image width */
+  height: 100px; /* Set your desired image height */
+  animation-duration: 18s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+.position-0 {
+  top: -100px;
+  left: calc(50% - 50px);
+}
+
+.position-1 {
+  top: calc(50% - 50px);
+  left: 100vw;
+}
+
+.position-2 {
+  top: 100vh;
+  left: calc(50% - 50px);
+}
+
+.position-3 {
+  top: calc(50% - 50px);
+  left: -100px;
+}
+
+.image-0 {
+  animation-name: move-from-top;
+}
+
+.image-1 {
+  animation-name: move-from-right;
+}
+
+.image-2 {
+  animation-name: move-from-bottom;
+}
+
+@keyframes move-from-top {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes move-from-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes move-from-bottom {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes move-up {
+  0% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(100vh);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(0);
+  }
+  90% {
+    transform: translateX(100vw);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+}

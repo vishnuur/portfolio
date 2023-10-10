@@ -1,0 +1,71 @@
+.skills-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 54px;
+  p {
+    font-size: 16px;
+    margin: 0;
+    padding: 24px 0;
+  }
+  h5 {
+    color: #9f55ff;
+    margin: 0;
+    font-size: 42px;
+    padding-bottom: 12px;
+  }
+  h6 {
+    font-size: 24px;
+    margin: 0;
+    width: 620px;
+    text-align: left;
+    padding-bottom: 24px;
+  }
+  .langauges {
+    display: flex;
+    max-width: 60%;
+    padding-bottom: 12px;
+    img {
+      width: 54px;
+      height: 54px;
+      padding-right: 24px;
+      object-fit: contain;
+    }
+    svg {
+      width: 54px;
+      height: 54px;
+      padding-right: 24px;
+    }
+  }
+}
+
+.fly-to-top3 {
+  animation: flyToTop3 5s ease-in-out forwards;
+}
+
+@keyframes flyToTop3 {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-400vh) rotate(360deg); /* Move elements to the top and make a full rotation */
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-wrap {
+    width: 100vw;
+    .langauges {
+      flex-wrap: wrap;
+    }
+    h5 {
+      font-size: 32px;
+    }
+    h6 {
+      width: 100%;
+      font-size: 18px;
+    }
+  }
+}
