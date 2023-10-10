@@ -42,13 +42,13 @@ export function ThemeProvider(props) {
     const lastTheme = window.localStorage.getItem("darkTheme");
 
     if (lastTheme === "true") {
-      setDark(true);
-      applyTheme(darkTheme);
+      setDark(false);
+      applyTheme(lightTheme);
     }
 
     if (!lastTheme || lastTheme === "false") {
-      setDark(false);
-      applyTheme(lightTheme);
+      setDark(true);
+      applyTheme(darkTheme);
     }
     // if state changes, repaints the app
   }, [dark]);
