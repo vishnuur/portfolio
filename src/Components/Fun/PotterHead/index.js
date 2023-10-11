@@ -56,7 +56,7 @@ const Index = () => {
     if (transcript.toLocaleLowerCase().includes("nox")) {
       setIsPlayinglumos(true);
       setTimeout(() => {
-        toggle(false);
+        toggle(true);
         setTimeout(() => {
           setIsPlayinglumos(false);
         }, 1000);
