@@ -25,8 +25,8 @@ const Index = () => {
 
   const {
     transcript,
-    listening,
-    resetTranscript,
+    // listening,
+    // resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
 
@@ -97,22 +97,23 @@ const Index = () => {
   }
 
   return (
-    <div class="adminActions">
+    <div className="adminActions">
       <input
         type="checkbox"
         name="adminToggle"
-        class="adminToggle"
+        className="adminToggle"
         onMouseEnter={playMusic}
         onMouseLeave={stopMusic}
       />
-      <a class="adminButton">
+      <a className="adminButton" href="#harryPotter">
         <FaWandMagicSparkles />
       </a>
-      <div class="adminButtons">
+      <div className="adminButtons">
         <a
           title="Wingardium leviosa"
           className="adminButton"
           onClick={() => animate()}
+          href="#wingardium"
         >
           {!animatevalue ? <FaFeather /> : <TbFeatherOff />}
         </a>
@@ -120,6 +121,7 @@ const Index = () => {
           title="Patronus"
           className="adminButton"
           onClick={() => petronama(false)}
+          href="#petronas"
         >
           <GiDeer />
         </a>
@@ -127,12 +129,13 @@ const Index = () => {
           title="Spells (Lumos,Nox,Wingardium,Patronus)"
           className="adminButton"
           onClick={SpeechRecognition.startListening}
+          href="#listen"
         >
           <FaMicrophone />
         </a>
-        <a title="Edit User">
-          <i class="fa fa-user-edit"></i>
-        </a>
+        {/* <a title="Edit User">
+          <i className="fa fa-user-edit"></i>
+        </a> */}
       </div>
       {isPlaying && (
         <audio id="music" autoPlay loop>

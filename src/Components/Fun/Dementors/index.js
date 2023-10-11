@@ -43,7 +43,7 @@ const Index = () => {
         <img
           key={i}
           src={require(`../../../Assets/Images/dem${(i % 3) + 1}.png`)} // Assuming your image files are named image1.png, image2.png, and image3.png
-          alt={`Image ${i}`}
+          alt={`Dementor ${i}`}
           className={`animated-image image-${i % 3} ${randomAnimation}`}
           style={{
             top: `${randomPosition.y}px`,

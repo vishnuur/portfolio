@@ -18,7 +18,7 @@
     padding-bottom: 12px;
   }
   h6 {
-    font-size: 24px;
+    font-size: 19px;
     margin: 0;
     width: 620px;
     text-align: left;
@@ -37,7 +37,7 @@
 
 /* Hover over a card to flip, can tab too. */
 
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 /* default */
 *,
@@ -55,7 +55,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Lato', 'Segoe Ui', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* .flip-card-container */
@@ -151,20 +151,21 @@ figure,
   width: 100%;
   height: 100%;
 }
-h4 {
-  color: white;
-  top: 74px;
-  right: 12px;
-  padding: 4px 16px;
-  position: absolute;
-  font-weight: 500;
-  color: rgb(195, 194, 194);
-  background: hsla(var(--hue), 25%, 10%, 0.5);
-}
-
-/* img */
-img {
-  height: 100%;
+.card-front {
+  h4 {
+    color: white;
+    top: 74px;
+    right: 12px;
+    padding: 4px 16px;
+    position: absolute;
+    font-weight: 500;
+    color: rgb(195, 194, 194);
+    background: hsla(var(--hue), 25%, 10%, 0.5);
+  }
+  /* img */
+  img {
+    height: 100%;
+  }
 }
 
 /* figcaption */
@@ -199,7 +200,7 @@ figcaption {
 }
 
 .card-front .img-bg::before {
-  content: "";
+  content: '';
 
   position: absolute;
   top: 34%;
@@ -259,7 +260,7 @@ li:nth-child(2n) {
 }
 
 li:not(:last-child)::after {
-  content: "";
+  content: '';
 
   position: absolute;
   bottom: 0;
@@ -413,7 +414,7 @@ button:focus + .design-container {
   left: 20px;
   color: hsla(0, 0%, 100%, 0.6);
   font-size: 16px;
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 .letter {
   font-size: 2rem;
@@ -427,14 +428,14 @@ button:focus + .design-container {
   display: flex;
 }
 .fly-to-top1 {
-  animation: flyToTop 10s ease-in-out forwards;
+  animation: flyToTop 8s ease-in-out forwards;
 }
 @keyframes flyToTop {
   0% {
     transform: translateY(0) translateX(0) rotate(0deg);
   }
   100% {
-    transform: translateY(-1500vh) translateX(20vw) rotate(360deg); /* Move elements to the top and make a full rotation */
+    transform: translateY(-1000vh) translateX(20vw) rotate(360deg); /* Move elements to the top and make a full rotation */
   }
 }
 
@@ -444,10 +445,12 @@ button:focus + .design-container {
     height: 380px;
     margin: 20px 0;
   }
-  h4 {
-    font-size: 8px;
-    top: 54px;
-    right: 27px;
+  .card-front {
+    h4 {
+      font-size: 8px;
+      top: 54px;
+      right: 27px;
+    }
   }
   .exp-wrap {
     width: 100vw;
@@ -464,5 +467,13 @@ button:focus + .design-container {
   }
   .card_wrap {
     flex-direction: column;
+  }
+  @keyframes flyToTop {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-1000vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
+    }
   }
 }

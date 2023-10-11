@@ -6,6 +6,7 @@ import Details from "../../Components/Details";
 import Skills from "../../Components/Skills";
 import Projects from "../../Components/Projects";
 import Experience from "../../Components/Experience";
+import Social from "../../Components/Social";
 
 const Index = () => {
   const { dark } = React.useContext(ThemeContext);
@@ -29,10 +30,10 @@ const Index = () => {
 
   return (
     <div className="home-wrap" style={{ background: dark ? "" : gradient }}>
-      <div class="header">
-        <div class="progress-container">
+      <div className="header">
+        <div className="progress-container">
           <div
-            class="progress-bar"
+            className="progress-bar"
             style={{ background: dark ? "white" : "black" }}
             id="myBar"
           ></div>
@@ -43,6 +44,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Experience />
+      <Social />
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Index = () => {
           type="checkbox"
           className="toggle-button"
           onChange={() => {
-            toggle();
+            toggle(!dark);
           }}
           checked={dark}
         />

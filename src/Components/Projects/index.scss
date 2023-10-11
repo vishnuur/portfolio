@@ -75,7 +75,7 @@ body {
 }
 
 .container .box::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   top: 0;
   left: 50px;
@@ -89,7 +89,7 @@ body {
 }
 
 .container .box::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 50;
@@ -145,7 +145,7 @@ body {
 }
 
 .container .box span::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -169,7 +169,7 @@ body {
 }
 
 .container .box span::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   right: 0;
@@ -307,5 +307,13 @@ body {
   }
   .gradient-blur {
     height: unset !important;
+  }
+  @keyframes flyToTop2 {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-600vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
+    }
   }
 }

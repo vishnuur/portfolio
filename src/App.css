@@ -80,3 +80,10 @@
   height: 100%;
   z-index: 1000;
 }
+@media (max-width: 768px) {
+  .flashlight {
+    width: 736vw;
+    height: 205vh;
+    right: -320px;
+  }
+}

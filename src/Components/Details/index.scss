@@ -64,4 +64,12 @@
       font-size: 18px;
     }
   }
+  @keyframes flyToTop0 {
+    0% {
+      transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-200vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
+    }
+  }
 }

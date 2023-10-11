@@ -2,10 +2,11 @@ import "./App.css";
 import "./stars.css";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ThemeContext from "./context/ThemeContext";
 import ActionButton from "./Components/Fun/PotterHead";
 import Dementors from "./Components/Fun/Dementors";
+import "font-awesome/css/font-awesome.min.css"; // This is the path to the FontAwesome CSS file
 
 export const UserContext = React.createContext();
 function App() {

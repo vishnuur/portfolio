@@ -94,7 +94,7 @@ function Index() {
               <div className="details-modal">
                 <h3>{selectedData?.name}</h3>
               </div>
-              <div class="gradient-blur">
+              <div className="gradient-blur">
                 <div></div>
                 <div></div>
                 <div></div>
