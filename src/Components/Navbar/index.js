@@ -3,7 +3,7 @@ import "./index.scss";
 import ThemeContext from "../../context/ThemeContext";
 
 const Index = () => {
-  const { dark, toggle } = useContext(ThemeContext);
+  const { dark, toggle, harryTheme } = useContext(ThemeContext);
 
   return (
     <div className="navbar-wrap">
@@ -13,6 +13,10 @@ const Index = () => {
           type="checkbox"
           className="toggle-button"
           onChange={() => {
+            if (harryTheme) {
+              let audio = new Audio("/lumos.mp3");
+              audio.play();
+            }
             toggle(!dark);
           }}
           checked={dark}

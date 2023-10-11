@@ -17,10 +17,13 @@ const Index = () => {
     animateWrong,
     toggle,
     petronama,
+    petronaOn,
     engorigoToggle,
     engorgio,
+    harryTheme,
+    harryThemetoggle,
   } = React.useContext(ThemeContext);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayinglumos, setIsPlayinglumos] = useState(false);
 
   const {
@@ -33,7 +36,7 @@ const Index = () => {
   useEffect(() => {
     if (transcript === "Wingardium Leviosa") {
       animatesound();
-      setIsPlaying(true);
+      // setIsPlaying(true);
     } else if (
       (transcript?.toLocaleLowerCase().includes("leviosa") ||
         transcript?.toLocaleLowerCase().includes("wingardium")) &&
@@ -76,21 +79,16 @@ const Index = () => {
     }
   }, [transcript]);
 
-  const decreaseVolume = () => {
-    const audioElement = document.getElementById("music");
-    if (audioElement) {
-      audioElement.volume = 0.2; // Adjust the volume as needed (0.5 = 50% volume)
+  useEffect(() => {
+    const el = document.getElementById("harryThemesong");
+    if (el) {
+      if (petronaOn || animatevalue) {
+        el.volume = 0.3;
+      } else {
+        el.volume = 0.8;
+      }
     }
-  };
-
-  const playMusic = () => {
-    setIsPlaying(true);
-    decreaseVolume();
-  };
-
-  const stopMusic = () => {
-    setIsPlaying(false);
-  };
+  }, [petronaOn, animatevalue]);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
@@ -102,8 +100,9 @@ const Index = () => {
         type="checkbox"
         name="adminToggle"
         className="adminToggle"
-        onMouseEnter={playMusic}
-        onMouseLeave={stopMusic}
+        // onMouseEnter={playMusic}
+        // onMouseLeave={stopMusic}
+        onClick={() => harryThemetoggle(!harryTheme)}
       />
       <a className="adminButton" href="#harryPotter">
         <FaWandMagicSparkles />
@@ -120,7 +119,7 @@ const Index = () => {
         <a
           title="Patronus"
           className="adminButton"
-          onClick={() => petronama(false)}
+          onClick={() => !petronaOn && petronama(false)}
           href="#petronas"
         >
           <GiDeer />
@@ -137,8 +136,8 @@ const Index = () => {
           <i className="fa fa-user-edit"></i>
         </a> */}
       </div>
-      {isPlaying && (
-        <audio id="music" autoPlay loop>
+      {harryTheme && (
+        <audio id="harryThemesong" autoPlay loop>
           <source src="/harrypotter.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>

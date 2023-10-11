@@ -20,30 +20,11 @@
   position: absolute;
   width: 100px; /* Set your desired image width */
   height: 100px; /* Set your desired image height */
-  animation-duration: 18s;
+  animation-duration: 20s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity: 0;
-}
-
-.position-0 {
-  top: -100px;
-  left: calc(50% - 50px);
-}
-
-.position-1 {
-  top: calc(50% - 50px);
-  left: 100vw;
-}
-
-.position-2 {
-  top: 100vh;
-  left: calc(50% - 50px);
-}
-
-.position-3 {
-  top: calc(50% - 50px);
-  left: -100px;
+  animation: fade-in 20s ease-in forwards, fade-out 4s 1s ease-out forwards;
 }
 
 .image-0 {
@@ -56,6 +37,10 @@
 
 .image-2 {
   animation-name: move-from-bottom;
+}
+
+.image-all {
+  animation-name: move-from-away;
 }
 
 @keyframes move-from-top {
@@ -76,7 +61,7 @@
   }
   100% {
     transform: translateX(0);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
@@ -87,58 +72,21 @@
   }
   100% {
     transform: translateY(0);
-    opacity: 1;
+    opacity: 0.9;
   }
 }
 
-@keyframes move-up {
+@keyframes move-from-away {
   0% {
-    transform: translateY(0);
+    transform: translateY(0 translateX(0));
+    opacity: 0.4;
   }
-  90% {
-    transform: translateY(-100vh);
+  50% {
+    transform: translateY(-1000px translateX(1000px));
+    opacity: 0.2;
   }
-  100% {
+  80% {
+    transform: translateY(-2000px) translateX(2000px);
     opacity: 0;
-    transform: translateY(-100vh);
-  }
-}
-
-@keyframes move-down {
-  0% {
-    transform: translateY(0);
-  }
-  90% {
-    transform: translateY(100vh);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(100vh);
-  }
-}
-
-@keyframes move-left {
-  0% {
-    transform: translateX(0);
-  }
-  90% {
-    transform: translateX(-100vw);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-100vw);
-  }
-}
-
-@keyframes move-right {
-  0% {
-    transform: translateX(0);
-  }
-  90% {
-    transform: translateX(100vw);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(100vw);
   }
 }

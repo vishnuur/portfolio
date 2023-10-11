@@ -6,7 +6,7 @@
 }
 .wrapper {
   display: flex;
-  height: 70vh;
+  height: 28vh;
   flex-direction: row;
   padding: 0 20px;
   align-items: center;
@@ -147,5 +147,8 @@
   }
   .bg-ico svg {
     font-size: 2em;
+  }
+  .wrapper {
+    height: 7vh;
   }
 }

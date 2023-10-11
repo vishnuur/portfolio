@@ -8,7 +8,7 @@
 }
 
 .socialwrap {
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -206,7 +206,7 @@ section {
 }
 
 .fly-to-top6 {
-  animation: flyToTop6 8s ease-in-out forwards;
+  animation: flyToTop6 10s ease-in-out forwards;
 }
 
 @keyframes flyToTop6 {
@@ -219,11 +219,17 @@ section {
 }
 
 @media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 16px;
+  }
   .section-header h2 {
-    font-size: 24px;
+    font-size: 18px;
   }
   .section-header p {
     font-size: 16px;
+  }
+  .contact-info {
+    margin-bottom: 16px;
   }
   .contact-info-icon {
     height: 46px;
@@ -252,7 +258,7 @@ section {
       transform: translateY(0) translateX(0) (0deg);
     }
     100% {
-      transform: translateY(-400vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
+      transform: translateY(-1000vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
     }
   }
 }

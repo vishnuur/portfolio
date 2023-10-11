@@ -63,7 +63,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="contact-form">
+            <div className={FloatingClass("contact-form", "fly-to-top6")}>
               <form action="" id="contact-form">
                 <h2 className={FloatingClass("", "fly-to-top6")}>
                   Send Message

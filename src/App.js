@@ -2,7 +2,7 @@ import "./App.css";
 import "./stars.css";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar";
-import React from "react";
+import React, { useEffect } from "react";
 import ThemeContext from "./context/ThemeContext";
 import ActionButton from "./Components/Fun/PotterHead";
 import Dementors from "./Components/Fun/Dementors";
@@ -10,13 +10,23 @@ import "font-awesome/css/font-awesome.min.css"; // This is the path to the FontA
 
 export const UserContext = React.createContext();
 function App() {
-  const { dark, petronaOn, engorgio, petronamaLight } =
+  const { dark, petronaOn, engorgio, petronamaLight, harryTheme } =
     React.useContext(ThemeContext);
+
+  useEffect(() => {
+    const el = document.getElementById("myVideo");
+    if (harryTheme && el) {
+      el.play();
+      el.loop = true;
+    }
+  }, [harryTheme]);
 
   return (
     <div className="App" style={{ fontSize: `${engorgio}px` }}>
       <Navbar />
+
       <Dementors />
+
       {/*{petronaOn && (*/}
       <div className={`flashlight ${petronamaLight ? "on" : ""}`}>
         <div className="flashlight-beam"></div>
@@ -48,7 +58,15 @@ function App() {
           </div>
         </>
       )}
-      <Home />
+      <div style={{ position: "relative", width: "100vw" }}>
+        {harryTheme && (
+          <video autoplay id="myVideo" className="harrytheme">
+            <source src="/hogwarts.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
+        )}
+        <Home />
+      </div>
       <ActionButton />
     </div>
   );

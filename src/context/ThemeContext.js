@@ -12,6 +12,8 @@ const ThemeContext = React.createContext({
   petronaOn: false,
   engorigoToggle: () => {},
   engorgio: 16,
+  harryThemetoggle: () => {},
+  harryTheme: false,
 });
 
 export default ThemeContext;
@@ -23,12 +25,14 @@ export function ThemeProvider(props) {
   const [petronaOn, setpetronaOn] = useState(false);
   const [engorgio, setengorgio] = useState(16);
   const [petronamaLight, setpetronamaLight] = useState(false);
+  const [harryTheme, setharryTheme] = useState(false);
 
   let audio = new Audio("/leviosa.mp3");
   let audioWrong = new Audio("/leviosawrong.mp3");
   let dementors = new Audio("/dementors.mp3");
   let expecto = new Audio("/expecto.mp3");
   let expectoFull = new Audio("/expectoFull.mp3");
+  // let harrypottertheme = new Audio("/harrypotter.mp3");
 
   const start = () => {
     audio.play();
@@ -79,6 +83,10 @@ export function ThemeProvider(props) {
     startWrong();
   };
 
+  const harryThemetoggle = (value) => {
+    setharryTheme(value);
+  };
+
   return (
     <ThemeContext.Provider
       value={{
@@ -93,6 +101,8 @@ export function ThemeProvider(props) {
         petronaOn,
         engorigoToggle,
         engorgio,
+        harryTheme,
+        harryThemetoggle,
       }}
     >
       {props.children}
