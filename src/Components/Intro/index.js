@@ -53,18 +53,36 @@ const Index = () => {
               className={FloatingClass("", "fly-to-top")}
             />
           </Link>
-          <FaFacebookF
-            fill={colorCode}
-            className={FloatingClass("", "fly-to-top")}
-          />
-          <FaInstagram
-            fill={colorCode}
-            className={FloatingClass("", "fly-to-top")}
-          />
-          <FaXTwitter
-            fill={colorCode}
-            className={FloatingClass("", "fly-to-top")}
-          />
+          <Link
+            to="https://www.facebook.com/vishnu.cool.526/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebookF
+              fill={colorCode}
+              className={FloatingClass("", "fly-to-top")}
+            />
+          </Link>
+          <Link
+            to="https://www.instagram.com/vishnu_u_r/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram
+              fill={colorCode}
+              className={FloatingClass("", "fly-to-top")}
+            />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/in/vishnu-ur-213165186/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaXTwitter
+              fill={colorCode}
+              className={FloatingClass("", "fly-to-top")}
+            />
+          </Link>
         </div>
       </div>
       <div className="coverimage">
