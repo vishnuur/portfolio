@@ -8,13 +8,31 @@ import ActionButton from "./Components/Fun/PotterHead";
 import Dementors from "./Components/Fun/Dementors";
 import Loading from "./Components/Loader";
 import hogwarts from "./Assets/Images/hogwartsDay.jpg";
+import ReactRain from "react-rain-animation";
+
+import "react-rain-animation/lib/style.css";
 
 export const UserContext = React.createContext();
 function App() {
-  const { dark, petronaOn, engorgio, petronamaLight, harryTheme } =
+  const { dark, petronaOn, engorgio, petronamaLight, harryTheme, snapeTheme } =
     React.useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [removeFlash, setremoveFlash] = useState(true);
+  const [rainCount, setrainCount] = useState(0);
+
+  useEffect(() => {
+    const incrementCount = () => {
+      if (snapeTheme) {
+        setrainCount((prevCount) => prevCount + 10);
+      } else {
+        setrainCount(0);
+      }
+    };
+    const intervalId = setInterval(incrementCount, 5000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [snapeTheme]);
 
   useEffect(() => {
     const el = document.getElementById("myVideo");
@@ -40,11 +58,12 @@ function App() {
     }, 2000);
   }, []);
 
+  console.log(rainCount.toString(), "raincount");
   if (loading) return <Loading />;
   return (
     <div className="App" style={{ fontSize: `${engorgio}px` }}>
+      {snapeTheme && <ReactRain numDrops={rainCount.toString()} />}
       <Navbar />
-
       <Dementors />
 
       {!removeFlash && (

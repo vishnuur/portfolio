@@ -95,3 +95,12 @@
     right: -320px;
   }
 }
+
+#Rain {
+  z-index: 1002;
+  width: 100vw;
+}
+.drop {
+  z-index: 1002;
+  background: rgba(135, 136, 136, 0.373) !important;
+}

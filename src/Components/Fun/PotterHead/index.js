@@ -99,7 +99,7 @@ const Index = () => {
         el.volume = 0.8;
       }
     }
-  }, [petronaOn, animatevalue]);
+  }, [petronaOn, animatevalue, listening, isPlayinglumos]);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
