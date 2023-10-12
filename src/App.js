@@ -7,6 +7,8 @@ import ThemeContext from "./context/ThemeContext";
 import ActionButton from "./Components/Fun/PotterHead";
 import Dementors from "./Components/Fun/Dementors";
 import Loading from "./Components/Loader";
+import hogwarts from "./Assets/Images/hogwartsDay.jpg";
+
 export const UserContext = React.createContext();
 function App() {
   const { dark, petronaOn, engorgio, petronamaLight, harryTheme } =
@@ -66,7 +68,7 @@ function App() {
           </div>
         </>
       )}
-      {dark && (
+      {dark ? (
         <>
           <div className="bg-animation">
             <div id="stars"></div>
@@ -75,9 +77,24 @@ function App() {
             <div id="stars4"></div>
           </div>
         </>
+      ) : (
+        <div
+          className="bg-animation"
+          style={{
+            background: !harryTheme ? "white" : "unset",
+            backgroundImage: harryTheme ? `url(${hogwarts})` : "unset",
+            backgroundSize: "cover",
+          }}
+        >
+          {" "}
+          <div id="stars"></div>
+          <div id="stars2"></div>
+          <div id="stars3"></div>
+          <div id="stars4"></div>
+        </div>
       )}
       <div style={{ position: "relative", width: "100vw" }}>
-        {harryTheme && (
+        {harryTheme && dark && (
           <video autoplay id="myVideo" className="harrytheme">
             <source src="/hogwarts.mp4" type="video/mp4" />
             Your browser does not support HTML5 video.

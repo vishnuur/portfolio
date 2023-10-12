@@ -82,7 +82,7 @@ const Index = () => {
   useEffect(() => {
     const el = document.getElementById("harryThemesong");
     if (el) {
-      if (petronaOn || animatevalue) {
+      if (petronaOn || animatevalue || isPlayinglumos) {
         el.volume = 0.3;
       } else {
         el.volume = 0.8;
