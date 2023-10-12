@@ -2,16 +2,16 @@ import "./App.css";
 import "./stars.css";
 import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar";
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import ThemeContext from "./context/ThemeContext";
 import ActionButton from "./Components/Fun/PotterHead";
 import Dementors from "./Components/Fun/Dementors";
-import "font-awesome/css/font-awesome.min.css"; // This is the path to the FontAwesome CSS file
-
+import Loading from "./Components/Loader";
 export const UserContext = React.createContext();
 function App() {
   const { dark, petronaOn, engorgio, petronamaLight, harryTheme } =
     React.useContext(ThemeContext);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const el = document.getElementById("myVideo");
@@ -21,6 +21,13 @@ function App() {
     }
   }, [harryTheme]);
 
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  if (loading) return <Loading />;
   return (
     <div className="App" style={{ fontSize: `${engorgio}px` }}>
       <Navbar />

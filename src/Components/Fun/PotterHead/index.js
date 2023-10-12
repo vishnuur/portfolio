@@ -100,11 +100,13 @@ const Index = () => {
         type="checkbox"
         name="adminToggle"
         className="adminToggle"
-        // onMouseEnter={playMusic}
-        // onMouseLeave={stopMusic}
         onClick={() => harryThemetoggle(!harryTheme)}
       />
-      <a className="adminButton" href="#harryPotter">
+      <a
+        title="Get in to the magical world"
+        className="adminButton"
+        href="#harryPotter"
+      >
         <FaWandMagicSparkles />
       </a>
       <div className="adminButtons">
