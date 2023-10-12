@@ -29,6 +29,8 @@ const Index = () => {
     harryThemetoggle,
     snapeThemetoggle,
     snapeTheme,
+    postcardsactive,
+    postcardstoggle,
   } = React.useContext(ThemeContext);
   // const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayinglumos, setIsPlayinglumos] = useState(false);
@@ -87,6 +89,14 @@ const Index = () => {
 
     if (transcript?.toLocaleLowerCase().includes("all this time")) {
       snapeThemetoggle(true);
+    }
+
+    if (
+      transcript?.toLocaleLowerCase().includes("you are a wizard") ||
+      transcript?.toLocaleLowerCase().includes("you're a wizard") ||
+      transcript?.toLocaleLowerCase().includes("are a wizard")
+    ) {
+      postcardstoggle(true);
     }
   }, [transcript]);
 
@@ -147,11 +157,11 @@ const Index = () => {
         >
           {listening ? <FaStop /> : <FaMicrophone />}
         </a>
-        {/* <a title="Edit User">
+        {/* <a title="Edit User" onClick={() => postcardstoggle(true)}>
           <i className="fa fa-user-edit"></i>
         </a> */}
       </div>
-      {harryTheme && !snapeTheme && (
+      {harryTheme && !snapeTheme && !postcardsactive && (
         <audio id="harryThemesong" autoPlay loop>
           <source src="/harrypotter.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.

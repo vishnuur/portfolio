@@ -8,14 +8,22 @@ import ActionButton from "./Components/Fun/PotterHead";
 import Dementors from "./Components/Fun/Dementors";
 import Loading from "./Components/Loader";
 import hogwarts from "./Assets/Images/hogwartsDay.jpg";
+import Letters from "./Components/Fun/Letters";
 import ReactRain from "react-rain-animation";
 
 import "react-rain-animation/lib/style.css";
 
 export const UserContext = React.createContext();
 function App() {
-  const { dark, petronaOn, engorgio, petronamaLight, harryTheme, snapeTheme } =
-    React.useContext(ThemeContext);
+  const {
+    dark,
+    petronaOn,
+    engorgio,
+    petronamaLight,
+    harryTheme,
+    snapeTheme,
+    postcardsactive,
+  } = React.useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [removeFlash, setremoveFlash] = useState(true);
   const [rainCount, setrainCount] = useState(0);
@@ -58,10 +66,10 @@ function App() {
     }, 2000);
   }, []);
 
-  console.log(rainCount.toString(), "raincount");
   if (loading) return <Loading />;
   return (
     <div className="App" style={{ fontSize: `${engorgio}px` }}>
+      {postcardsactive && harryTheme && <Letters />}
       {snapeTheme && <ReactRain numDrops={rainCount.toString()} />}
       <Navbar />
       <Dementors />

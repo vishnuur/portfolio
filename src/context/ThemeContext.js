@@ -16,6 +16,8 @@ const ThemeContext = React.createContext({
   harryTheme: false,
   snapeThemetoggle: () => {},
   snapeTheme: false,
+  postcardstoggle: () => {},
+  postcardsactive: false,
 });
 
 export default ThemeContext;
@@ -28,6 +30,7 @@ export function ThemeProvider(props) {
   const [petronamaLight, setpetronamaLight] = useState(false);
   const [harryTheme, setharryTheme] = useState(false);
   const [snapeTheme, setsnapeTheme] = useState(false);
+  const [postcardsactive, setpostcardsactive] = useState(false);
 
   let audio = new Audio("/leviosa.mp3");
   let audioWrong = new Audio("/leviosawrong.mp3");
@@ -36,6 +39,8 @@ export function ThemeProvider(props) {
   let expectoFull = new Audio("/expectoFull.mp3");
   let snapeSong = new Audio("/snape.mp3");
   let snapeSound = new Audio("/snapesound.mp3");
+  let iamwhat = new Audio("/iamwhat.mp3");
+  let harryPost = new Audio("/harryPost.mp3");
   // let harrypottertheme = new Audio("/harrypotter.mp3");
 
   const start = () => {
@@ -104,6 +109,18 @@ export function ThemeProvider(props) {
     });
   };
 
+  const postcardstoggle = (value) => {
+    iamwhat.play();
+    setTimeout(() => {
+      setpostcardsactive(value);
+      harryPost.play();
+      harryPost.volume = 0.3;
+    }, 3000);
+    iamwhat.addEventListener("ended", function () {
+      setpostcardsactive(false);
+    });
+  };
+
   return (
     <ThemeContext.Provider
       value={{
@@ -122,6 +139,8 @@ export function ThemeProvider(props) {
         harryThemetoggle,
         snapeThemetoggle,
         snapeTheme,
+        postcardstoggle,
+        postcardsactive,
       }}
     >
       {props.children}
