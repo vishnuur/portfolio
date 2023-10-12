@@ -125,6 +125,7 @@ function App() {
         {harryTheme && dark && (
           <video autoplay id="myVideo" className="harrytheme">
             <source src="/hogwarts.mp4" type="video/mp4" />
+            <source src="/hogwarts1.mp4" type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
         )}

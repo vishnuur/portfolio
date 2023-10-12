@@ -104,15 +104,21 @@ export function ThemeProvider(props) {
 
   const snapeThemetoggle = (value) => {
     setsnapeTheme(value);
-    snapeSong.play();
-    snapeSong.volume = 0.5;
-    setTimeout(() => {
-      snapeSound.play();
-      snapeSound.volume = 0.9;
-    }, 70000);
-    snapeSong.addEventListener("ended", function () {
+    if (value) {
+      snapeSong.play();
+      snapeSong.volume = 0.5;
+      setTimeout(() => {
+        snapeSound.play();
+        snapeSound.volume = 0.9;
+      }, 70000);
+      snapeSong.addEventListener("ended", function () {
+        setsnapeTheme(false);
+      });
+    } else {
+      snapeSong.pause();
       setsnapeTheme(false);
-    });
+      snapeSound.pause();
+    }
   };
 
   const postcardstoggle = (value) => {
