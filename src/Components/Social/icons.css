@@ -142,13 +142,13 @@
 }
 @media (max-width: 768px) {
   .bg-ico {
-    width: 46px;
-    height: 46px;
+    width: 34px;
+    height: 34px;
   }
   .bg-ico svg {
-    font-size: 2em;
+    font-size: 1.2em;
   }
   .wrapper {
-    height: 7vh;
+    height: 15vh;
   }
 }

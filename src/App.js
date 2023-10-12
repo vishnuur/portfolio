@@ -12,6 +12,7 @@ function App() {
   const { dark, petronaOn, engorgio, petronamaLight, harryTheme } =
     React.useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
+  const [removeFlash, setremoveFlash] = useState(true);
 
   useEffect(() => {
     const el = document.getElementById("myVideo");
@@ -20,6 +21,16 @@ function App() {
       el.loop = true;
     }
   }, [harryTheme]);
+
+  useEffect(() => {
+    if (petronaOn) {
+      setremoveFlash(false);
+    } else {
+      setTimeout(() => {
+        setremoveFlash(true);
+      }, 3000);
+    }
+  }, [petronaOn]);
 
   useLayoutEffect(() => {
     setTimeout(() => {
@@ -34,11 +45,11 @@ function App() {
 
       <Dementors />
 
-      {/*{petronaOn && (*/}
-      <div className={`flashlight ${petronamaLight ? "on" : ""}`}>
-        <div className="flashlight-beam"></div>
-      </div>
-      {/*)}*/}
+      {!removeFlash && (
+        <div className={`flashlight ${petronamaLight ? "on" : ""}`}>
+          <div className="flashlight-beam"></div>
+        </div>
+      )}
       {petronaOn && (
         <>
           <div className={`flashlight ${petronamaLight ? "on" : ""}`}>

@@ -186,6 +186,7 @@ section {
   section {
     padding-top: 50px;
     padding-bottom: 50px;
+    height: 100vh;
   }
 
   .row {
@@ -219,6 +220,9 @@ section {
 }
 
 @media (max-width: 768px) {
+  .socialwrap {
+    margin-top: 24px;
+  }
   .section-header {
     margin-bottom: 16px;
   }
@@ -232,11 +236,11 @@ section {
     margin-bottom: 16px;
   }
   .contact-info-icon {
-    height: 46px;
-    width: 46px;
+    height: 34px;
+    width: 34px;
   }
   .contact-info-icon svg {
-    font-size: 24px;
+    font-size: 1.2em;
   }
   .contact-info-content h4 {
     font-size: 1em;
@@ -245,13 +249,17 @@ section {
     font-size: 0.8em;
   }
   .contact-form h2 {
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
   .contact-form .input-box .submit-btn {
     font-size: 1em;
   }
   .wrapper {
     height: 20vh;
+  }
+  .contact-form .input-box input,
+  .contact-form .input-box textarea {
+    font-size: 12px;
   }
   @keyframes flyToTop6 {
     0% {

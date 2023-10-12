@@ -19,8 +19,7 @@ const ThemeContext = React.createContext({
 export default ThemeContext;
 
 export function ThemeProvider(props) {
-  // keeps state of the current chosen theme
-  const [dark, setDark] = useState(window.localStorage.getItem("darkTheme"));
+  const [dark, setDark] = useState(true);
   const [animatevalue, setAnimate] = useState(false);
   const [petronaOn, setpetronaOn] = useState(false);
   const [engorgio, setengorgio] = useState(16);
