@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import ThemeContext from "../../../context/ThemeContext";
-import { FaWandMagicSparkles, FaFeather, FaMicrophone } from "react-icons/fa6";
+import {
+  FaWandMagicSparkles,
+  FaFeather,
+  FaMicrophone,
+  FaStop,
+} from "react-icons/fa6";
 import { GiDeer } from "react-icons/gi";
 import { TbFeatherOff } from "react-icons/tb";
 
@@ -30,7 +35,7 @@ const Index = () => {
 
   const {
     transcript,
-    // listening,
+    listening,
     // resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
@@ -88,8 +93,8 @@ const Index = () => {
   useEffect(() => {
     const el = document.getElementById("harryThemesong");
     if (el) {
-      if (petronaOn || animatevalue || isPlayinglumos) {
-        el.volume = 0.3;
+      if (petronaOn || animatevalue || isPlayinglumos || listening) {
+        el.volume = 0.2;
       } else {
         el.volume = 0.8;
       }
@@ -138,7 +143,7 @@ const Index = () => {
           onClick={SpeechRecognition.startListening}
           href="#listen"
         >
-          <FaMicrophone />
+          {listening ? <FaStop /> : <FaMicrophone />}
         </a>
         {/* <a title="Edit User">
           <i className="fa fa-user-edit"></i>
