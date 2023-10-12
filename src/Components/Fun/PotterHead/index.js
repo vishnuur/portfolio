@@ -96,7 +96,9 @@ const Index = () => {
       if (petronaOn || animatevalue || isPlayinglumos || listening) {
         el.volume = 0.2;
       } else {
-        el.volume = 0.8;
+        setTimeout(() => {
+          el.volume = 0.8;
+        }, 2000);
       }
     }
   }, [petronaOn, animatevalue, listening, isPlayinglumos]);

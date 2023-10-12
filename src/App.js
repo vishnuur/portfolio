@@ -103,6 +103,7 @@ function App() {
             background: !harryTheme ? "white" : "unset",
             backgroundImage: harryTheme ? `url(${hogwarts})` : "unset",
             backgroundSize: "cover",
+            backgroundPosition: "bottom",
           }}
         >
           {" "}

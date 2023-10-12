@@ -99,6 +99,7 @@
 #Rain {
   z-index: 1002;
   width: 100vw;
+  position: fixed;
 }
 .drop {
   z-index: 1002;
