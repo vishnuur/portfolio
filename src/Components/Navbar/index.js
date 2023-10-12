@@ -10,10 +10,10 @@ const Index = () => {
     <div className="navbar-wrap">
       {/* <input type="checkbox" /> */}
       <div>
-        <input type="checkbox" class="checkbox" id="checkbox" />
+        <input type="checkbox" className="checkbox" id="checkbox" />
         <label
           for="checkbox"
-          class="checkbox-label"
+          className="checkbox-label"
           onClick={() => {
             if (harryTheme) {
               let audio = new Audio("/lumos.mp3");
@@ -24,7 +24,7 @@ const Index = () => {
         >
           <FaMoon className="fa-moon" />
           <FaSun className="fa-sun" />
-          <span class="ball"></span>
+          <span className="ball"></span>
         </label>
       </div>
       <div className="container">

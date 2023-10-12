@@ -22,6 +22,7 @@ const Index = () => {
     engorgio,
     harryTheme,
     harryThemetoggle,
+    snapeThemetoggle,
   } = React.useContext(ThemeContext);
   // const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayinglumos, setIsPlayinglumos] = useState(false);
@@ -76,6 +77,10 @@ const Index = () => {
       engorigoToggle(engorgio + 10);
     } else if (transcript?.toLocaleLowerCase().includes("reduc")) {
       engorigoToggle(engorgio - 10);
+    }
+
+    if (transcript?.toLocaleLowerCase().includes("all this time")) {
+      snapeThemetoggle(true);
     }
   }, [transcript]);
 

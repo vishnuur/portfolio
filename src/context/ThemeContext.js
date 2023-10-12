@@ -14,6 +14,8 @@ const ThemeContext = React.createContext({
   engorgio: 16,
   harryThemetoggle: () => {},
   harryTheme: false,
+  snapeThemetoggle: () => {},
+  snapeTheme: false,
 });
 
 export default ThemeContext;
@@ -25,12 +27,15 @@ export function ThemeProvider(props) {
   const [engorgio, setengorgio] = useState(16);
   const [petronamaLight, setpetronamaLight] = useState(false);
   const [harryTheme, setharryTheme] = useState(false);
+  const [snapeTheme, setsnapeTheme] = useState(false);
 
   let audio = new Audio("/leviosa.mp3");
   let audioWrong = new Audio("/leviosawrong.mp3");
   let dementors = new Audio("/dementors.mp3");
   let expecto = new Audio("/expecto.mp3");
   let expectoFull = new Audio("/expectoFull.mp3");
+  let snapeSong = new Audio("/snape.mp3");
+  let snapeSound = new Audio("/snapesound.mp3");
   // let harrypottertheme = new Audio("/harrypotter.mp3");
 
   const start = () => {
@@ -86,6 +91,19 @@ export function ThemeProvider(props) {
     setharryTheme(value);
   };
 
+  const snapeThemetoggle = (value) => {
+    snapeSong.play();
+    snapeSong.volume = 0.5;
+    setTimeout(() => {
+      snapeSound.play();
+      setsnapeTheme(value);
+      snapeSound.volume = 0.7;
+    }, 70000);
+    snapeSong.addEventListener("ended", function () {
+      setsnapeTheme(false);
+    });
+  };
+
   return (
     <ThemeContext.Provider
       value={{
@@ -102,6 +120,8 @@ export function ThemeProvider(props) {
         engorgio,
         harryTheme,
         harryThemetoggle,
+        snapeThemetoggle,
+        snapeTheme,
       }}
     >
       {props.children}
