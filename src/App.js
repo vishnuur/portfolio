@@ -108,7 +108,7 @@ function App() {
         <div
           className="bg-animation"
           style={{
-            background: !harryTheme ? "white" : "unset",
+            background: !harryTheme && !dark ? "white" : "unset",
             backgroundImage: harryTheme ? `url(${hogwarts})` : "unset",
             backgroundSize: "cover",
             backgroundPosition: "bottom",

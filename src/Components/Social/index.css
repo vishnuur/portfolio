@@ -186,7 +186,6 @@ section {
   section {
     padding-top: 50px;
     padding-bottom: 50px;
-    height: 100vh;
   }
 
   .row {
@@ -222,6 +221,7 @@ section {
 @media (max-width: 768px) {
   .socialwrap {
     margin-top: 24px;
+    height: unset;
   }
   .section-header {
     margin-bottom: 16px;
