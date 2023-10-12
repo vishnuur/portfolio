@@ -38,7 +38,7 @@ const Index = () => {
   const {
     transcript,
     listening,
-    // resetTranscript,
+    resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
 
@@ -123,7 +123,13 @@ const Index = () => {
         type="checkbox"
         name="adminToggle"
         className="adminToggle"
-        onClick={() => harryThemetoggle(!harryTheme)}
+        onClick={() => {
+          harryThemetoggle(!harryTheme);
+          petronama(false);
+          snapeThemetoggle(false);
+          postcardstoggle(false);
+          resetTranscript();
+        }}
       />
       <a
         title="Get in to the magical world"

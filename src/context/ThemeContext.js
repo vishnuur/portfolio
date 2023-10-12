@@ -68,20 +68,26 @@ export function ThemeProvider(props) {
   };
 
   const petronama = (value) => {
-    setpetronaOn(!petronaOn);
-    dementors.play();
-    setTimeout(() => {
-      value ? expecto.play() : expectoFull.play();
+    setpetronaOn(value);
+    if (value) {
+      dementors.play();
       setTimeout(() => {
-        setpetronamaLight(true);
-      }, 1000);
-    }, 7000);
-    setTimeout(() => {
-      setpetronaOn(false);
-      dementors.pause();
+        value ? expecto.play() : expectoFull.play();
+        setTimeout(() => {
+          setpetronamaLight(true);
+        }, 1000);
+      }, 7000);
+      setTimeout(() => {
+        setpetronaOn(false);
+        dementors.pause();
+        setpetronamaLight(false);
+        value ? expecto.pause() : expectoFull.pause();
+      }, 22000);
+    } else {
       setpetronamaLight(false);
-      value ? expecto.pause() : expectoFull.pause();
-    }, 22000);
+      dementors.pause();
+      expectoFull.pause();
+    }
   };
 
   const engorigoToggle = (value) => {
@@ -110,15 +116,21 @@ export function ThemeProvider(props) {
   };
 
   const postcardstoggle = (value) => {
-    iamwhat.play();
-    setTimeout(() => {
-      setpostcardsactive(value);
-      harryPost.play();
-      harryPost.volume = 0.3;
-    }, 3000);
-    iamwhat.addEventListener("ended", function () {
+    if (value) {
+      iamwhat.play();
+      setTimeout(() => {
+        setpostcardsactive(value);
+        harryPost.play();
+        harryPost.volume = 0.3;
+      }, 3000);
+      iamwhat.addEventListener("ended", function () {
+        setpostcardsactive(false);
+      });
+    } else {
       setpostcardsactive(false);
-    });
+      harryPost.pause();
+      iamwhat.pause();
+    }
   };
 
   return (
