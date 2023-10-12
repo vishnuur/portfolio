@@ -23,6 +23,7 @@ const Index = () => {
     harryTheme,
     harryThemetoggle,
     snapeThemetoggle,
+    snapeTheme,
   } = React.useContext(ThemeContext);
   // const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayinglumos, setIsPlayinglumos] = useState(false);
@@ -143,7 +144,7 @@ const Index = () => {
           <i className="fa fa-user-edit"></i>
         </a> */}
       </div>
-      {harryTheme && (
+      {harryTheme && !snapeTheme && (
         <audio id="harryThemesong" autoPlay loop>
           <source src="/harrypotter.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
