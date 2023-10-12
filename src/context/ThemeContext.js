@@ -92,12 +92,12 @@ export function ThemeProvider(props) {
   };
 
   const snapeThemetoggle = (value) => {
+    setsnapeTheme(value);
     snapeSong.play();
     snapeSong.volume = 0.5;
     setTimeout(() => {
       snapeSound.play();
-      setsnapeTheme(value);
-      snapeSound.volume = 0.7;
+      snapeSound.volume = 0.9;
     }, 70000);
     snapeSong.addEventListener("ended", function () {
       setsnapeTheme(false);
