@@ -38,7 +38,7 @@ const Index = () => {
               1000,
             ]}
             speed={10}
-            style={{ fontSize: "2em", fontFamily: "cursive", color: "grey" }}
+            style={{ fontSize: "1.6em", fontFamily: "cursive", color: "grey" }}
             repeat={Infinity}
           />
         </span>
