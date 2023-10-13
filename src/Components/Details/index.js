@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.scss";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 import ThemeContext from "../../context/ThemeContext";
 import FloatingClass from "../../context/utils";
 
