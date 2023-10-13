@@ -150,7 +150,11 @@ const Index = () => {
         <a
           title="Patronus"
           className="adminButton"
-          onClick={() => !petronaOn && petronama(false)}
+          onClick={() =>
+            !petronaOn
+              ? petronama({ value: true, full: true })
+              : petronama(false)
+          }
           href="#petronas"
         >
           <GiDeer />

@@ -67,12 +67,12 @@ export function ThemeProvider(props) {
     }, 1000);
   };
 
-  const petronama = (value) => {
+  const petronama = ({ value, full }) => {
     setpetronaOn(value);
     if (value) {
       dementors.play();
       setTimeout(() => {
-        value ? expecto.play() : expectoFull.play();
+        !full ? expecto.play() : expectoFull.play();
         setTimeout(() => {
           setpetronamaLight(true);
         }, 1000);
