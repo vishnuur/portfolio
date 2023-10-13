@@ -103,8 +103,8 @@ export function ThemeProvider(props) {
   };
 
   const snapeThemetoggle = (value) => {
-    setsnapeTheme(value);
     if (value) {
+      setsnapeTheme(true);
       snapeSong.play();
       snapeSong.volume = 0.5;
       setTimeout(() => {

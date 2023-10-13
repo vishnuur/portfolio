@@ -34,6 +34,7 @@ const Index = () => {
   } = React.useContext(ThemeContext);
   // const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayinglumos, setIsPlayinglumos] = useState(false);
+  const [hideAction, sethideAction] = useState(false);
 
   const {
     transcript,
@@ -113,12 +114,26 @@ const Index = () => {
     }
   }, [petronaOn, animatevalue, listening, isPlayinglumos]);
 
+  useEffect(() => {
+    if (animatevalue) {
+      setTimeout(() => {
+        sethideAction(true);
+      }, 2000);
+      setTimeout(() => {
+        sethideAction(false);
+      }, 8000);
+    }
+  }, [animatevalue]);
+
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
 
   return (
-    <div className="adminActions">
+    <div
+      className="adminActions"
+      style={{ display: hideAction ? "none" : "inline" }}
+    >
       <input
         type="checkbox"
         name="adminToggle"
@@ -129,6 +144,7 @@ const Index = () => {
           snapeThemetoggle(false);
           postcardstoggle(false);
           resetTranscript();
+          animatevalue && animate();
         }}
       />
       <a

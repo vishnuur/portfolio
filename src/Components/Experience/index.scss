@@ -134,6 +134,13 @@ body {
 .card-back {
   transform: rotateY(180deg);
   z-index: 1;
+  ul {
+    padding-top: 0;
+    width: 90%;
+    li {
+      text-align: left;
+    }
+  }
 }
 
 /* figure */
@@ -154,7 +161,7 @@ figure,
 .card-front {
   h4 {
     color: white;
-    top: 74px;
+    top: 82px;
     right: 12px;
     padding: 4px 16px;
     position: absolute;
@@ -448,8 +455,24 @@ button:focus + .design-container {
   .card-front {
     h4 {
       font-size: 8px;
-      top: 54px;
-      right: 27px;
+      top: 0;
+      background: unset;
+      right: 0;
+    }
+    span {
+      padding-top: 50%;
+      ul {
+        li {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .card-back {
+    ul {
+      li {
+        font-size: 12px;
+      }
     }
   }
   .exp-wrap {
@@ -464,6 +487,7 @@ button:focus + .design-container {
   }
   figcaption {
     font-size: 12px;
+    margin-top: 14px;
   }
   .card_wrap {
     flex-direction: column;

@@ -18,7 +18,7 @@ const Index = () => {
     <div className="socialwrap">
       <section>
         <div className="section-header">
-          <div className="container">
+          <div className="container-social">
             <h2 className={FloatingClass("", "fly-to-top6")}>Contact Me</h2>
             <p className={FloatingClass("", "fly-to-top6")}>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -29,7 +29,7 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="container">
+        <div className="container-social">
           <div className="row">
             <div className="contact-info">
               <div className="contact-info-item">

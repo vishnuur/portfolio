@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./index.scss";
 import ThemeContext from "../../context/ThemeContext";
 import FloatingClass from "../../context/utils";
+import expDev from "../../Assets/Images/expdev.jpg";
+import expComp from "../../Assets/Images/expcomp.jpg";
+import expJunior from "../../Assets/Images/expJunior.jpg";
 
 const Index = () => {
   const { dark } = React.useContext(ThemeContext);
@@ -29,10 +32,7 @@ const Index = () => {
             <div className="card-front">
               <figure>
                 <div className="img-bg"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                  alt="Experion Technologies"
-                />
+                <img src={expDev} alt="Experion Technologies" />
                 <figcaption>Experion Technologies</figcaption>
                 <h4>2022- Preset</h4>
               </figure>
@@ -43,6 +43,7 @@ const Index = () => {
                   <li>Typescript</li>
                   <li>ReduxJs</li>
                   <li>Redux Saga</li>
+                  <li>Sass</li>
                 </ul>
               </span>
             </div>
@@ -50,20 +51,26 @@ const Index = () => {
             <div className="card-back">
               <figure>
                 <div className="img-bg"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1486162928267-e6274cb3106f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                  alt="Brohm Lake"
-                />
+                <img src={expDev} alt="Brohm Lake" />
               </figure>
 
               <ul>
-                <li>Software Developer</li>
-                <li>Detail 2</li>
-                <li>Detail 3</li>
-                <li>Detail 4</li>
-                <li>Detail 5</li>
+                <li>
+                  Recognized and awarded for surpassing expectations, accelating
+                  team efforts and deliveries
+                </li>
+                <li>
+                  Swiftly embraced Typescript, establishing foundational
+                  structure.
+                </li>
+                <li>
+                  Skillfully implemented Redux-Saga, enhancing project
+                  functionality
+                </li>
+                <li>Conducted code reviews and mentored junior developers</li>
+                <li>Implemented Redux and code splitting strategies</li>
               </ul>
-              <div className="design-container">
+              {/* <div className="design-container">
                 <span className="design design--1"></span>
                 <span className="design design--2"></span>
                 <span className="design design--3"></span>
@@ -72,7 +79,7 @@ const Index = () => {
                 <span className="design design--6"></span>
                 <span className="design design--7"></span>
                 <span className="design design--8"></span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -81,10 +88,7 @@ const Index = () => {
             <div className="card-front">
               <figure>
                 <div className="img-bg"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1545436864-cd9bdd1ddebc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                  alt="TechByHeart"
-                />
+                <img src={expComp} alt="TechByHeart" />
                 <figcaption>TechByHeart</figcaption>
                 <h4>2019-2022</h4>
               </figure>
@@ -104,23 +108,28 @@ const Index = () => {
             <div className="card-back">
               <figure>
                 <div className="img-bg"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1545436864-cd9bdd1ddebc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                  alt="Image 2"
-                />
+                <img src={expComp} alt="Image 2" />
               </figure>
 
               <ul>
                 <li>
-                  Assosiate <br />
-                  Software Developer
+                  Build and installed reusable codes libraries for future
+                  reference
                 </li>
-                <li>Detail 2</li>
-                <li>Detail 3</li>
-                <li>Detail 4</li>
-                <li>Detail 5</li>
+                <li>
+                  Optimized app components and improved the product's
+                  performance
+                </li>
+                <li>
+                  Provided training for freshers on HTML, CSS, Javscript and
+                  ReactJS
+                </li>
+                <li>
+                  Worked as a team lead for 3 projects and managed to deliver on
+                  time
+                </li>
               </ul>
-              <div className="design-container">
+              {/* <div className="design-container">
                 <span className="design design--1"></span>
                 <span className="design design--2"></span>
                 <span className="design design--3"></span>
@@ -129,7 +138,55 @@ const Index = () => {
                 <span className="design design--6"></span>
                 <span className="design design--7"></span>
                 <span className="design design--8"></span>
-              </div>
+              </div> */}
+            </div>
+          </div>
+        </div>
+        <div className="flip-card-container">
+          <div className={FloatingClass("flip-card", "fly-to-top1")}>
+            <div className="card-front">
+              <figure>
+                <div className="img-bg"></div>
+                <img src={expJunior} alt="TechByHeart" />
+                <figcaption>TechByHeart</figcaption>
+                <h4>2019-2022</h4>
+              </figure>
+
+              <span>
+                <h6>Junior Software Developer</h6>
+                <ul>
+                  <li>ReactJS</li>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                </ul>
+              </span>
+            </div>
+
+            <div className="card-back">
+              <figure>
+                <div className="img-bg"></div>
+                <img src={expJunior} alt="Image 2" />
+              </figure>
+
+              <ul>
+                <li>
+                  Developed an LMS web application and later converted to PWA.
+                </li>
+                <li>Developed a Whatsapp based e-commerce application</li>
+                <li>
+                  Created an e-commerce application for art product dealers
+                </li>
+              </ul>
+              {/* <div className="design-container">
+                <span className="design design--1"></span>
+                <span className="design design--2"></span>
+                <span className="design design--3"></span>
+                <span className="design design--4"></span>
+                <span className="design design--5"></span>
+                <span className="design design--6"></span>
+                <span className="design design--7"></span>
+                <span className="design design--8"></span>
+              </div> */}
             </div>
           </div>
         </div>
