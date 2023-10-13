@@ -27,16 +27,12 @@
     display: flex;
     max-width: 60%;
     padding-bottom: 12px;
-    img {
-      width: 54px;
-      height: 54px;
-      padding-right: 24px;
-      object-fit: contain;
-    }
+    img,
     svg {
       width: 54px;
       height: 54px;
-      padding-right: 24px;
+      object-fit: contain;
+      margin-right: 24px;
     }
   }
 }
@@ -60,6 +56,13 @@
     width: 100vw;
     .langauges {
       flex-wrap: wrap;
+      max-width: unset;
+      img,
+      svg {
+        margin-bottom: 24px;
+        width: 32px;
+        height: 32px;
+      }
     }
     h5 {
       font-size: 32px;
