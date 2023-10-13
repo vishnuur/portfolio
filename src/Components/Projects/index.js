@@ -40,10 +40,30 @@ function Index() {
 
   const colorCode = dark ? "white" : "black";
   const expList = [
-    { name: "automoto", image: automoto, content: "" },
-    { name: "cakeShop", image: cakeshop, content: "" },
-    { name: "pin360", image: pin360, content: "" },
-    { name: "educareer", image: educareer, content: "" },
+    {
+      name: "AutoMoto",
+      image: automoto,
+      content:
+        "This website is an all-in-one platform that offers online booking for vehicle services, accessory purchases, price comparisons, detailed vehicle information, and easy insurance acquisition.",
+    },
+    {
+      name: "Cake World",
+      image: cakeshop,
+      content:
+        "A cake-selling website that allows users to order their favorite cakes directly through WhatsApp for a convenient and delightful experience",
+    },
+    {
+      name: "Pin360",
+      image: pin360,
+      content:
+        "A website tailored for car enthusiasts. It offers a wealth of car reviews, convenient booking for car conventions and programs, and a hub for staying informed about all things automotive",
+    },
+    {
+      name: "EduCareer",
+      image: educareer,
+      content:
+        "A multifunctional educational platform that serves as both a training center for graduates, offering PSC exam courses and exams, and a teaching platform for professors, enabling them to instruct and communicate effectively.",
+    },
   ];
 
   const cardElements = [];
@@ -53,10 +73,7 @@ function Index() {
         <span></span>
         <div className="content">
           <h2>{expList[i].name}</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <p>{expList[i].content}</p>
           <div
             id="six"
             className="button"

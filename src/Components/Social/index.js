@@ -21,10 +21,9 @@ const Index = () => {
           <div className="container-social">
             <h2 className={FloatingClass("", "fly-to-top6")}>Contact Me</h2>
             <p className={FloatingClass("", "fly-to-top6")}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              Feel free to reach out for inquiries, opportunities, or just to
+              connect and discuss the latest trends in web development. I'm
+              looking forward to working together
             </p>
           </div>
         </div>

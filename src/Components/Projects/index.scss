@@ -64,8 +64,8 @@ body {
 
 .container .box {
   // position: relative;
-  width: 320px;
-  height: 400px;
+  width: 400px;
+  height: 518px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,7 +266,9 @@ body {
 
 @media (max-width: 768px) {
   .experience-wrap {
+    padding: 0 32px;
     width: 100vw;
+    align-items: center;
     span {
       margin-left: unset;
       padding-left: unset;
@@ -297,7 +299,7 @@ body {
           font-size: 18px;
         }
         p {
-          font-size: 14px;
+          font-size: 12px;
         }
       }
     }
