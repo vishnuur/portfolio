@@ -38,7 +38,7 @@ const Index = () => {
               </figure>
               <span>
                 <h6>Software Developer</h6>
-                <ul>
+                <ul className="experience-ul">
                   <li>ReactJS</li>
                   <li>Typescript</li>
                   <li>ReduxJs</li>
@@ -54,7 +54,7 @@ const Index = () => {
                 <img src={expDev} alt="Brohm Lake" />
               </figure>
 
-              <ul>
+              <ul className="experience-ul">
                 <li>
                   Recognized and awarded for surpassing expectations, accelating
                   team efforts and deliveries
@@ -70,16 +70,6 @@ const Index = () => {
                 <li>Conducted code reviews and mentored junior developers</li>
                 <li>Implemented Redux and code splitting strategies</li>
               </ul>
-              {/* <div className="design-container">
-                <span className="design design--1"></span>
-                <span className="design design--2"></span>
-                <span className="design design--3"></span>
-                <span className="design design--4"></span>
-                <span className="design design--5"></span>
-                <span className="design design--6"></span>
-                <span className="design design--7"></span>
-                <span className="design design--8"></span>
-              </div> */}
             </div>
           </div>
         </div>
@@ -95,7 +85,7 @@ const Index = () => {
 
               <span>
                 <h6>Assosiate Software Developer</h6>
-                <ul>
+                <ul className="experience-ul">
                   <li>ReactJS</li>
                   <li>NextJS</li>
                   <li>HTML</li>
@@ -108,10 +98,10 @@ const Index = () => {
             <div className="card-back">
               <figure>
                 <div className="img-bg"></div>
-                <img src={expComp} alt="Image 2" />
+                <img src={expComp} alt="bgComp" />
               </figure>
 
-              <ul>
+              <ul className="experience-ul">
                 <li>
                   Build and installed reusable codes libraries for future
                   reference
@@ -154,7 +144,7 @@ const Index = () => {
 
               <span>
                 <h6>Junior Software Developer</h6>
-                <ul>
+                <ul className="experience-ul">
                   <li>ReactJS</li>
                   <li>HTML</li>
                   <li>CSS</li>
@@ -165,10 +155,10 @@ const Index = () => {
             <div className="card-back">
               <figure>
                 <div className="img-bg"></div>
-                <img src={expJunior} alt="Image 2" />
+                <img src={expJunior} alt="expJun" />
               </figure>
 
-              <ul>
+              <ul className="experience-ul">
                 <li>
                   Developed an LMS web application and later converted to PWA.
                 </li>
@@ -177,16 +167,6 @@ const Index = () => {
                   Created an e-commerce application for art product dealers
                 </li>
               </ul>
-              {/* <div className="design-container">
-                <span className="design design--1"></span>
-                <span className="design design--2"></span>
-                <span className="design design--3"></span>
-                <span className="design design--4"></span>
-                <span className="design design--5"></span>
-                <span className="design design--6"></span>
-                <span className="design design--7"></span>
-                <span className="design design--8"></span>
-              </div> */}
             </div>
           </div>
         </div>

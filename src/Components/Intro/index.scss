@@ -42,6 +42,68 @@
   }
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  z-index: 0;
+}
+
+.floating-image1 {
+  width: 160px !important; /* Adjust the size as needed */
+  height: 250px;
+  margin: 10px; /* Adjust the margin as needed */
+  position: absolute;
+  right: 50%;
+  top: 25%;
+  animation: floating 4s infinite ease-in-out; /* Adjust the duration as needed */
+}
+.floating-image2 {
+  width: 120px !important; /* Adjust the size as needed */
+  margin: 10px; /* Adjust the margin as needed */
+  position: absolute;
+  right: 10%;
+  top: 35%;
+  animation: floating 6s infinite ease-in-out; /* Adjust the duration as needed */
+}
+.floating-image3 {
+  width: 50px !important; /* Adjust the size as needed */
+  margin: 10px; /* Adjust the margin as needed */
+  position: absolute;
+  right: 20%;
+  top: 35%;
+  animation: floating 6s infinite ease-in-out; /* Adjust the duration as needed */
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(
+      0,
+      -20px
+    ); /* Adjust the vertical translation as needed */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1); /* Initial scale value */
+  }
+  100% {
+    transform: scale(1.2); /* Adjust the scale value for zooming */
+  }
+}
+
 @media (max-width: 768px) {
   .intro-wrap {
     padding: 0 32px;

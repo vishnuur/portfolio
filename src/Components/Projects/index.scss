@@ -57,7 +57,7 @@ body {
 
 @for $i from 1 through 20 {
   .card:nth-child(#{$i}) {
-    top: $i + 10 + rem;
+    top: $i + 5 + rem;
     transform: rotate($i + deg);
   }
 }
@@ -130,6 +130,10 @@ body {
 .container .box:nth-child(5):before,
 .container .box:nth-child(5):after {
   background: linear-gradient(315deg, #ffe203, #00d0ff);
+}
+.container .box:nth-child(5):before,
+.container .box:nth-child(5):after {
+  background: linear-gradient(315deg, #bdfc01, #03ff5b);
 }
 
 .container .box span {

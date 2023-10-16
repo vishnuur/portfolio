@@ -2,6 +2,9 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import "./index.scss";
 import coverimage from "../../Assets/Images/coverimage.png";
+import float1 from "../../Assets/Images/float1.png";
+import float2 from "../../Assets/Images/float2.png";
+import float3 from "../../Assets/Images/float3.png";
 import ThemeContext from "../../context/ThemeContext";
 import {
   FaLinkedinIn,
@@ -86,6 +89,11 @@ const Index = () => {
         </div>
       </div>
       <div className="coverimage">
+        <span className="image-container">
+          <img className="floating-image1" src={float1} />
+          <img className="floating-image2" src={float2} />
+          <img className="floating-image3" src={float3} />
+        </span>
         <img
           className={FloatingClass("", "fly-to-top")}
           src={coverimage}
