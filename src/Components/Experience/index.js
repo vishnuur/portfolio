@@ -2,9 +2,9 @@ import React from "react";
 import "./index.scss";
 import ThemeContext from "../../context/ThemeContext";
 import FloatingClass from "../../context/utils";
-import expDev from "../../Assets/Images/expdev.jpg";
+import expDev from "../../Assets/Images/expdev.webp";
 import expComp from "../../Assets/Images/expcomp.jpg";
-import expJunior from "../../Assets/Images/expJunior.jpg";
+import expJunior from "../../Assets/Images/expJunior.webp";
 
 const Index = () => {
   const { dark } = React.useContext(ThemeContext);

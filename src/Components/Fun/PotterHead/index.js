@@ -213,14 +213,14 @@ const Index = () => {
         >
           <FaFont />
         </a>
-        {/* <a
+        <a
           title="Spells"
           className="adminButton"
           href="#spells"
           onClick={() => showSpells(!spellsList)}
         >
           <FaWandMagicSparkles />
-        </a> */}
+        </a>
       </div>
       {harryTheme && !snapeTheme && !postcardsactive && (
         <audio id="harryThemesong" autoPlay loop>

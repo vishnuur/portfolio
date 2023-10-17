@@ -1,5 +1,5 @@
 import React from "react";
-import letterpad from "../../../Assets/Images/letterpad.png";
+import letterpad from "../../../Assets/Images/letterpad.webp";
 import "./index.scss";
 import ThemeContext from "../../../context/ThemeContext";
 import Sparks from "./sparks";
