@@ -23,6 +23,7 @@ function App() {
     harryTheme,
     snapeTheme,
     postcardsactive,
+    harryFont,
   } = React.useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [removeFlash, setremoveFlash] = useState(true);
@@ -68,7 +69,10 @@ function App() {
 
   if (loading) return <Loading />;
   return (
-    <div className="App" style={{ fontSize: `${engorgio}px` }}>
+    <div
+      className={`App ${harryFont ? "custom-font" : ""}`}
+      style={{ fontSize: `${engorgio}px` }}
+    >
       {postcardsactive && harryTheme && <Letters />}
       {snapeTheme && <ReactRain numDrops={rainCount.toString()} />}
       <Navbar />

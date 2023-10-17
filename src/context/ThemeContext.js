@@ -18,6 +18,8 @@ const ThemeContext = React.createContext({
   snapeTheme: false,
   postcardstoggle: () => {},
   postcardsactive: false,
+  changeFont: () => {},
+  harryFont: false,
 });
 
 export default ThemeContext;
@@ -31,6 +33,7 @@ export function ThemeProvider(props) {
   const [harryTheme, setharryTheme] = useState(false);
   const [snapeTheme, setsnapeTheme] = useState(false);
   const [postcardsactive, setpostcardsactive] = useState(false);
+  const [harryFont, setharryFont] = useState(false);
 
   let audio = new Audio("/leviosa.mp3");
   let audioWrong = new Audio("/leviosawrong.mp3");
@@ -139,6 +142,10 @@ export function ThemeProvider(props) {
     }
   };
 
+  const changeFont = (value) => {
+    setharryFont(value);
+  };
+
   return (
     <ThemeContext.Provider
       value={{
@@ -159,6 +166,8 @@ export function ThemeProvider(props) {
         snapeTheme,
         postcardstoggle,
         postcardsactive,
+        changeFont,
+        harryFont,
       }}
     >
       {props.children}

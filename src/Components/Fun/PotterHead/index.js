@@ -6,6 +6,7 @@ import {
   FaFeather,
   FaMicrophone,
   FaStop,
+  FaFont,
 } from "react-icons/fa6";
 import { GiDeer } from "react-icons/gi";
 import { TbFeatherOff } from "react-icons/tb";
@@ -31,6 +32,8 @@ const Index = () => {
     snapeTheme,
     postcardsactive,
     postcardstoggle,
+    changeFont,
+    harryFont,
   } = React.useContext(ThemeContext);
   // const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayinglumos, setIsPlayinglumos] = useState(false);
@@ -76,7 +79,7 @@ const Index = () => {
       transcript.toLocaleLowerCase().includes("expect") ||
       transcript.toLocaleLowerCase().includes("patronum")
     ) {
-      petronama(true);
+      petronama({ value: true, full: true });
     }
 
     if (
@@ -169,7 +172,7 @@ const Index = () => {
           onClick={() =>
             !petronaOn
               ? petronama({ value: true, full: true })
-              : petronama(false)
+              : petronama({ value: false, full: false })
           }
           href="#petronas"
         >
@@ -178,14 +181,23 @@ const Index = () => {
         <a
           title="Spells (Lumos,Nox,Wingardium,Patronus)"
           className="adminButton"
-          onClick={SpeechRecognition.startListening}
+          onClick={
+            listening
+              ? SpeechRecognition.abortListening
+              : SpeechRecognition.startListening
+          }
           href="#listen"
         >
           {listening ? <FaStop /> : <FaMicrophone />}
         </a>
-        {/* <a title="Edit User" onClick={() => postcardstoggle(true)}>
-          <i className="fa fa-user-edit"></i>
-        </a> */}
+        <a
+          title="Change Font Theme"
+          className="adminButton"
+          href="#changefont"
+          onClick={() => changeFont(!harryFont)}
+        >
+          <FaFont />
+        </a>
       </div>
       {harryTheme && !snapeTheme && !postcardsactive && (
         <audio id="harryThemesong" autoPlay loop>

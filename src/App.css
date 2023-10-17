@@ -1,11 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 .App {
   text-align: center;
   min-height: 100vh;
   /*overflow-x: hidden;*/
+  font-family: "Poppins", sans-serif;
 }
 
 .fly-to-top {
   animation: flyToTop 5s ease-in-out forwards;
+}
+
+@font-face {
+  font-family: "CustomHarryFont";
+  src: url("./Assets//Fonts/HarryPotter2.ttf") format("truetype");
+}
+
+.custom-font {
+  font-family: "CustomHarryFont", sans-serif !important;
+  font-size: 22px;
 }
 
 @keyframes flyToTop {
