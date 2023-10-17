@@ -1,7 +1,7 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import "./index.scss";
-import coverimage from "../../Assets/Images/coverimage.png";
+import coverimage from "../../Assets/Images/coverimage.webp";
 import float1 from "../../Assets/Images/float1.png";
 import float2 from "../../Assets/Images/float2.webp";
 import float3 from "../../Assets/Images/float3.webp";

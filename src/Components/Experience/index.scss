@@ -125,6 +125,11 @@
       text-align: left;
     }
   }
+  img {
+    height: 150%;
+    width: 150%;
+    object-fit: cover;
+  }
 }
 
 /* figure */
