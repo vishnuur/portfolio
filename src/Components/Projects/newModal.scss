@@ -246,6 +246,20 @@
 .modal-subhead ul {
   padding-top: 12px;
 }
+.no-focus-outline {
+  outline: none;
+}
+.no-focus-outline:focus,
+.no-focus-outline:active,
+.no-focus-outline:hover {
+  outline: 0;
+  background: transparent;
+}
+.no-mobile-background {
+  -webkit-tap-highlight-color: transparent; /* iOS Safari */
+  tap-highlight-color: transparent; /* Android */
+}
+
 @media screen and (max-width: 768px) {
   .blog-slider__title {
     font-size: 18px;
@@ -267,8 +281,14 @@
   }
   .right-arrow {
     right: 17%;
+    bottom: unset;
   }
   .left-arrow {
     left: 17%;
+    bottom: unset;
+  }
+  .blog-slider__img img {
+    width: 100%;
+    height: 100%;
   }
 }

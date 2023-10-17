@@ -106,6 +106,9 @@
     height: 205vh;
     right: -320px;
   }
+  .App {
+    min-height: 120vh;
+  }
 }
 
 #Rain {

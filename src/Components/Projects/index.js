@@ -11,7 +11,7 @@ function Index() {
   const { dark } = React.useContext(ThemeContext);
   const [modalClass, setModalClass] = useState("");
   const [isModalActive, setIsModalActive] = useState(false);
-  const [selectedData, setselectedData] = useState();
+  const [selectedData, setselectedData] = useState(expList[0]);
 
   useEffect(() => {
     const handleScroll = (e) => {

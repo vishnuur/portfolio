@@ -90,7 +90,7 @@ const Index = ({
             )}
 
             {window.innerWidth < 768 && (
-              <div className="arrow-dir left-arrow">
+              <div className="arrow-dir left-arrow no-mobile-background">
                 <MdKeyboardArrowLeft
                   fill={selectedData?.indexVal !== 0 ? "white" : "grey"}
                   onClick={() =>
@@ -104,7 +104,7 @@ const Index = ({
               </div>
             )}
             {window.innerWidth < 768 && (
-              <div className="arrow-dir right-arrow">
+              <div className="arrow-dir right-arrow no-mobile-background">
                 <MdKeyboardArrowRight
                   fill={
                     selectedData?.indexVal !== dataList?.length - 1
