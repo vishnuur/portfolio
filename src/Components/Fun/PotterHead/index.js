@@ -143,7 +143,7 @@ const Index = () => {
         className="adminToggle"
         onClick={() => {
           harryThemetoggle(!harryTheme);
-          petronama(false);
+          petronama({ value: false, full: false });
           snapeThemetoggle(false);
           postcardstoggle(false);
           resetTranscript();
