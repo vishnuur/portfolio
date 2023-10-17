@@ -133,7 +133,7 @@ function App() {
       )}
       <div style={{ position: "relative", width: "100vw" }}>
         {harryTheme && dark && (
-          <video autoplay id="myVideo" className="harrytheme">
+          <video autoPlay id="myVideo" className="harrytheme">
             <source src="/hogwarts.mp4" type="video/mp4" />
             <source src="/hogwarts1.mp4" type="video/mp4" />
             Your browser does not support HTML5 video.

@@ -1,8 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 .App {
   text-align: center;
   /*overflow-x: hidden;*/
-  font-family: "Poppins", sans-serif;
   min-height: 100vh;
 }
 
@@ -12,7 +10,7 @@
 
 @font-face {
   font-family: "CustomHarryFont";
-  src: url("./Assets//Fonts/HarryPotter2.ttf") format("truetype");
+  src: url("./Assets/Fonts/HarryPotter2.ttf") format("truetype");
 }
 
 .custom-font-harrypotter {

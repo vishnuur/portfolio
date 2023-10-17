@@ -29,17 +29,6 @@
   display: flex;
 }
 
-/* 
-    ================================
-        Best Viewed In Full Page
-    ================================
-*/
-
-/* Hover over a card to flip, can tab too. */
-
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
-/* default */
 *,
 *::after,
 *::before {
@@ -49,14 +38,6 @@
 }
 
 /* body */
-body {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-  font-family: 'Lato', 'Segoe Ui', -apple-system, BlinkMacSystemFont, sans-serif;
-}
 
 /* .flip-card-container */
 .flip-card-container {

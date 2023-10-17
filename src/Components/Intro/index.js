@@ -89,10 +89,10 @@ const Index = () => {
         </div>
       </div>
       <div className="coverimage">
-        <span className="image-container">
-          <img className="floating-image1" src={float1} />
-          <img className="floating-image2" src={float2} />
-          <img className="floating-image3" src={float3} />
+        <span className={FloatingClass("image-container", "fly-to-top")}>
+          <img alt="float1" className="floating-image1" src={float1} />
+          <img alt="float2" className="floating-image2" src={float2} />
+          <img alt="float3" className="floating-image3" src={float3} />
         </span>
         <img
           className={FloatingClass("", "fly-to-top")}

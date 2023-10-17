@@ -88,9 +88,9 @@ const Index = () => {
       transcript?.toLocaleLowerCase().includes("jio") ||
       transcript?.toLocaleLowerCase().includes("gorgeous")
     ) {
-      engorigoToggle(engorgio + 10);
+      engorigoToggle(engorgio + 20);
     } else if (transcript?.toLocaleLowerCase().includes("reduc")) {
-      engorigoToggle(engorgio - 10);
+      engorigoToggle(engorgio - 20);
     }
 
     if (transcript?.toLocaleLowerCase().includes("all this time")) {

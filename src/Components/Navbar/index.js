@@ -12,7 +12,7 @@ const Index = () => {
       <div>
         <input type="checkbox" className="checkbox" id="checkbox" />
         <label
-          for="checkbox"
+          htmlFor="checkbox"
           className="checkbox-label"
           onClick={() => {
             if (harryTheme) {

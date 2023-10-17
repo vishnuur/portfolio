@@ -23,6 +23,7 @@
       text-align: left;
       text-shadow: 0 0 10px #f3b735; /* Light blue glow outline */
       padding-top: 12px;
+      user-select: none;
       &:hover {
         text-shadow: 0 0 10px #041df8;
         color: rgb(239, 242, 248);

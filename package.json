@@ -6,8 +6,6 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "compass": "^0.1.1",
-    "font-awesome": "^4.7.0",
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.2.5",
     "react-dom": "^18.2.0",
@@ -17,7 +15,6 @@
     "react-scripts": "5.0.1",
     "react-speech-recognition": "^3.10.0",
     "react-type-animation": "^3.1.0",
-    "swiper": "^10.3.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
