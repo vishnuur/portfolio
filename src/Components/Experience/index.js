@@ -8,10 +8,6 @@ import expJunior from "../../Assets/Images/expJunior.jpg";
 
 const Index = () => {
   const { dark } = React.useContext(ThemeContext);
-  const word =
-    "I like to take responsibility to craft aesthetic user experience using modern frontend architecture";
-  const letterArray = word.split("");
-
   const colorCode = dark ? "white" : "black";
 
   return (
@@ -21,9 +17,8 @@ const Index = () => {
         style={{ color: colorCode }}
         className={FloatingClass("", "fly-to-top1")}
       >
-        {letterArray.map((letter, index) => (
-          <span key={index}>{letter}</span>
-        ))}
+        My passion for clean code and design aesthetics drives me to deliver web
+        applications that not only function flawlessly but also captivate users.
       </h6>
 
       <div className="card_wrap">

@@ -34,6 +34,8 @@ const Index = () => {
     postcardstoggle,
     changeFont,
     harryFont,
+    showSpells,
+    spellsList,
   } = React.useContext(ThemeContext);
   // const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayinglumos, setIsPlayinglumos] = useState(false);
@@ -102,12 +104,24 @@ const Index = () => {
     ) {
       postcardstoggle(true);
     }
+    if (
+      transcript?.toLocaleLowerCase().includes("reveal") ||
+      transcript?.toLocaleLowerCase().includes("revealio")
+    ) {
+      showSpells(true);
+    }
   }, [transcript]);
 
   useEffect(() => {
     const el = document.getElementById("harryThemesong");
     if (el) {
-      if (petronaOn || animatevalue || isPlayinglumos || listening) {
+      if (
+        petronaOn ||
+        animatevalue ||
+        isPlayinglumos ||
+        listening ||
+        spellsList
+      ) {
         el.volume = 0.2;
       } else {
         setTimeout(() => {
@@ -115,7 +129,7 @@ const Index = () => {
         }, 2000);
       }
     }
-  }, [petronaOn, animatevalue, listening, isPlayinglumos]);
+  }, [petronaOn, animatevalue, listening, isPlayinglumos, spellsList]);
 
   useEffect(() => {
     if (animatevalue) {
@@ -148,6 +162,7 @@ const Index = () => {
           postcardstoggle(false);
           resetTranscript();
           animatevalue && animate();
+          showSpells(false);
         }}
       />
       <a
@@ -179,7 +194,7 @@ const Index = () => {
           <GiDeer />
         </a>
         <a
-          title="Spells (Lumos,Nox,Wingardium,Patronus)"
+          title="Spells (Spell Revelio for list of spells)"
           className="adminButton"
           onClick={
             listening
@@ -198,6 +213,14 @@ const Index = () => {
         >
           <FaFont />
         </a>
+        {/* <a
+          title="Spells"
+          className="adminButton"
+          href="#spells"
+          onClick={() => showSpells(!spellsList)}
+        >
+          <FaWandMagicSparkles />
+        </a> */}
       </div>
       {harryTheme && !snapeTheme && !postcardsactive && (
         <audio id="harryThemesong" autoPlay loop>

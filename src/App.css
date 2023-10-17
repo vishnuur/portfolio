@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 .App {
   text-align: center;
-  min-height: 100vh;
   /*overflow-x: hidden;*/
   font-family: "Poppins", sans-serif;
+  min-height: 100vh;
 }
 
 .fly-to-top {
@@ -15,7 +15,7 @@
   src: url("./Assets//Fonts/HarryPotter2.ttf") format("truetype");
 }
 
-.custom-font {
+.custom-font-harrypotter {
   font-family: "CustomHarryFont", sans-serif !important;
   font-size: 22px;
 }
@@ -35,6 +35,11 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+}
+
+.blur-screen {
+  filter: blur(5px); /* Adjust the blur amount as needed */
+  transition: filter 6s ease; /* You can adjust the duration and timing function */
 }
 
 .flashlight {
@@ -100,14 +105,12 @@
   width: 100vw;
   object-fit: cover;
 }
+
 @media (max-width: 768px) {
   .flashlight {
     width: 736vw;
     height: 205vh;
     right: -320px;
-  }
-  .App {
-    min-height: 120vh;
   }
 }
 

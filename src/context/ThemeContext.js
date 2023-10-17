@@ -20,6 +20,8 @@ const ThemeContext = React.createContext({
   postcardsactive: false,
   changeFont: () => {},
   harryFont: false,
+  showSpells: () => {},
+  spellsList: false,
 });
 
 export default ThemeContext;
@@ -34,6 +36,7 @@ export function ThemeProvider(props) {
   const [snapeTheme, setsnapeTheme] = useState(false);
   const [postcardsactive, setpostcardsactive] = useState(false);
   const [harryFont, setharryFont] = useState(false);
+  const [spellsList, setspellsList] = useState(false);
 
   let audio = new Audio("/leviosa.mp3");
   let audioWrong = new Audio("/leviosawrong.mp3");
@@ -44,6 +47,7 @@ export function ThemeProvider(props) {
   let snapeSound = new Audio("/snapesound.mp3");
   let iamwhat = new Audio("/iamwhat.mp3");
   let harryPost = new Audio("/harryPost.mp3");
+  let spellsSound = new Audio("/spell.mp3");
   // let harrypottertheme = new Audio("/harrypotter.mp3");
 
   const start = () => {
@@ -146,6 +150,16 @@ export function ThemeProvider(props) {
     setharryFont(value);
   };
 
+  const showSpells = (value) => {
+    setspellsList(value);
+    if (value) {
+      spellsSound.play();
+      spellsSound.volume = 0.5;
+    } else {
+      spellsSound.pause();
+    }
+  };
+
   return (
     <ThemeContext.Provider
       value={{
@@ -168,6 +182,8 @@ export function ThemeProvider(props) {
         postcardsactive,
         changeFont,
         harryFont,
+        showSpells,
+        spellsList,
       }}
     >
       {props.children}

@@ -9,7 +9,7 @@ import Experience from "../../Components/Experience";
 import Social from "../../Components/Social";
 
 const Index = () => {
-  const { dark } = React.useContext(ThemeContext);
+  const { dark, spellsList } = React.useContext(ThemeContext);
 
   window.onscroll = function () {
     myFunction();
@@ -29,7 +29,10 @@ const Index = () => {
     "linear-gradient(120deg,rgba(#e0c3fc, 0.75) 0%,rgba(#8ec5fc, 0.75) 100%,)";
 
   return (
-    <div className="home-wrap" style={{ background: dark ? "" : gradient }}>
+    <div
+      className={`home-wrap ${spellsList ? "blur-screen" : ""}`}
+      style={{ background: dark ? "" : gradient }}
+    >
       <div className="header">
         <div className="progress-container">
           <div

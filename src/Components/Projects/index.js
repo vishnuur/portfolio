@@ -81,8 +81,9 @@ function Index() {
           style={{ color: colorCode }}
           className={FloatingClass("", "fly-to-top2")}
         >
-          I like to take responsibility to craft aesthetic user experience using
-          modern frontend architecture
+          My proficiency in front-end extends beyond coding; I place a strong
+          emphasis on creating intuitive, user-friendly interfaces that make a
+          lasting impression.
         </h6>
       </div>
       <span className="container">{cardElements}</span>

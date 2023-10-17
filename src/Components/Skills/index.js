@@ -28,8 +28,9 @@ const Index = () => {
         style={{ color: colorCode }}
         className={FloatingClass("", "fly-to-top3")}
       >
-        I like to take responsibility to craft aesthetic user experience using
-        modern frontend architecture
+        I'm dedicated to staying current with emerging technologies and best
+        practices, ensuring that every project I work on is at the forefront of
+        modern web development.
       </h6>
       <p
         style={{ color: colorCode }}

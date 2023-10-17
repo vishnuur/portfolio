@@ -9,6 +9,8 @@ import Dementors from "./Components/Fun/Dementors";
 import Loading from "./Components/Loader";
 import hogwarts from "./Assets/Images/hogwartsDay.jpg";
 import Letters from "./Components/Fun/Letters";
+import Spells from "./Components/Fun/Spells";
+
 import ReactRain from "react-rain-animation";
 
 import "react-rain-animation/lib/style.css";
@@ -24,6 +26,7 @@ function App() {
     snapeTheme,
     postcardsactive,
     harryFont,
+    spellsList,
   } = React.useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [removeFlash, setremoveFlash] = useState(true);
@@ -70,11 +73,14 @@ function App() {
   if (loading) return <Loading />;
   return (
     <div
-      className={`App ${harryFont ? "custom-font" : ""}`}
+      className={`App ${harryFont ? "custom-font-harrypotter" : ""}`}
       style={{ fontSize: `${engorgio}px` }}
     >
       {postcardsactive && harryTheme && <Letters />}
-      {snapeTheme && <ReactRain numDrops={rainCount.toString()} />}
+      {snapeTheme && harryTheme && (
+        <ReactRain numDrops={rainCount.toString()} />
+      )}
+      <Spells />
       <Navbar />
       <Dementors />
 
