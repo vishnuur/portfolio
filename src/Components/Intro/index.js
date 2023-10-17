@@ -95,7 +95,7 @@ const Index = () => {
           <img alt="float3" className="floating-image3" src={float3} />
         </span>
         <img
-          className={FloatingClass("", "fly-to-top")}
+          className={FloatingClass("cover-main-image", "fly-to-top")}
           src={coverimage}
           alt="coverimage"
         />

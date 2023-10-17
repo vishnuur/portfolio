@@ -11,6 +11,7 @@
 @font-face {
   font-family: "CustomHarryFont";
   src: url("./Assets/Fonts/HarryPotter2.ttf") format("truetype");
+  font-display: swap;
 }
 
 .custom-font-harrypotter {

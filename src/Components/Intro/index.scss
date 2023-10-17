@@ -35,8 +35,11 @@
     }
   }
   .coverimage {
-    img {
+    .cover-main-image {
       width: 760px;
+      height: 760px;
+    }
+    img {
       transform: scaleX(-1);
     }
   }
