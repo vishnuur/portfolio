@@ -3,6 +3,7 @@ import cakeshop from "../../Assets/Images/cakeshop.webp";
 import pin360 from "../../Assets/Images/pin360.webp";
 import automoto from "../../Assets/Images/automoto.webp";
 import ifc from "../../Assets/Images/ifc.webp";
+import mali from "../../Assets/Images/mali.jpg";
 
 const expList = [
   {
@@ -51,15 +52,26 @@ const expList = [
     ],
   },
   {
-    name: "Cake World",
-    image: cakeshop,
+    name: "Mali",
+    image: mali,
     content:
-      "A cake-selling website that allows users to order their favorite cakes directly through WhatsApp for a convenient and delightful experience",
-    techused: ["ReactJs", "CSS", "Django", "Gitlab", "Jira"],
+      "Effortlessly manage employee tasks at Mali Island Resort, from food orders to laundry and menu settings, with our streamlined website and admin panel.",
+    techused: [
+      "ReactJs",
+      "CSS",
+      "Django",
+      "PWA",
+      "Capacitor",
+      "IONIC",
+      "Gitlab",
+      "Jira",
+    ],
     roles: [
       "Handled lead developer position",
+      "Mentoring junior developers and new team members",
       "Involved in requirement gathering, development and deployment",
       "Provide technical advice and assist in solving programming problems",
+      "Adapted to PWA and build and delivered the App",
     ],
   },
   {
@@ -67,15 +79,7 @@ const expList = [
     image: pin360,
     content:
       "A website tailored for car enthusiasts. It offers a wealth of car reviews, convenient booking for car conventions and programs, and a hub for staying informed about all things automotive",
-    techused: [
-      "NextJs",
-      "Sass",
-      "PWA",
-      "Capacitor",
-      "Django",
-      "Gitlab",
-      "Jira",
-    ],
+    techused: ["NextJs", "Sass", "ContextAPI", "FireBase", "GitHub", "Trello"],
     roles: [
       "Handled lead developer position",
       "Mentoring junior developers and new team members",
@@ -96,6 +100,18 @@ const expList = [
       "Involved in requirement gathering, development and deployment",
       "Provide technical advice and assist in solving programming problems",
       "Learned and implemented PWA application",
+    ],
+  },
+  {
+    name: "Cake World",
+    image: cakeshop,
+    content:
+      "A cake-selling website that allows users to order their favorite cakes directly through WhatsApp for a convenient and delightful experience",
+    techused: ["ReactJs", "CSS", "Django", "Gitlab", "Jira"],
+    roles: [
+      "Handled lead developer position",
+      "Involved in requirement gathering, development and deployment",
+      "Provide technical advice and assist in solving programming problems",
     ],
   },
 ];

@@ -110,7 +110,7 @@ body {
 
 .container .box:nth-child(1):before,
 .container .box:nth-child(1):after {
-  background: linear-gradient(315deg, #ffbc00, #ff0058);
+  background: linear-gradient(315deg, #fd0dc5, #fbf701);
 }
 
 .container .box:nth-child(2):before,
@@ -131,8 +131,8 @@ body {
 .container .box:nth-child(5):after {
   background: linear-gradient(315deg, #ffe203, #00d0ff);
 }
-.container .box:nth-child(5):before,
-.container .box:nth-child(5):after {
+.container .box:nth-child(6):before,
+.container .box:nth-child(6):after {
   background: linear-gradient(315deg, #4382f7, #03ff5b);
 }
 
