@@ -1,8 +1,8 @@
-import educareer from "../../Assets/Images/educareer.jpg";
-import cakeshop from "../../Assets/Images/cakeshop.jpg";
-import pin360 from "../../Assets/Images/pin360.jpg";
-import automoto from "../../Assets/Images/automoto.jpg";
-import ifc from "../../Assets/Images/ifc.jpg";
+import educareer from "../../Assets/Images/educareer.webp";
+import cakeshop from "../../Assets/Images/cakeshop.webp";
+import pin360 from "../../Assets/Images/pin360.webp";
+import automoto from "../../Assets/Images/automoto.webp";
+import ifc from "../../Assets/Images/ifc.webp";
 
 const expList = [
   {

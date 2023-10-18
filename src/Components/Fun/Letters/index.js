@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./index.scss";
-import postcard from "../../../Assets/Images/postcard.png";
+import postcard from "../../../Assets/Images/postcard.webp";
 
 const PostLettersAnimation = () => {
   const [letters, setLetters] = useState([]);

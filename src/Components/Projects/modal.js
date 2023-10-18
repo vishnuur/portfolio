@@ -6,7 +6,7 @@ import {
   MdKeyboardArrowLeft,
 } from "react-icons/md";
 import { IoCloseCircleSharp } from "react-icons/io5";
-import modalBg from "../../Assets/Images/modalbg.jpg";
+import modalBg from "../../Assets/Images/modalbg.webp";
 
 const Index = ({
   selectedData,
@@ -22,11 +22,7 @@ const Index = ({
         </div>
         <div className="blog-slider__item swiper-slide">
           <div className="blog-slider__img">
-            <img
-              src={selectedData?.image}
-              alt={selectedData.name || modalBg}
-              loading="lazy"
-            />
+            <img src={selectedData?.image ?? modalBg} alt={selectedData.name} />
           </div>
           <div className="blog-slider__content" style={{ textAlign: "left" }}>
             <div className="blog-slider__title">{selectedData.name}</div>

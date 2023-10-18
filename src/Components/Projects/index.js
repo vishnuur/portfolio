@@ -32,6 +32,8 @@ function Index() {
     };
   }, [isModalActive]);
 
+  console.log(selectedData, "selectedDataselectedData");
+
   const handleButtonClick = (e, data, i) => {
     e.preventDefault();
     e.stopPropagation();

@@ -26,7 +26,6 @@ function App() {
     snapeTheme,
     postcardsactive,
     harryFont,
-    spellsList,
   } = React.useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [removeFlash, setremoveFlash] = useState(true);

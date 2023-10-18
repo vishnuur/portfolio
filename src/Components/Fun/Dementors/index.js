@@ -41,7 +41,7 @@ const Index = () => {
       imageArray.push(
         <img
           key={i}
-          src={require(`../../../Assets/Images/dem${(i % 3) + 1}.png`)} // Assuming your image files are named image1.png, image2.png, and image3.png
+          src={require(`../../../Assets/Images/dem${(i % 3) + 1}.webp`)} // Assuming your image files are named image1.png, image2.png, and image3.png
           alt={`Dementor ${i}`}
           className={`animated-image ${
             hideDementors ? "image-all" : `image-${i % 3}`
