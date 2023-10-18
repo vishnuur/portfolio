@@ -56,7 +56,7 @@ const Index = () => {
                 <div className="contact-info-content">
                   <h4 className={FloatingClass("", "fly-to-top6")}>Email</h4>
                   <p className={FloatingClass("", "fly-to-top6")}>
-                    vishnuur@gmail.com
+                    vishnuur77@gmail.com
                   </p>
                 </div>
               </div>
