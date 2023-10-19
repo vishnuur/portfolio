@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./index.scss";
 import postcard from "../../../Assets/Images/postcard.webp";
+import ThemeContext from "../../../context/ThemeContext";
 
 const PostLettersAnimation = () => {
+  const { harryTheme, postcardsactive } = React.useContext(ThemeContext);
   const [letters, setLetters] = useState([]);
 
   useEffect(() => {
@@ -55,20 +57,24 @@ const PostLettersAnimation = () => {
   }, []);
 
   return (
-    <div className="post-letters-container">
-      {letters.map((letter, index) => (
-        <img
-          src={postcard}
-          style={{
-            position: "absolute",
-            left: letter.x + "px",
-            top: letter.y + "px",
-            opacity: letter.fading ? 0 : 1,
-          }}
-          alt="postcards"
-        />
-      ))}
-    </div>
+    <>
+      {postcardsactive && harryTheme && (
+        <div className="post-letters-container">
+          {letters.map((letter, index) => (
+            <img
+              src={postcard}
+              style={{
+                position: "absolute",
+                left: letter.x + "px",
+                top: letter.y + "px",
+                opacity: letter.fading ? 0 : 1,
+              }}
+              alt="postcards"
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

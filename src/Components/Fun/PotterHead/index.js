@@ -194,7 +194,7 @@ const Index = () => {
           <GiDeer />
         </a>
         <a
-          title="Spells (Spell Revelio for list of spells)"
+          title="Spells (Spell Reveal for the list of spells)"
           className="adminButton"
           onClick={
             listening
@@ -213,14 +213,14 @@ const Index = () => {
         >
           <FaFont />
         </a>
-        {/* <a
+        <a
           title="Spells"
           className="adminButton"
           href="#spells"
           onClick={() => showSpells(!spellsList)}
         >
           <FaWandMagicSparkles />
-        </a> */}
+        </a>
       </div>
       {harryTheme && !snapeTheme && !postcardsactive && (
         <audio id="harryThemesong" autoPlay loop>

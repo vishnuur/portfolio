@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./index.scss";
-import ThemeContext from "../../context/ThemeContext";
+import ThemeContext from "../../../context/ThemeContext";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 const Index = () => {
