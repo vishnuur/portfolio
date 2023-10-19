@@ -14,6 +14,8 @@ import { TbFeatherOff } from "react-icons/tb";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Index = () => {
   const {
@@ -37,7 +39,19 @@ const Index = () => {
     showSpells,
     spellsList,
   } = React.useContext(ThemeContext);
-  // const [isPlaying, setIsPlaying] = useState(false);
+
+  const notify = () =>
+    toast.info("Say 'Reveal' to get the list of Spells", {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: false,
+      theme: "dark",
+    });
+
   const [isPlayinglumos, setIsPlayinglumos] = useState(false);
   const [hideAction, sethideAction] = useState(false);
 
@@ -196,11 +210,14 @@ const Index = () => {
         <a
           title="Spells (Spell Reveal for the list of spells)"
           className="adminButton"
-          onClick={
-            listening
-              ? SpeechRecognition.abortListening
-              : SpeechRecognition.startListening
-          }
+          onClick={() => {
+            if (listening) {
+              SpeechRecognition.abortListening();
+            } else {
+              SpeechRecognition.startListening();
+              notify();
+            }
+          }}
           href="#listen"
         >
           {listening ? <FaStop /> : <FaMicrophone />}
@@ -222,6 +239,7 @@ const Index = () => {
           <FaWandMagicSparkles />
         </a> */}
       </div>
+      {window.innerWidth < 768 && <ToastContainer />}
       {harryTheme && !snapeTheme && !postcardsactive && (
         <audio id="harryThemesong" autoPlay loop>
           <source src="/harrypotter.mp3" type="audio/mpeg" />
