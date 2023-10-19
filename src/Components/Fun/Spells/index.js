@@ -5,11 +5,12 @@ import ThemeContext from "../../../context/ThemeContext";
 import Sparks from "./sparks";
 
 const Index = () => {
-  const { spellsList, harryTheme } = React.useContext(ThemeContext);
+  const { spellsList, harryTheme, showSpells } = React.useContext(ThemeContext);
 
   return (
     <div
       className={`letterpad-wrap ${spellsList && harryTheme ? "active" : ""}`}
+      onClick={() => showSpells(false)}
     >
       <img
         src={letterpad}
