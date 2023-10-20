@@ -43,7 +43,7 @@ const Index = () => {
   const notify = () =>
     toast.info("Say 'Reveal' to get the list of Spells", {
       position: "bottom-center",
-      autoClose: 5000,
+      autoClose: 4000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -122,6 +122,7 @@ const Index = () => {
       transcript?.toLocaleLowerCase().includes("reveal") ||
       transcript?.toLocaleLowerCase().includes("revealio")
     ) {
+      sessionStorage.setItem("spellsViewed", "true");
       showSpells(true);
     }
   }, [transcript]);
@@ -215,7 +216,12 @@ const Index = () => {
               SpeechRecognition.abortListening();
             } else {
               SpeechRecognition.startListening();
-              notify();
+              if (spellsList) {
+                showSpells(false);
+              }
+              if (sessionStorage.getItem("spellsViewed") !== "true") {
+                notify();
+              }
             }
           }}
           href="#listen"
@@ -230,14 +236,14 @@ const Index = () => {
         >
           <FaFont />
         </a>
-        {/* <a
+        <a
           title="Spells"
           className="adminButton"
           href="#spells"
-          onClick={() => showSpells(!spellsList)}
+          onClick={() => postcardstoggle(true)}
         >
           <FaWandMagicSparkles />
-        </a> */}
+        </a>
       </div>
       {window.innerWidth < 768 && <ToastContainer />}
       {harryTheme && !snapeTheme && !postcardsactive && (

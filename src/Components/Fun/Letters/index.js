@@ -63,6 +63,7 @@ const PostLettersAnimation = () => {
           {letters.map((letter, index) => (
             <img
               src={postcard}
+              key={index}
               style={{
                 position: "absolute",
                 left: letter.x + "px",
