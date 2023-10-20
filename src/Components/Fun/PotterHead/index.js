@@ -236,14 +236,14 @@ const Index = () => {
         >
           <FaFont />
         </a>
-        <a
+        {/* <a
           title="Spells"
           className="adminButton"
           href="#spells"
           onClick={() => postcardstoggle(true)}
         >
           <FaWandMagicSparkles />
-        </a>
+        </a> */}
       </div>
       {window.innerWidth < 768 && <ToastContainer />}
       {harryTheme && !snapeTheme && !postcardsactive && (
