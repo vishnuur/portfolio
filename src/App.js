@@ -57,7 +57,7 @@ function App() {
       <Dementors />
       <Petronama />
       <Theme />
-      <div style={{ position: "relative", width: "100vw" }}>
+      <div style={{ position: "relative", width: "100%" }}>
         <HarryBackgroundVideo />
         <Home />
       </div>

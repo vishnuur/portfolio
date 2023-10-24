@@ -101,7 +101,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -115,7 +115,7 @@
 
 #Rain {
   z-index: 1002;
-  width: 100vw;
+  width: 100%;
   position: fixed;
 }
 .drop {
