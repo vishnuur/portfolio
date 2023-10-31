@@ -2,7 +2,7 @@
 
 Welcome to my Harry Potter-themed Portfolio Website! Immerse yourself in the magical world of Harry Potter as you explore my skills, experience, and projects. This enchanting website allows you to experience the wonder of Hogwarts and its spells with just a click. Unveil your inner wizard and navigate through my portfolio with a sprinkle of magic.
 
-![Harry Potter GIF]([http://micdotcom.tumblr.com/post/122277293948/your-favorite-hogwarts-house-actually-speaks](https://64.media.tumblr.com/71e7064ae0891396e1a1fbd3e162f6ed/tumblr_nqew0vOsp91r83d7lo3_500.gifv))
+![Harry Potter GIF](https://64.media.tumblr.com/71e7064ae0891396e1a1fbd3e162f6ed/tumblr_nqew0vOsp91r83d7lo3_500.gifv)
 
 ## Features
 
