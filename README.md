@@ -32,6 +32,8 @@ Welcome to my Harry Potter-themed Portfolio Website! Immerse yourself in the mag
 
 Explore my Harry Potter-themed portfolio website and let the magic of the wizarding world guide you through my skills, experience, and projects. Expect the unexpected as you journey through this enchanting online experience.
 
+![Harry Potter GIF](https://media0.giphy.com/media/7tn6Y2NgbLw8o/giphy.gif?cid=ecf05e47bwkwey1cbvlezrevriei0xj03w0eekme5qxstqfx&ep=v1_gifs_search&rid=giphy.gif&ct=g)
+
 
 # Getting Started with Create React App
 
