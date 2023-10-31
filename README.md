@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Spells
+
+Expecto Petrona
+
+![Alt text](relative%20path/to/logo512.jpg?raw=true "Title")
+
 ## Available Scripts
 
 In the project directory, you can run:
