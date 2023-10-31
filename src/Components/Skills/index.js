@@ -12,14 +12,40 @@ import sass from "../../Assets/Images/sass.png";
 import tailwind from "../../Assets/Images/tailwind.png";
 import azure from "../../Assets/Images/azure.png";
 import antd from "../../Assets/Images/antd.svg";
-import { SiNextdotjs, SiGithub } from "react-icons/si";
+import vite from "../../Assets/Images/Vitejs.webp";
 import ThemeContext from "../../context/ThemeContext";
 import FloatingClass from "../../context/utils";
+
+import { SiNextdotjs, SiGithub } from "react-icons/si";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Index = () => {
   const { dark } = React.useContext(ThemeContext);
 
   const colorCode = dark ? "white" : "black";
+
+  const dataSkills = {
+    tools: [
+      { id: "javascript", name: "JavaScript", image: javascript },
+      { id: "typescript", name: "TypeScript", image: typescript },
+      { id: "html", name: "HTML", image: html },
+      { id: "css", name: "CSS", image: css },
+      { id: "scss", name: "SCSS", image: sass },
+      { id: "redux", name: "Redux", image: redux },
+      { id: "azure", name: "Azure", image: azure },
+      { id: "gitlab", name: "GitLab", image: gitlab },
+    ],
+    library: [
+      { id: "reactjs", name: "ReactJS", image: reactjs },
+      { id: "material", name: "MaterialUI", image: material },
+      { id: "antd", name: "Ant Design", image: antd },
+      { id: "tailwind", name: "Tailwind CSS", image: tailwind },
+      { id: "vite", name: "Vite", image: vite },
+    ],
+  };
+
+  const combinedSkills = [...dataSkills.tools, ...dataSkills.library];
 
   return (
     <div className="skills-wrap">
@@ -39,46 +65,25 @@ const Index = () => {
         LANGUAGE AND TOOLS
       </p>
       <div className="langauges">
-        <img
-          src={javascript}
-          alt="javascript"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img
-          src={typescript}
-          alt="typescript"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img
-          src={html}
-          alt="html"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img src={css} alt="css" className={FloatingClass("", "fly-to-top3")} />
-        <img
-          src={sass}
-          alt="sass"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img
-          src={redux}
-          alt="redux"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <SiGithub
-          fill={colorCode}
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img
-          src={gitlab}
-          alt="gitlab"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img
-          src={azure}
-          alt="azure"
-          className={FloatingClass("", "fly-to-top3")}
-        />
+        {dataSkills.tools.map((res) => (
+          <a
+            data-tooltip-id={res.id}
+            data-tooltip-content={res.name}
+            href={res.id}
+          >
+            <img
+              src={res.image}
+              alt={res.id}
+              className={FloatingClass("", "fly-to-top3")}
+            />
+          </a>
+        ))}
+        <a data-tooltip-id="github" data-tooltip-content="GitHub" href="github">
+          <SiGithub
+            fill={colorCode}
+            className={FloatingClass("", "fly-to-top3")}
+          />
+        </a>
       </div>
       <p
         style={{ color: colorCode }}
@@ -87,31 +92,31 @@ const Index = () => {
         LIBRARIES AND FRAMEWORKS
       </p>
       <div className="langauges">
-        <img
-          src={reactjs}
-          alt="reactjs"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <SiNextdotjs
-          fill={colorCode}
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img
-          src={material}
-          alt="material"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img
-          src={tailwind}
-          alt="tailwind"
-          className={FloatingClass("", "fly-to-top3")}
-        />
-        <img
-          src={antd}
-          alt="antd"
-          className={FloatingClass("", "fly-to-top3")}
-        />
+        <a data-tooltip-id="nextjs" data-tooltip-content="NextJS" href="nextjs">
+          <SiNextdotjs
+            fill={colorCode}
+            className={FloatingClass("", "fly-to-top3")}
+          />
+        </a>
+        {dataSkills.library.map((res) => (
+          <a
+            data-tooltip-id={res.id}
+            data-tooltip-content={res.name}
+            href={res.id}
+          >
+            <img
+              src={res.image}
+              alt={res.id}
+              className={FloatingClass("", "fly-to-top3")}
+            />
+          </a>
+        ))}
       </div>
+      {combinedSkills?.map((res) => (
+        <Tooltip id={res.id} />
+      ))}
+      <Tooltip id="github" />
+      <Tooltip id="nextjs" />
     </div>
   );
 };
