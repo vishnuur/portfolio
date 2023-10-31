@@ -2,6 +2,8 @@
 
 Welcome to my Harry Potter-themed Portfolio Website! Immerse yourself in the magical world of Harry Potter as you explore my skills, experience, and projects. This enchanting website allows you to experience the wonder of Hogwarts and its spells with just a click. Unveil your inner wizard and navigate through my portfolio with a sprinkle of magic.
 
+![Harry Potter GIF](<http://micdotcom.tumblr.com/post/122277293948/your-favorite-hogwarts-house-actually-speaks>)
+
 ## Features
 
 1. **Harry Potter Theme**: Experience the enchanting world of Harry Potter with a single click. Transform the entire website into the magical setting of Hogwarts, complete with themed visuals, fonts, and an atmosphere that will transport you to the wizarding world.
