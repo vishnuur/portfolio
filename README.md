@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Expecto Petrona
 
-![Alt text](relative%20path/to/logo512.jpg?raw=true "Title")
+![Alt text](src/Assets/Images/expJunior.webp?raw=true "Title")
 
 ## Available Scripts
 
