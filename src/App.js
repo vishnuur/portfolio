@@ -16,6 +16,7 @@ import HarryBackgroundVideo from "./Components/Fun/HarryBackgroundVideo";
 import ReactRain from "react-rain-animation";
 
 import "react-rain-animation/lib/style.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const UserContext = React.createContext();
 
@@ -65,6 +66,7 @@ function App() {
       {snapeTheme && harryTheme && (
         <ReactRain numDrops={rainCount.toString()} />
       )}
+      <Analytics />
     </div>
   );
 }
