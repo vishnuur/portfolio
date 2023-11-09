@@ -16,20 +16,32 @@ import { Link } from "react-router-dom";
 import FloatingClass from "../../context/utils";
 
 const Index = () => {
-  const { dark } = React.useContext(ThemeContext);
+  const { dark, harryTheme } = React.useContext(ThemeContext);
 
   const colorCode = dark ? "white" : "black";
 
   return (
     <div className="intro-wrap">
       <div className="basic-details">
-        <p className={FloatingClass("", "fly-to-top")}>Hi, my name is</p>
+        <p
+          className={FloatingClass(
+            `${harryTheme ? "text-background" : ""}`,
+            "fly-to-top"
+          )}
+        >
+          Hi, my name is
+        </p>
+
         <h2
-          className={FloatingClass("", "fly-to-top")}
+          className={FloatingClass(
+            `${harryTheme ? "text-background" : ""}`,
+            "fly-to-top"
+          )}
           style={{ color: dark ? "white" : "black" }}
         >
           Vishnu UR
         </h2>
+
         <span className={FloatingClass("", "fly-to-top")}>
           <TypeAnimation
             sequence={[
