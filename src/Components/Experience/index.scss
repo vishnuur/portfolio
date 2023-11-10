@@ -191,39 +191,10 @@ figcaption {
 /* .img-bg */
 .img-bg {
   background: hsla(var(--hue), 25%, 10%, 0.5);
-}
-
-.card-front .img-bg {
-  clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0 100%);
-}
-
-.card-front .img-bg::before {
-  content: '';
-
-  position: absolute;
-  top: 34%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(18deg);
-
-  width: 100%;
-  height: 6px;
-  border: 1px solid var(--primary);
-  border-left-color: transparent;
-  border-right-color: transparent;
-
-  transition: 0.1s;
-}
-
-.card-back .img-bg {
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 60%);
+  height: 100%;
 }
 
 /* hover state */
-.flip-card-container:hover .card-front .img-bg::before {
-  width: 6px;
-  border-left-color: var(--primary);
-  border-right-color: var(--primary);
-}
 
 /* ul */
 .experience-ul {
