@@ -13,6 +13,8 @@ import tailwind from "../../Assets/Images/tailwind.png";
 import azure from "../../Assets/Images/azure.png";
 import antd from "../../Assets/Images/antd.svg";
 import vite from "../../Assets/Images/Vitejs.webp";
+import vitest from "../../Assets/Images/vitest.svg";
+import jest from "../../Assets/Images/jest.svg";
 import ThemeContext from "../../context/ThemeContext";
 import FloatingClass from "../../context/utils";
 
@@ -42,6 +44,8 @@ const Index = () => {
       { id: "antd", name: "Ant Design", image: antd },
       { id: "tailwind", name: "Tailwind CSS", image: tailwind },
       { id: "vite", name: "Vite", image: vite },
+      { id: "vitest", name: "Vitest", image: vitest },
+      { id: "jest", name: "Jest", image: jest },
     ],
   };
 

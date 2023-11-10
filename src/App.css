@@ -8,6 +8,14 @@
   animation: flyToTop 5s ease-in-out forwards;
 }
 
+.text-background {
+  background-image: url(https://i.imgur.com/eVzOF6a.gif);
+  background-size: cover;
+  color: transparent !important;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+}
+
 @font-face {
   font-family: "CustomHarryFont";
   src: url("./Assets/Fonts/HarryPotter2.ttf") format("truetype");
