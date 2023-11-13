@@ -9,6 +9,13 @@
   padding: 24px 54px;
   z-index: 1000;
   display: flex;
+  .festive {
+    position: fixed;
+    right: 24px;
+    top: 0;
+    width: 120px;
+    object-fit: cover;
+  }
 
   .container {
     display: flex;
@@ -90,4 +97,11 @@
 
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(24px);
+}
+@media (max-width: 768px) {
+  .navbar-wrap {
+    .festive {
+      width: 70px;
+    }
+  }
 }

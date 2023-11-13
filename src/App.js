@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import "./App.css";
 import "./stars.css";
+import "./sky.scss";
 import Loading from "./Components/Common/Loader";
 import Navbar from "./Components/Common/Navbar";
 import Home from "./Pages/Home";
@@ -52,6 +53,10 @@ function App() {
       className={`App ${harryFont ? "custom-font-harrypotter" : ""}`}
       style={{ fontSize: `${engorgio}px` }}
     >
+      <div className="pyro">
+        <div className="before"></div>
+        <div className="after"></div>
+      </div>
       <Letters />
       <Spells />
       <Navbar />
