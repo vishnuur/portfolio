@@ -9,7 +9,6 @@ const Index = () => {
 
   return (
     <div className="navbar-wrap">
-      {/* <input type="checkbox" /> */}
       {/* <img src={festive} alt="festival" className="festive" /> */}
 
       <div>
