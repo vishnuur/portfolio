@@ -53,10 +53,10 @@ function App() {
       className={`App ${harryFont ? "custom-font-harrypotter" : ""}`}
       style={{ fontSize: `${engorgio}px` }}
     >
-      <div className="pyro">
+      {/* <div className="pyro">
         <div className="before"></div>
         <div className="after"></div>
-      </div>
+      </div> */}
       <Letters />
       <Spells />
       <Navbar />

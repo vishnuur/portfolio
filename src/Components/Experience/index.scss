@@ -66,9 +66,17 @@
 }
 
 /* hover and focus-within states */
-.flip-card-container:hover .flip-card,
-.flip-card-container:focus-within .flip-card {
+
+.hovered-state .flip-card {
   transform: rotateY(180deg);
+}
+.rotate-card-mobile {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  fill: white;
+  z-index: 1000;
+  display: none;
 }
 
 /* .card-... */
@@ -412,6 +420,9 @@ button:focus + .design-container {
     width: 240px;
     height: 380px;
     margin: 20px 0;
+  }
+  .rotate-card-mobile {
+    display: block;
   }
   .card-front {
     h4 {

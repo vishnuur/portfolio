@@ -5,10 +5,13 @@ import FloatingClass from "../../context/utils";
 import expDev from "../../Assets/Images/expdev.webp";
 import expComp from "../../Assets/Images/expcomp.webp";
 import expJunior from "../../Assets/Images/expJunior.webp";
+import { useState } from "react";
+import { FaRotate } from "react-icons/fa6";
 
 const Index = () => {
   const { dark } = React.useContext(ThemeContext);
   const colorCode = dark ? "white" : "black";
+  const [flipCard, setflipCard] = useState({ index: 0, value: false });
 
   return (
     <div className="exp-wrap">
@@ -22,8 +25,21 @@ const Index = () => {
       </h6>
 
       <div className="card_wrap">
-        <div className="flip-card-container">
+        <div
+          className={`flip-card-container ${
+            flipCard.value && flipCard.index === 0 ? "hovered-state" : ""
+          }`}
+          onMouseEnter={() => setflipCard({ index: 0, value: true })}
+          onClick={() =>
+            setflipCard({
+              index: 0,
+              value: flipCard.index === 0 ? false : true,
+            })
+          }
+          onMouseLeave={() => setflipCard({ index: 0, value: false })}
+        >
           <div className={FloatingClass("flip-card", "fly-to-top1")}>
+            <FaRotate className="rotate-card-mobile" />
             <div className="card-front">
               <figure>
                 <div className="img-bg"></div>
@@ -68,8 +84,21 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="flip-card-container">
+        <div
+          className={`flip-card-container ${
+            flipCard.value && flipCard.index === 1 ? "hovered-state" : ""
+          }`}
+          onMouseEnter={() => setflipCard({ index: 1, value: true })}
+          onMouseLeave={() => setflipCard({ index: 1, value: false })}
+          onClick={() =>
+            setflipCard({
+              index: 1,
+              value: flipCard.index === 1 ? false : true,
+            })
+          }
+        >
           <div className={FloatingClass("flip-card", "fly-to-top1")}>
+            <FaRotate className="rotate-card-mobile" />
             <div className="card-front">
               <figure>
                 <div className="img-bg"></div>
@@ -114,21 +143,24 @@ const Index = () => {
                   time
                 </li>
               </ul>
-              {/* <div className="design-container">
-                <span className="design design--1"></span>
-                <span className="design design--2"></span>
-                <span className="design design--3"></span>
-                <span className="design design--4"></span>
-                <span className="design design--5"></span>
-                <span className="design design--6"></span>
-                <span className="design design--7"></span>
-                <span className="design design--8"></span>
-              </div> */}
             </div>
           </div>
         </div>
-        <div className="flip-card-container">
+        <div
+          className={`flip-card-container ${
+            flipCard.value && flipCard.index === 2 ? "hovered-state" : ""
+          }`}
+          onMouseEnter={() => setflipCard({ index: 2, value: true })}
+          onMouseLeave={() => setflipCard({ index: 2, value: false })}
+          onClick={() =>
+            setflipCard({
+              index: 2,
+              value: flipCard.index === 2 ? false : true,
+            })
+          }
+        >
           <div className={FloatingClass("flip-card", "fly-to-top1")}>
+            <FaRotate className="rotate-card-mobile" />
             <div className="card-front">
               <figure>
                 <div className="img-bg"></div>

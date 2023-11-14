@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./index.scss";
 import ThemeContext from "../../../context/ThemeContext";
 import { FaMoon, FaSun } from "react-icons/fa";
-import festive from "../../../Assets/Images/festive.png";
+// import festive from "../../../Assets/Images/festive.png";
 
 const Index = () => {
   const { dark, toggle, harryTheme } = useContext(ThemeContext);
@@ -10,7 +10,7 @@ const Index = () => {
   return (
     <div className="navbar-wrap">
       {/* <input type="checkbox" /> */}
-      <img src={festive} alt="festival" className="festive" />
+      {/* <img src={festive} alt="festival" className="festive" /> */}
 
       <div>
         <input type="checkbox" className="checkbox" id="checkbox" />
