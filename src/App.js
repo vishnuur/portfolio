@@ -57,18 +57,15 @@ function App() {
         <div className="before"></div>
         <div className="after"></div>
       </div> */}
-      {harryTheme && (
-        <>
-          <Letters />
-          <Spells />
-          <Navbar />
-          <Dementors />
-          <Petronama />
-        </>
-      )}
+      <Navbar />
+      <Letters />
+      <Spells />
+      <Dementors />
+      <Petronama />
+
       <Theme />
       <div style={{ position: "relative", width: "100%" }}>
-        {harryTheme && <HarryBackgroundVideo />}
+        <HarryBackgroundVideo />
         <Home />
       </div>
       <ActionButton />
