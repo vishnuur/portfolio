@@ -55,6 +55,7 @@ const Index = () => {
                   <li>ReduxJs</li>
                   <li>Redux Saga</li>
                   <li>Sass</li>
+                  <li>Jest</li>
                 </ul>
               </span>
             </div>
