@@ -33,7 +33,7 @@ const Index = () => {
           onClick={() =>
             setflipCard({
               index: 0,
-              value: flipCard.index === 0 ? false : true,
+              value: flipCard.index === 0 ? !flipCard.value : true,
             })
           }
           onMouseLeave={() => setflipCard({ index: 0, value: false })}
@@ -94,7 +94,7 @@ const Index = () => {
           onClick={() =>
             setflipCard({
               index: 1,
-              value: flipCard.index === 1 ? false : true,
+              value: flipCard.index === 1 ? !flipCard.value : true,
             })
           }
         >
@@ -156,7 +156,7 @@ const Index = () => {
           onClick={() =>
             setflipCard({
               index: 2,
-              value: flipCard.index === 2 ? false : true,
+              value: flipCard.index === 2 ? !flipCard.value : true,
             })
           }
         >
