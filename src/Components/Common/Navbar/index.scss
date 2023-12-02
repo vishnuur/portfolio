@@ -9,12 +9,30 @@
   padding: 24px 54px;
   z-index: 1000;
   display: flex;
+  justify-content: space-between;
   .festive {
     position: fixed;
     right: 24px;
-    top: 0;
+    top: 40px;
     width: 120px;
     object-fit: cover;
+  }
+  .navbar-content {
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      border: none;
+      cursor: pointer;
+      height: 32px;
+      font-size: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        border-radius: 25px;
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
   }
 
   .container {
@@ -102,6 +120,10 @@
   .navbar-wrap {
     .festive {
       width: 70px;
+      top: 0;
+    }
+    .navbar-content {
+      display: none;
     }
   }
 }

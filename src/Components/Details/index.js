@@ -8,7 +8,7 @@ const Index = () => {
   const { dark, harryTheme } = React.useContext(ThemeContext);
 
   return (
-    <div className={FloatingClass("details", "fly-to-top0")}>
+    <div id="about-id" className={FloatingClass("details", "fly-to-top0")}>
       <Fade>
         <h2
           style={{ color: dark ? "white" : "black" }}

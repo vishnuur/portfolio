@@ -15,7 +15,7 @@ const Index = () => {
     setInputs((prevState) => ({ ...prevState, [input]: text }));
   };
   return (
-    <div className="socialwrap">
+    <div className="socialwrap" id="contact-id">
       <section>
         <div className="section-header">
           <div className="container-social">

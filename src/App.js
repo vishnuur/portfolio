@@ -13,6 +13,7 @@ import Spells from "./Components/Fun/Spells";
 import Petronama from "./Components/Fun/Petronama";
 import Theme from "./Components/Fun/Theme";
 import HarryBackgroundVideo from "./Components/Fun/HarryBackgroundVideo";
+// import Festive from "./Components/Common/Festive";
 
 import ReactRain from "react-rain-animation";
 
@@ -53,6 +54,7 @@ function App() {
       className={`App ${harryFont ? "custom-font-harrypotter" : ""}`}
       style={{ fontSize: `${engorgio}px` }}
     >
+      {/* <Festive /> */}
       {/* <div className="pyro">
         <div className="before"></div>
         <div className="after"></div>

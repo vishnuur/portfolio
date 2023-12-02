@@ -14,7 +14,7 @@ const Index = () => {
   const [flipCard, setflipCard] = useState({ index: 0, value: false });
 
   return (
-    <div className="exp-wrap">
+    <div id="experience-id" className="exp-wrap">
       <h5 className={FloatingClass("", "fly-to-top1")}>My Experience</h5>
       <h6
         style={{ color: colorCode }}

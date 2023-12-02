@@ -52,7 +52,7 @@ const Index = () => {
   const combinedSkills = [...dataSkills.tools, ...dataSkills.library];
 
   return (
-    <div className="skills-wrap">
+    <div className="skills-wrap" id="skills-id">
       <h5 className={FloatingClass("", "fly-to-top3")}>My Skills</h5>
       <h6
         style={{ color: colorCode }}

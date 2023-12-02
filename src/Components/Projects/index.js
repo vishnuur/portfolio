@@ -73,6 +73,7 @@ function Index() {
   return (
     <div
       className="experience-wrap modal-active"
+      id="projects-id"
       // onClick={(e) => handleModalContainerClick(e)}
     >
       <div className="text-wrap">

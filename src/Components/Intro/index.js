@@ -21,7 +21,7 @@ const Index = () => {
   const colorCode = dark ? "white" : "black";
 
   return (
-    <div className="intro-wrap">
+    <div className="intro-wrap" id="home-id">
       <div className="basic-details">
         <p
           className={FloatingClass(
