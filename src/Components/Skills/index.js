@@ -7,6 +7,7 @@ import typescript from "../../Assets/Images/typescript.png";
 import css from "../../Assets/Images/css.png";
 import material from "../../Assets/Images/material.png";
 import reactjs from "../../Assets/Images/reactjs.png";
+import reactnative from "../../Assets/Images/react-native.png";
 import redux from "../../Assets/Images/redux.png";
 import sass from "../../Assets/Images/sass.png";
 import tailwind from "../../Assets/Images/tailwind.png";
@@ -40,6 +41,7 @@ const Index = () => {
     ],
     library: [
       { id: "reactjs", name: "ReactJS", image: reactjs },
+      { id: "reactnative", name: "React Native", image: reactnative },
       { id: "material", name: "MaterialUI", image: material },
       { id: "antd", name: "Ant Design", image: antd },
       { id: "tailwind", name: "Tailwind CSS", image: tailwind },
