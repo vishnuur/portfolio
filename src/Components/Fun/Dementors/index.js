@@ -1,14 +1,13 @@
-// ImageAnimation.js
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.scss";
-import { useEffect } from "react";
 import ThemeContext from "../../../context/ThemeContext";
 
 const Index = () => {
   const [showImages, setShowImages] = useState(false);
   const [hideDementors, sethideDementors] = useState(false);
   const { petronaOn } = React.useContext(ThemeContext);
+
+  const [randomPositions, setRandomPositions] = useState([]); // Store generated positions
 
   useEffect(() => {
     if (petronaOn) {
@@ -25,6 +24,17 @@ const Index = () => {
     }
   }, [petronaOn]);
 
+  useEffect(() => {
+    // Generate random positions only once when the component mounts
+    if (randomPositions.length === 0) {
+      const newPositions = [];
+      for (let i = 0; i < 30; i++) {
+        newPositions.push(getRandomPosition());
+      }
+      setRandomPositions(newPositions);
+    }
+  }, []);
+
   const getRandomPosition = () => {
     const randomX = Math.floor(Math.random() * window.innerWidth);
     const randomY = Math.floor(Math.random() * window.innerHeight);
@@ -36,7 +46,7 @@ const Index = () => {
 
     const imageArray = [];
     for (let i = 0; i < 30; i++) {
-      const randomPosition = getRandomPosition();
+      const { x, y } = randomPositions[i]; // Use stored positions
 
       imageArray.push(
         <img
@@ -47,8 +57,8 @@ const Index = () => {
             hideDementors ? "image-all" : `image-${i % 3}`
           }`}
           style={{
-            top: `${randomPosition.y}px`,
-            left: `${randomPosition.x}px`,
+            top: `${y}px`,
+            left: `${x}px`,
           }}
         />
       );
