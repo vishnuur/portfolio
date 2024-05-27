@@ -5,6 +5,7 @@ import FloatingClass from "../../context/utils";
 import expDev from "../../Assets/Images/expdev.webp";
 import expComp from "../../Assets/Images/expcomp.webp";
 import expJunior from "../../Assets/Images/expJunior.webp";
+import expSenior from "../../Assets/Images/expSenior.webp";
 import { useState } from "react";
 import { FaRotate } from "react-icons/fa6";
 
@@ -27,6 +28,68 @@ const Index = () => {
       <div className="card_wrap">
         <div
           className={`flip-card-container ${
+            flipCard.value && flipCard.index === 4 ? "hovered-state" : ""
+          }`}
+          onMouseEnter={() => setflipCard({ index: 4, value: true })}
+          onClick={() =>
+            setflipCard({
+              index: 4,
+              value: flipCard.index === 4 ? !flipCard.value : true,
+            })
+          }
+          onMouseLeave={() => setflipCard({ index: 4, value: false })}
+        >
+          <div className={FloatingClass("flip-card", "fly-to-top1")}>
+            <FaRotate className="rotate-card-mobile" />
+            <div className="card-front">
+              <figure>
+                <div className="img-bg"></div>
+                <img src={expSenior} alt="Experion Technologies" />
+                <figcaption>Experion Technologies</figcaption>
+                <h4>2024- Present</h4>
+              </figure>
+              <span>
+                <h6>Senior Software Developer</h6>
+                <ul className="experience-ul">
+                  <li>React Native</li>
+                  <li>Typescript</li>
+                  <li>ReduxJs</li>
+                  <li>Sass</li>
+                  <li>Jest</li>
+                  <li>FireBase</li>
+                </ul>
+              </span>
+            </div>
+
+            <div className="card-back">
+              <figure>
+                <div className="img-bg"></div>
+                <img src={expSenior} alt="Brohm Lake" />
+              </figure>
+
+              <ul className="experience-ul">
+                <li>
+                  Conducted R&D to convert a React Native app to Android Auto
+                  and CarPlay apps for Stellantis, expanding the app's usability
+                  and accessibility for automotive applications
+                </li>
+                <li>
+                  Enhanced API consumption efficiency by collaborating with
+                  backend teams, leading to a 20% improvement in data retrieval
+                  speed.
+                </li>
+                <li>
+                  Rapidly learned React Native and Firebase, contributing to a
+                  high-pressure project for Stellantis. Delivered key features
+                  and fixed bugs for their EV car app, leading to a successful
+                  production release.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          className={`flip-card-container ${
             flipCard.value && flipCard.index === 0 ? "hovered-state" : ""
           }`}
           onMouseEnter={() => setflipCard({ index: 0, value: true })}
@@ -45,7 +108,7 @@ const Index = () => {
                 <div className="img-bg"></div>
                 <img src={expDev} alt="Experion Technologies" />
                 <figcaption>Experion Technologies</figcaption>
-                <h4>2022- Preset</h4>
+                <h4>2022- 2024</h4>
               </figure>
               <span>
                 <h6>Software Developer</h6>
