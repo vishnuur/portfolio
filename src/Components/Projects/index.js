@@ -53,7 +53,7 @@ function Index() {
   const cardElements = [];
   for (let i = 0; i < expList?.length; i++) {
     cardElements.push(
-      <div className={FloatingClass("box card", "fly-to-top2")} key={i}>
+      <div className={FloatingClass("box card", "fly-to-top1")} key={i}>
         <span></span>
         <div className="content">
           <h2>{expList[i].name}</h2>

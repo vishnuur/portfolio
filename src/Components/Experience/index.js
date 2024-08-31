@@ -2,18 +2,90 @@ import React from "react";
 import "./index.scss";
 import ThemeContext from "../../context/ThemeContext";
 import FloatingClass from "../../context/utils";
-import expDev from "../../Assets/Images/expdev.webp";
-import expComp from "../../Assets/Images/expcomp.webp";
-import expJunior from "../../Assets/Images/expJunior.webp";
-import expSenior from "../../Assets/Images/expSenior.webp";
-import { useState } from "react";
-import { FaRotate } from "react-icons/fa6";
+import gitlab from "../../Assets/Images/gitlab.png";
+import html from "../../Assets/Images/html.png";
+import javascript from "../../Assets/Images/javascript.png";
+import typescript from "../../Assets/Images/typescript.png";
+import css from "../../Assets/Images/css.png";
+import reactjs from "../../Assets/Images/reactjs.png";
+import reactnative from "../../Assets/Images/react-native.png";
+import redux from "../../Assets/Images/redux.png";
+import sass from "../../Assets/Images/sass.png";
+import expIcon from "../../Assets/Images/expIcon.png";
+import azure from "../../Assets/Images/azure.png";
+import vite from "../../Assets/Images/Vitejs.webp";
+import vitest from "../../Assets/Images/vitest.svg";
+import jest from "../../Assets/Images/jest.svg";
+import { SiNextdotjs } from "react-icons/si";
 
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 const Index = () => {
   const { dark } = React.useContext(ThemeContext);
   const colorCode = dark ? "white" : "black";
-  const [flipCard, setflipCard] = useState({ index: 0, value: false });
+  const roles = [
+    {
+      date: "2019 - 2021",
+      title: "Junior Software Engineer",
+      company: "Techbyheart Pvt Ltd, Kochi, Kerala",
+      description:
+        "Developed dynamic admin panels for LMS and CMS applications. Built a Progressive Web Application (PWA) for hotel staff in the Maldives. Led multiple projects with a team of up to 9 members, ensuring timely delivery and high-quality output. Gained experience in frontend technologies like HTML, CSS, and JavaScript.",
+      iconSrc: expIcon,
+      skills: [reactjs, html, css],
+    },
+    {
+      date: "2021 - 2022",
+      title: "Associate Software Engineer",
+      company: "Techbyheart Pvt Ltd, Kochi, Kerala",
+      description:
+        "Led frontend development for logistics and e-commerce projects. Implemented Redux for state management, enhancing application performance. Developed reusable code libraries, reducing development time and improving consistency. Trained junior developers in core frontend technologies, contributing to team skill enhancement.",
+      iconSrc: expIcon,
+      skills: [reactjs, SiNextdotjs, html, css, redux],
+    },
+    {
+      date: "2022 - 2024",
+      title: "Software Engineer",
+      company: "Experion Technologies, Trivandrum, Kerala",
+      description:
+        "Spearheaded the integration of Redux-Saga and TypeScript, resulting in a 30% performance boost. Played a key role in developing custom maps and enhancing app functionality. Delivered critical projects under tight deadlines, including an EV car app for Stellantis. Focused on performance optimization and code efficiency, achieving significant improvements.",
+      iconSrc: expIcon,
+      skills: [reactnative, typescript, redux, sass, jest, azure],
+    },
+    {
+      date: "2024 - 2024",
+      title: "Senior Software Engineer",
+      company: "Experion Technologies, Trivandrum, Kerala",
+      description:
+        "Conducted extensive R&D for converting React Native apps to Android Auto and CarPlay compatibility. Improved API consumption efficiency, reducing data retrieval time by 20%. Mentored junior developers, helping them advance their skills in React Native and related technologies. Developed and executed comprehensive test cases, ensuring high code quality and reliability.",
+      iconSrc: expIcon,
+      skills: [reactnative, typescript, redux, sass, vite, vitest],
+    },
+    {
+      date: "2024 - present",
+      title: "Lead Software Engineer",
+      company: "Experion Technologies, Trivandrum, Kerala",
+      description:
+        "Leading the development of an ESG management platform, driving the project's technical vision. Collaborating with stakeholders to align technical implementation with business goals. Mentoring a team of front-end developers, focusing on optimizing and scaling a large Next.js codebase. Ensuring high performance and maintainability across all project deliverables.",
+      iconSrc: expIcon,
+      skills: [SiNextdotjs, javascript, redux, sass, jest, gitlab],
+    },
+  ];
 
+  const iconStyle = {
+    background: "#2E2E48",
+    color: "#fff",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
+
+  const contentStyle = {
+    background: dark ? "#1A1A2E" : "#F5F5F5",
+    color: "#fff",
+  };
   return (
     <div id="experience-id" className="exp-wrap">
       <h5 className={FloatingClass("", "fly-to-top1")}>My Experience</h5>
@@ -24,244 +96,97 @@ const Index = () => {
         My passion for clean code and design aesthetics drives me to deliver web
         applications that not only function flawlessly but also captivate users.
       </h6>
-
-      <div className="card_wrap">
-        <div
-          className={`flip-card-container ${
-            flipCard.value && flipCard.index === 4 ? "hovered-state" : ""
-          }`}
-          onMouseEnter={() => setflipCard({ index: 4, value: true })}
-          onClick={() =>
-            setflipCard({
-              index: 4,
-              value: flipCard.index === 4 ? !flipCard.value : true,
-            })
-          }
-          onMouseLeave={() => setflipCard({ index: 4, value: false })}
-        >
-          <div className={FloatingClass("flip-card", "fly-to-top1")}>
-            <FaRotate className="rotate-card-mobile" />
-            <div className="card-front">
-              <figure>
-                <div className="img-bg"></div>
-                <img src={expSenior} alt="Experion Technologies" />
-                <figcaption>Experion Technologies</figcaption>
-                <h4>2024- Present</h4>
-              </figure>
-              <span>
-                <h6>Senior Software Developer</h6>
-                <ul className="experience-ul">
-                  <li>React Native</li>
-                  <li>Typescript</li>
-                  <li>ReduxJs</li>
-                  <li>Sass</li>
-                  <li>Jest</li>
-                  <li>FireBase</li>
-                </ul>
-              </span>
+      <VerticalTimeline className={FloatingClass("", "fly-to-top1")}>
+        {roles.reverse().map((role, index) => (
+          <VerticalTimelineElement
+            key={index}
+            className={FloatingClass(
+              "vertical-timeline-element--work",
+              "fly-to-top1"
+            )}
+            contentStyle={contentStyle}
+            contentArrowStyle={{
+              borderRight: `7px solid ${dark ? "#1A1A2E" : "#F5F5F5"}`,
+            }}
+            date={role.date}
+            dateClassName={"date-style"}
+            iconStyle={iconStyle}
+            icon={
+              <img
+                src={role.iconSrc}
+                alt={role.title}
+                style={{ width: "30px" }}
+                className={FloatingClass("skills-icon", "fly-to-top1")}
+              />
+            }
+          >
+            <h3
+              className="vertical-timeline-element-title"
+              style={{
+                color: dark ? "#FFD700" : "#0056b3",
+                textShadow: dark ? "0 1px 3px rgba(0,0,0,0.3)" : "none",
+                fontWeight: "bold",
+              }}
+            >
+              {role.title}
+            </h3>
+            <h4
+              className="vertical-timeline-element-subtitle"
+              style={{
+                color: dark ? "#E0E0E0" : "#333333",
+                fontStyle: "italic",
+              }}
+            >
+              {role.company}
+            </h4>
+            <p
+              style={{
+                color: dark ? "#E0E0E0" : "#333333",
+                lineHeight: "1.6",
+                paddingLeft: "10px",
+                borderLeft: `2px solid ${dark ? "#FFD700" : "#0056b3"}`,
+              }}
+            >
+              {role.description}
+            </p>
+            <div className="skills-wrap1">
+              {role.skills.map((skill, i) => (
+                <span
+                  key={i}
+                  className="skills-icon-border"
+                  style={{
+                    color: dark ? "#1A1A2E" : "#F5F5F5",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = `0 4px 15px ${
+                      dark ? "rgba(255, 215, 0, 0.8)" : "rgba(0, 86, 179, 0.8)"
+                    }`;
+                    e.currentTarget.style.transform = "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow =
+                      "0 1px 2px rgba(0,0,0,0.2)";
+                    e.currentTarget.style.transform = "scale(1)";
+                  }}
+                >
+                  {typeof skill === "string" ? (
+                    <img
+                      src={skill}
+                      alt={skill}
+                      className={FloatingClass("skills-icon", "fly-to-top1")}
+                    />
+                  ) : (
+                    <SiNextdotjs
+                      color={colorCode}
+                      className={FloatingClass("", "fly-to-top1")}
+                    />
+                  )}
+                </span>
+              ))}
             </div>
-
-            <div className="card-back">
-              <figure>
-                <div className="img-bg"></div>
-                <img src={expSenior} alt="Brohm Lake" />
-              </figure>
-
-              <ul className="experience-ul">
-                <li>
-                  Conducted R&D to convert a React Native app to Android Auto
-                  and CarPlay apps for Stellantis, expanding the app's usability
-                  and accessibility for automotive applications
-                </li>
-                <li>
-                  Enhanced API consumption efficiency by collaborating with
-                  backend teams, leading to a 20% improvement in data retrieval
-                  speed.
-                </li>
-                <li>
-                  Rapidly learned React Native and Firebase, contributing to a
-                  high-pressure project for Stellantis. Delivered key features
-                  and fixed bugs for their EV car app, leading to a successful
-                  production release.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div
-          className={`flip-card-container ${
-            flipCard.value && flipCard.index === 0 ? "hovered-state" : ""
-          }`}
-          onMouseEnter={() => setflipCard({ index: 0, value: true })}
-          onClick={() =>
-            setflipCard({
-              index: 0,
-              value: flipCard.index === 0 ? !flipCard.value : true,
-            })
-          }
-          onMouseLeave={() => setflipCard({ index: 0, value: false })}
-        >
-          <div className={FloatingClass("flip-card", "fly-to-top1")}>
-            <FaRotate className="rotate-card-mobile" />
-            <div className="card-front">
-              <figure>
-                <div className="img-bg"></div>
-                <img src={expDev} alt="Experion Technologies" />
-                <figcaption>Experion Technologies</figcaption>
-                <h4>2022- 2024</h4>
-              </figure>
-              <span>
-                <h6>Software Developer</h6>
-                <ul className="experience-ul">
-                  <li>ReactJS</li>
-                  <li>Typescript</li>
-                  <li>ReduxJs</li>
-                  <li>Redux Saga</li>
-                  <li>Sass</li>
-                  <li>Jest</li>
-                </ul>
-              </span>
-            </div>
-
-            <div className="card-back">
-              <figure>
-                <div className="img-bg"></div>
-                <img src={expDev} alt="Brohm Lake" />
-              </figure>
-
-              <ul className="experience-ul">
-                <li>
-                  Recognized and awarded for surpassing expectations, accelating
-                  team efforts and deliveries
-                </li>
-                <li>
-                  Swiftly embraced Typescript, establishing foundational
-                  structure.
-                </li>
-                <li>
-                  Skillfully implemented Redux-Saga, enhancing project
-                  functionality
-                </li>
-                <li>Conducted code reviews and mentored junior developers</li>
-                <li>Implemented Redux and code splitting strategies</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div
-          className={`flip-card-container ${
-            flipCard.value && flipCard.index === 1 ? "hovered-state" : ""
-          }`}
-          onMouseEnter={() => setflipCard({ index: 1, value: true })}
-          onMouseLeave={() => setflipCard({ index: 1, value: false })}
-          onClick={() =>
-            setflipCard({
-              index: 1,
-              value: flipCard.index === 1 ? !flipCard.value : true,
-            })
-          }
-        >
-          <div className={FloatingClass("flip-card", "fly-to-top1")}>
-            <FaRotate className="rotate-card-mobile" />
-            <div className="card-front">
-              <figure>
-                <div className="img-bg"></div>
-                <img src={expComp} alt="TechByHeart" />
-                <figcaption>TechByHeart</figcaption>
-                <h4>2019-2022</h4>
-              </figure>
-
-              <span>
-                <h6>Assosiate Software Developer</h6>
-                <ul className="experience-ul">
-                  <li>ReactJS</li>
-                  <li>NextJS</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>Redux</li>
-                </ul>
-              </span>
-            </div>
-
-            <div className="card-back">
-              <figure>
-                <div className="img-bg"></div>
-                <img src={expComp} alt="bgComp" />
-              </figure>
-
-              <ul className="experience-ul">
-                <li>
-                  Build and installed reusable codes libraries for future
-                  reference
-                </li>
-                <li>
-                  Optimized app components and improved the product's
-                  performance
-                </li>
-                <li>
-                  Provided training for freshers on HTML, CSS, Javscript and
-                  ReactJS
-                </li>
-                <li>
-                  Worked as a team lead for 3 projects and managed to deliver on
-                  time
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div
-          className={`flip-card-container ${
-            flipCard.value && flipCard.index === 2 ? "hovered-state" : ""
-          }`}
-          onMouseEnter={() => setflipCard({ index: 2, value: true })}
-          onMouseLeave={() => setflipCard({ index: 2, value: false })}
-          onClick={() =>
-            setflipCard({
-              index: 2,
-              value: flipCard.index === 2 ? !flipCard.value : true,
-            })
-          }
-        >
-          <div className={FloatingClass("flip-card", "fly-to-top1")}>
-            <FaRotate className="rotate-card-mobile" />
-            <div className="card-front">
-              <figure>
-                <div className="img-bg"></div>
-                <img src={expJunior} alt="TechByHeart" />
-                <figcaption>TechByHeart</figcaption>
-                <h4>2019-2022</h4>
-              </figure>
-
-              <span>
-                <h6>Junior Software Developer</h6>
-                <ul className="experience-ul">
-                  <li>ReactJS</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                </ul>
-              </span>
-            </div>
-
-            <div className="card-back">
-              <figure>
-                <div className="img-bg"></div>
-                <img src={expJunior} alt="expJun" />
-              </figure>
-
-              <ul className="experience-ul">
-                <li>
-                  Developed an LMS web application and later converted to PWA.
-                </li>
-                <li>Developed a Whatsapp based e-commerce application</li>
-                <li>
-                  Created an e-commerce application for art product dealers
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+          </VerticalTimelineElement>
+        ))}
+      </VerticalTimeline>
     </div>
   );
 };

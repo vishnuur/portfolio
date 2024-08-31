@@ -211,7 +211,7 @@ section {
     transform: translateY(0) translateX(0) (0deg);
   }
   100% {
-    transform: translateY(-1000vh) translateX(30vw) rotate(360deg); /* Move elements to the top and make a full rotation */
+    transform: translateY(-1000vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
   }
 }
 
