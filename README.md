@@ -37,25 +37,25 @@ Explore my Harry Potter-themed portfolio website and let the magic of the wizard
 
 ## Available Spells
 
-Expecto Petrona
+## 1) Expecto Petrona
 
 ![petrona](https://media1.tenor.com/m/fDlU0tqQ1UkAAAAC/harry-potter-expecto-patronus.gif)
 
-Wingardium Leviosa
+## 2) Wingardium Leviosa
 
 ![Wingardium](https://media1.tenor.com/m/Ee54nMe1LpgAAAAd/its-leviosa-not-leviosar.gif)
 
-Lumos
+## 3) Lumos
 
 ![lumos](https://media1.tenor.com/m/dZ5hiEgwwHgAAAAC/harry-potter-wand.gif)
 
-Knox
+## 4) Knox
 
-After all this time
+## 5) After all this time
 
 ![always](https://media1.tenor.com/m/_xXpIoJbwfYAAAAC/always-severus-snape.gif)
 
-You're a wizard harry
+## 6) You're a wizard harry
 
 ![amawhat](https://media1.tenor.com/m/WUVqyY-KBbAAAAAd/your-a-wizard-harry.gif)
 
