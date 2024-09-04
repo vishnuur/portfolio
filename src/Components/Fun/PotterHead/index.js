@@ -110,9 +110,8 @@ const Index = () => {
     if (transcript?.toLocaleLowerCase().includes("all this time")) {
       snapeThemetoggle(true);
     }
-
     if (
-      transcript?.toLocaleLowerCase().includes("you are a wizard") ||
+      transcript?.toLocaleLowerCase().includes("you are a") ||
       transcript?.toLocaleLowerCase().includes("you're a wizard") ||
       transcript?.toLocaleLowerCase().includes("are a wizard")
     ) {
@@ -240,7 +239,7 @@ const Index = () => {
           title="Spells"
           className="adminButton"
           href="#spells"
-          onClick={() => postcardstoggle(true)}
+          onClick={() => showSpells(!spellsList)}
         >
           <FaWandMagicSparkles />
         </a> */}
