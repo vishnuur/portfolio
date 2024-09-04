@@ -35,17 +35,17 @@ Explore my Harry Potter-themed portfolio website and let the magic of the wizard
 ![Harry Potter GIF](https://media0.giphy.com/media/7tn6Y2NgbLw8o/giphy.gif?cid=ecf05e47bwkwey1cbvlezrevriei0xj03w0eekme5qxstqfx&ep=v1_gifs_search&rid=giphy.gif&ct=g)
 
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Spells
 
 Expecto Petrona
+Wingardium Leviosa
+https://media1.tenor.com/m/Ee54nMe1LpgAAAAd/its-leviosa-not-leviosar.gif
+Lumos
+Knox
+After all this time
+You're a wizard harry
 
-![Alt text](relative%20path/to/logo512.jpg?raw=true "Title")
-
-## Available Scripts
+## Read the usual blah blah blah below
 
 In the project directory, you can run:
 
