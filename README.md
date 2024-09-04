@@ -38,11 +38,16 @@ Explore my Harry Potter-themed portfolio website and let the magic of the wizard
 ## Available Spells
 
 Expecto Petrona
+
 Wingardium Leviosa
-https://media1.tenor.com/m/Ee54nMe1LpgAAAAd/its-leviosa-not-leviosar.gif
+![Wingardium](https://media1.tenor.com/m/Ee54nMe1LpgAAAAd/its-leviosa-not-leviosar.gif)
+
 Lumos
+
 Knox
+
 After all this time
+
 You're a wizard harry
 
 ## Read the usual blah blah blah below
