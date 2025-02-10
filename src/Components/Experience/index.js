@@ -28,7 +28,7 @@ const Index = () => {
   const colorCode = dark ? "white" : "black";
   const roles = [
     {
-      date: "2019 - 2021",
+      date: "2019/10 - 2021/02",
       title: "Junior Software Engineer",
       company: "Techbyheart Pvt Ltd, Kochi, Kerala",
       description:
@@ -37,7 +37,7 @@ const Index = () => {
       skills: [reactjs, html, css],
     },
     {
-      date: "2021 - 2022",
+      date: "2021/02 - 2022/05",
       title: "Associate Software Engineer",
       company: "Techbyheart Pvt Ltd, Kochi, Kerala",
       description:
@@ -46,7 +46,7 @@ const Index = () => {
       skills: [reactjs, SiNextdotjs, html, css, redux],
     },
     {
-      date: "2022 - 2024",
+      date: "2022/05 - 2024/04",
       title: "Software Engineer",
       company: "Experion Technologies, Trivandrum, Kerala",
       description:
@@ -55,7 +55,7 @@ const Index = () => {
       skills: [reactnative, typescript, redux, sass, jest, azure],
     },
     {
-      date: "2024 - 2024",
+      date: "2024/04 - 2024/08",
       title: "Senior Software Engineer",
       company: "Experion Technologies, Trivandrum, Kerala",
       description:
@@ -64,7 +64,7 @@ const Index = () => {
       skills: [reactnative, typescript, redux, sass, vite, vitest],
     },
     {
-      date: "2024 - present",
+      date: "2024/08 - present",
       title: "Lead Software Engineer",
       company: "Experion Technologies, Trivandrum, Kerala",
       description:
