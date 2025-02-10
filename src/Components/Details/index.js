@@ -17,7 +17,7 @@ const Index = () => {
             ""
           )}
         >
-          Results-driven and innovative ReactJS developer with over four years
+          Results-driven and innovative ReactJS developer with over five years
           of hands-on experience. Acknowledged for my problem-solving prowess
           and leadership abilities, I excel in high-pressure environments,
           consistently delivering successful outcomes, even in the most

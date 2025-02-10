@@ -16,6 +16,7 @@ const Index = () => {
   };
   return (
     <div className="socialwrap" id="contact-id">
+      <div class="fb-page" data-href="https://www.facebook.com/VishsWorkzz/" data-tabs="timeline" data-width="360" data-height="480" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/VishsWorkzz/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/VishsWorkzz/">Vish&#039;s Workzz</a></blockquote></div>
       <section>
         <div className="section-header">
           <div className="container-social">
