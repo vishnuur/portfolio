@@ -1,60 +1,82 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import "./App.css";
+import "./stars.css";
+import "./sky.scss";
+import Loading from "./Components/Common/Loader";
+import Navbar from "./Components/Common/Navbar";
+import Home from "./Pages/Home";
+import ThemeContext from "./context/ThemeContext";
+import ActionButton from "./Components/Fun/PotterHead";
+import Dementors from "./Components/Fun/Dementors";
+import Letters from "./Components/Fun/Letters";
+import Spells from "./Components/Fun/Spells";
+import Petronama from "./Components/Fun/Petronama";
+import Theme from "./Components/Fun/Theme";
+import HarryBackgroundVideo from "./Components/Fun/HarryBackgroundVideo";
+// import Festive from "./Components/Common/Festive";
 
-export default function App() {
+import ReactRain from "react-rain-animation";
+
+import "react-rain-animation/lib/style.css";
+import { Analytics } from "@vercel/analytics/react";
+
+export const UserContext = React.createContext();
+
+function App() {
+  const { engorgio, harryTheme, snapeTheme, harryFont } =
+    React.useContext(ThemeContext);
+  const [loading, setLoading] = useState(true);
+  const [rainCount, setrainCount] = useState(0);
+
   useEffect(() => {
-    // Load the Facebook SDK for JavaScript
-    if (window.FB) {
-      window.FB.XFBML.parse(); // Re-parse to render fb-page plugin
-      return;
-    }
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0";
-      fjs.parentNode.insertBefore(js, fjs);
-      js.onload = () => {
-        window.FB && window.FB.XFBML.parse(); // Parse once SDK is loaded
-      };
-    })(document, 'script', 'facebook-jssdk');
+    const incrementCount = () => {
+      if (snapeTheme) {
+        setrainCount((prevCount) => prevCount + 10);
+      } else {
+        setrainCount(0);
+      }
+    };
+    const intervalId = setInterval(incrementCount, 5000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [snapeTheme]);
+
+  useLayoutEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }, []);
-  useEffect(() => {
-    // Load YouTube's Subscribe Button script
-    const script = document.createElement("script");
-    script.src = "https://apis.google.com/js/platform.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
+
+  if (loading) return <Loading />;
   return (
-    <div>
-      <div
-        className="fb-page"
-        data-href="https://www.facebook.com/vishnu.cool.526"
-        data-tabs="timeline"
-        data-width="360"
-        data-height=""
-        data-small-header="false"
-        data-adapt-container-width="true"
-        data-hide-cover="false"
-        data-show-facepile="true"
-      >
-        <blockquote
-          cite="https://www.facebook.com/ShashiTharoor"
-          class="fb-xfbml-parse-ignore"
-        >
-          <a href="https://www.facebook.com/ShashiTharoor">Shashi Tharoor</a>
-        </blockquote>
+    <div
+      className={`App ${harryFont ? "custom-font-harrypotter" : ""}`}
+      style={{ fontSize: `${engorgio}px` }}
+    >
+      {/* <Festive /> */}
+      {/* <div className="pyro">
+        <div className="before"></div>
+        <div className="after"></div>
+      </div> */}
+      <Navbar />
+      <Letters />
+      <Spells />
+      <Dementors />
+      <Petronama />
+
+      <Theme />
+      <div style={{ position: "relative", width: "100%" }}>
+        <HarryBackgroundVideo />
+        <Home />
       </div>
-      <div>
-      <h2>Subscribe to My YouTube Channel</h2>
-      <div
-        className="g-ytsubscribe"
-        data-channelid="@ShashiTharoorOfficial" // Replace with your actual YouTube channel ID
-        data-layout="full"
-        data-theme="dark"
-        data-count="default"
-      ></div>
-    </div>
+      <ActionButton />
+      {snapeTheme && harryTheme && (
+        <ReactRain numDrops={rainCount.toString()} />
+      )}
+      <Analytics />
     </div>
   );
 }
+
+export default App;
