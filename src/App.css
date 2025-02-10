@@ -130,3 +130,15 @@
   z-index: 1002;
   background: rgba(135, 136, 136, 0.373) !important;
 }
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+.wiggle-text {
+  display: inline-block;  /* Ensure inline elements can rotate */
+  animation: wiggle 0.5s infinite;
+}

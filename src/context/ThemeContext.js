@@ -7,6 +7,7 @@ const ThemeContext = React.createContext({
   animate: () => {},
   animatesound: () => {},
   animateWrong: () => {},
+  castRictusempra: () => {},
   petronama: () => {},
   petronamaLight: false,
   petronaOn: false,
@@ -105,6 +106,22 @@ export function ThemeProvider(props) {
     startWrong();
   };
 
+  const castRictusempra = () => {
+    console.log("RictusCalled")
+    const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, li, a'); 
+
+    textElements.forEach(element => {
+      element.classList.add('wiggle-text');
+    });
+  
+    // Stop wiggling after 3 seconds
+    setTimeout(() => {
+      textElements.forEach(element => {
+        element.classList.remove('wiggle-text');
+      });
+    }, 3000);
+  };
+
   const harryThemetoggle = (value) => {
     setharryTheme(value);
   };
@@ -184,6 +201,7 @@ export function ThemeProvider(props) {
         harryFont,
         showSpells,
         spellsList,
+        castRictusempra,
       }}
     >
       {props.children}

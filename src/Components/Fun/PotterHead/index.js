@@ -28,6 +28,7 @@ const Index = () => {
     petronaOn,
     engorigoToggle,
     engorgio,
+    castRictusempra,
     harryTheme,
     harryThemetoggle,
     snapeThemetoggle,
@@ -97,6 +98,13 @@ const Index = () => {
     ) {
       petronama({ value: true, full: true });
     }
+    console.log(transcript, "transcript");
+    if (
+      transcript.toLocaleLowerCase().includes("rectus") ||
+      transcript.toLocaleLowerCase().includes("empra")
+    ) {
+      castRictusempra({ value: true, full: true });
+    }
 
     if (
       transcript?.toLocaleLowerCase().includes("jio") ||
@@ -119,7 +127,10 @@ const Index = () => {
     }
     if (
       transcript?.toLocaleLowerCase().includes("reveal") ||
-      transcript?.toLocaleLowerCase().includes("revealio")
+      transcript?.toLocaleLowerCase().includes("revealio") ||
+      transcript?.toLocaleLowerCase().includes("alohomora") ||
+      (transcript?.toLocaleLowerCase().includes("hello") &&
+        transcript?.toLocaleLowerCase().includes("mora"))
     ) {
       sessionStorage.setItem("spellsViewed", "true");
       showSpells(true);

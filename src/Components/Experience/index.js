@@ -88,21 +88,21 @@ const Index = () => {
   };
   return (
     <div id="experience-id" className="exp-wrap">
-      <h5 className={FloatingClass("", "fly-to-top1")}>My Experience</h5>
+      <h5 className={FloatingClass("", "fly-to-top6")}>My Experience</h5>
       <h6
         style={{ color: colorCode }}
-        className={FloatingClass("", "fly-to-top1")}
+        className={FloatingClass("", "fly-to-top6")}
       >
         My passion for clean code and design aesthetics drives me to deliver web
         applications that not only function flawlessly but also captivate users.
       </h6>
-      <VerticalTimeline className={FloatingClass("", "fly-to-top1")}>
+      <VerticalTimeline className={FloatingClass("", "fly-to-top6")}>
         {roles.reverse().map((role, index) => (
           <VerticalTimelineElement
             key={index}
             className={FloatingClass(
               "vertical-timeline-element--work",
-              "fly-to-top1"
+              "fly-to-top6"
             )}
             contentStyle={contentStyle}
             contentArrowStyle={{
@@ -116,7 +116,7 @@ const Index = () => {
                 src={role.iconSrc}
                 alt={role.title}
                 style={{ width: "30px" }}
-                className={FloatingClass("skills-icon", "fly-to-top1")}
+                className={FloatingClass("skills-icon", "fly-to-top6")}
               />
             }
           >
@@ -173,12 +173,12 @@ const Index = () => {
                     <img
                       src={skill}
                       alt={skill}
-                      className={FloatingClass("skills-icon", "fly-to-top1")}
+                      className={FloatingClass("skills-icon", "fly-to-top6")}
                     />
                   ) : (
                     <SiNextdotjs
                       color={colorCode}
-                      className={FloatingClass("", "fly-to-top1")}
+                      className={FloatingClass("", "fly-to-top6")}
                     />
                   )}
                 </span>
