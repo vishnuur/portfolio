@@ -3,9 +3,52 @@ import cakeshop from "../../Assets/Images/cakeshop.webp";
 import pin360 from "../../Assets/Images/pin360.webp";
 import automoto from "../../Assets/Images/automoto.webp";
 import ifc from "../../Assets/Images/ifc.webp";
+import stellantis from "../../Assets/Images/stellantis.webp";
+import esg from "../../Assets/Images/esg.webp";
 import mali from "../../Assets/Images/mali.jpg";
 
 const expList = [
+  {
+    name: "ESG Playbook",
+    image: esg,
+    content:
+      "An ESG application for tracking emission values, carbon footprints, double materiality, CSRD compliance, and EU Taxonomy standards, allowing companies to easily access and report their sustainability metrics.",
+    techused: [
+      "NextJS",
+      "JavaScript",
+      "Firebase",
+      "Jira",
+      "Sass",
+      "Azure Devops",
+    ],
+    roles: [
+      "Handled front end lead position",
+      "Mentoring junior developers and new team members",
+      "Provide technical advice and assist in solving programming problems",
+      "Fostered seamless collaboration with American client's in-house developers",
+    ],
+  },
+  {
+    name: "Stellantis",
+    image: stellantis,
+    content:
+      "A mobile application built with React Native for Maserati EV users, designed to locate and navigate to nearby charging stations, view power and voltage specifications, monitor real-time charging status, make seamless payments for charging, and provide user reviews for enhanced charging experiences.",
+    techused: [
+      "React Native",
+      "TypeScript",
+      "Redux",
+      "Sass",
+      "JAVA",
+      "Azure Devops",
+      "JEST",
+    ],
+    roles: [
+      "Handled Mobile App development",
+      "Quickly adapted to React Native",
+      "Skillfully implemented Redux-Saga, enhancing project functionality",
+      "Fostered seamless collaboration with Australian client's in-house developers",
+    ],
+  },
   {
     name: "IFC",
     image: ifc,
