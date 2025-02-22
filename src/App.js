@@ -42,6 +42,8 @@ function App() {
     };
   }, [snapeTheme]);
 
+  console.log(this,"this")
+
   useLayoutEffect(() => {
     setTimeout(() => {
       setLoading(false);

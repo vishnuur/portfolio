@@ -17,7 +17,12 @@ const Icons = () => {
           <FaFacebookF className="fab fa-facebook social  facebook fa-3x" />
         </div>
       </a>
-      <a href="twitter" className={FloatingClass("", "fly-to-top6")}>
+      <a
+        href="https://x.com/Vishnu802823864"
+        target="_blank"
+        rel="noreferrer"
+        className={FloatingClass("", "fly-to-top6")}
+      >
         <div className="bg-ico" id="twitter">
           <FaTwitter className="fab fa-twitter social  twitter fa-3x" />
         </div>

@@ -89,7 +89,7 @@ const Index = () => {
             />
           </Link>
           <Link
-            to="https://www.linkedin.com/in/vishnu-ur-213165186/"
+            to="https://x.com/Vishnu802823864"
             target="_blank"
             rel="noopener noreferrer"
           >
