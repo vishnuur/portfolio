@@ -68,7 +68,7 @@
   animation: floating 4s infinite ease-in-out; /* Adjust the duration as needed */
 }
 .floating-image2 {
-  width: 120px !important; /* Adjust the size as needed */
+  width: 120px; /* Adjust the size as needed */
   margin: 10px; /* Adjust the margin as needed */
   position: absolute;
   right: 15%;
@@ -76,7 +76,7 @@
   animation: floating 6s infinite ease-in-out; /* Adjust the duration as needed */
 }
 .floating-image3 {
-  width: 50px !important; /* Adjust the size as needed */
+  width: 50px; /* Adjust the size as needed */
   margin: 10px; /* Adjust the margin as needed */
   position: absolute;
   right: 25%;

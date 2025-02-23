@@ -3,6 +3,8 @@ import { TypeAnimation } from "react-type-animation";
 import "./index.scss";
 import coverimage from "../../Assets/Images/coverimage.png";
 import coverimageTheme from "../../Assets/Images/coverimage-harry.png";
+import quidditch from "../../Assets/Images/quidditch.png";
+import nimbus from "../../Assets/Images/nimbus.png";
 import float1 from "../../Assets/Images/float1.png";
 import float2 from "../../Assets/Images/float2.webp";
 import float3 from "../../Assets/Images/float3.webp";
@@ -103,13 +105,33 @@ const Index = () => {
       </div>
       <div className="coverimage">
         <span className={FloatingClass("image-container", "fly-to-top")}>
-          <img alt="float1" className="floating-image1" src={float1} />
-          <img alt="float2" className="floating-image2" src={float2} />
-          <img alt="float3" className="floating-image3" src={float3} />
+          {!harryTheme && (
+            <img alt="float1" className="floating-image1" src={float1} />
+          )}
+          <img
+            alt="float2"
+            className="floating-image2"
+            src={harryTheme ? nimbus : float2}
+            style={{
+              width: harryTheme ? "420px" : "120px",
+              top: harryTheme ? "10%" : "15%",
+              right: harryTheme ? "25%" : "15%",
+            }}
+          />
+          <img
+            alt="float3"
+            className="floating-image3"
+            src={harryTheme ? quidditch : float3}
+            style={{
+              width: harryTheme ? "120px" : "50px",
+              top: harryTheme ? "25%" : "15%",
+              right: harryTheme ? "18%" : "25%",
+            }}
+          />
         </span>
         <img
           className={FloatingClass("cover-main-image", "fly-to-top")}
-          src={harryTheme?coverimageTheme:coverimage}
+          src={harryTheme ? coverimageTheme : coverimage}
           alt="coverimage"
         />
       </div>
