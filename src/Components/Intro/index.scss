@@ -37,8 +37,8 @@
   }
   .coverimage {
     .cover-main-image {
-      width: 760px;
-      height: 760px;
+      width: 640px;
+      height: 640px;
     }
     img {
       transform: scaleX(-1);
@@ -64,23 +64,23 @@
   margin: 10px; /* Adjust the margin as needed */
   position: absolute;
   right: 50%;
-  top: 25%;
+  top: 15%;
   animation: floating 4s infinite ease-in-out; /* Adjust the duration as needed */
 }
 .floating-image2 {
   width: 120px !important; /* Adjust the size as needed */
   margin: 10px; /* Adjust the margin as needed */
   position: absolute;
-  right: 10%;
-  top: 35%;
+  right: 15%;
+  top: 15%;
   animation: floating 6s infinite ease-in-out; /* Adjust the duration as needed */
 }
 .floating-image3 {
   width: 50px !important; /* Adjust the size as needed */
   margin: 10px; /* Adjust the margin as needed */
   position: absolute;
-  right: 20%;
-  top: 35%;
+  right: 25%;
+  top: 15%;
   animation: floating 6s infinite ease-in-out; /* Adjust the duration as needed */
 }
 

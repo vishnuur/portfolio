@@ -1,7 +1,8 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import "./index.scss";
-import coverimage from "../../Assets/Images/coverimage.webp";
+import coverimage from "../../Assets/Images/coverimage.png";
+import coverimageTheme from "../../Assets/Images/coverimage-harry.png";
 import float1 from "../../Assets/Images/float1.png";
 import float2 from "../../Assets/Images/float2.webp";
 import float3 from "../../Assets/Images/float3.webp";
@@ -108,7 +109,7 @@ const Index = () => {
         </span>
         <img
           className={FloatingClass("cover-main-image", "fly-to-top")}
-          src={coverimage}
+          src={harryTheme?coverimageTheme:coverimage}
           alt="coverimage"
         />
       </div>
