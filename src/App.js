@@ -19,6 +19,7 @@ import ReactRain from "react-rain-animation";
 
 import "react-rain-animation/lib/style.css";
 import { Analytics } from "@vercel/analytics/react";
+import DevMode from "./Pages/DevMode";
 
 export const UserContext = React.createContext();
 
@@ -27,6 +28,23 @@ function App() {
     React.useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [rainCount, setrainCount] = useState(0);
+  const [theme, setTheme] = useState("light"); // light | dark | developer
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === "d") {
+        event.preventDefault(); // Ensures no unwanted browser behavior
+        setTheme((prevTheme) =>
+          prevTheme === "developer" ? "dark" : "developer"
+        );
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   useEffect(() => {
     const incrementCount = () => {
@@ -54,25 +72,31 @@ function App() {
       className={`App ${harryFont ? "custom-font-harrypotter" : ""}`}
       style={{ fontSize: `${engorgio}px` }}
     >
-      {/* <Festive /> */}
-      {/* <div className="pyro">
+      {theme === "developer" ? (
+        <DevMode />
+      ) : (
+        <>
+          {/* <Festive /> */}
+          {/* <div className="pyro">
         <div className="before"></div>
         <div className="after"></div>
       </div> */}
-      <Navbar />
-      <Letters />
-      <Spells />
-      <Dementors />
-      <Petronama />
+          <Navbar />
+          <Letters />
+          <Spells />
+          <Dementors />
+          <Petronama />
 
-      <Theme />
-      <div style={{ position: "relative", width: "100%" }}>
-        <HarryBackgroundVideo />
-        <Home />
-      </div>
-      <ActionButton />
-      {snapeTheme && harryTheme && (
-        <ReactRain numDrops={rainCount.toString()} />
+          <Theme />
+          <div style={{ position: "relative", width: "100%" }}>
+            <HarryBackgroundVideo />
+            <Home />
+          </div>
+          <ActionButton />
+          {snapeTheme && harryTheme && (
+            <ReactRain numDrops={rainCount.toString()} />
+          )}
+        </>
       )}
       <Analytics />
     </div>

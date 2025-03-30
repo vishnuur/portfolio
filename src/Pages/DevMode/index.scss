@@ -1,0 +1,134 @@
+.devWrap {
+  display: flex;
+}
+
+.sidebar {
+  height: 100%;
+  min-height: 100vh;
+  background-color: #252526;
+  position: relative;
+}
+
+.resize-handle {
+  width: 5px;
+  height: 100%;
+  background-color: #555;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: ew-resize; /* Left-right resize cursor */
+}
+
+.resize-handle:hover {
+  background-color: #777;
+}
+.ant-tree {
+  background-color: transparent;
+}
+.tabs-wrap {
+  background-color: #1e1e1e;
+  width: 100%;
+}
+.ant-tabs-tab {
+  border-bottom-color: black !important;
+  color: grey !important;
+  background-color: #191818 !important;
+  border-radius: unset !important;
+  border: unset !important;
+}
+.ant-tabs-tab-remove {
+  color: white !important;
+}
+.ant-tabs-tab-active {
+  background-color: #1e1e1e !important;
+  border-top: 1px solid rgb(83, 83, 255) !important;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: white !important;
+}
+.ant-tabs-nav-wrap {
+  background-color: rgb(16, 16, 16) !important;
+}
+.modal-button {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid grey;
+}
+.ant-modal-content {
+  background-color: transparent !important;
+}
+.ant-modal-close {
+  display: none !important;
+}
+/* From Uiverse.io by cssbuttons-io */ 
+.modal-button {
+  width: 180px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  background: #222222;
+  position: fixed;
+  &:focus{
+    background-color: #222222;
+  }
+  svg{
+    height: 50px;
+    width: 50px;
+  }
+ }
+ 
+ .modal-button, .modal-button span {
+  transition: 200ms;
+ }
+ 
+ .modal-button .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+ }
+ 
+ .modal-button .icon {
+  position: absolute;
+  border-left: 1px solid #c41b1b;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .modal-button svg {
+  width: 25px;
+  fill: #eee;
+ }
+ 
+ .modal-button:hover {
+  background: #ff3636;
+ }
+ 
+ .modal-button:hover .text {
+  color: transparent;
+ }
+ 
+ .modal-button:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+ }
+ 
+ .modal-button:focus {
+  outline: none;
+ }
+ 
+ .modal-button:active .icon svg {
+  transform: scale(0.8);
+ }

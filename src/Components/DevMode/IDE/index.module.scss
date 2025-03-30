@@ -1,0 +1,90 @@
+.terminal {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: "Fira Code", monospace;
+  width: 600px;
+  height: 350px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.terminalHeader {
+  background-color: #2d2d2d;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.terminalButtons {
+  display: flex;
+}
+
+.close {
+  background-color: #ff5f56;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  svg {
+    width: 8px;
+    color: black;
+  }
+}
+
+.minimize {
+  background-color: #ffbd2e;
+}
+
+.maximize {
+  background-color: #28c840;
+}
+
+.close,
+.minimize,
+.maximize {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.terminalBody {
+  padding: 10px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.command {
+  color: #00ff00; /* Green for commands */
+}
+
+.output {
+  color: #cccccc; /* Grey for output */
+}
+
+.error {
+  color: #ff5555; /* Red for errors */
+}
+
+.prompt {
+  color: #00bcd4; /* Cyan prompt */
+  font-weight: bold;
+}
+
+.inputLine {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: "Fira Code", monospace;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  padding-left: 5px;
+}

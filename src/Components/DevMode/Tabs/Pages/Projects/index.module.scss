@@ -1,0 +1,65 @@
+.container {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: "Fira Code", monospace;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .codeBlock {
+    background: #252526;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 14px;
+    white-space: pre;
+    line-height: 1.5;
+    text-align: left;
+  }
+  
+  .comment {
+    color: #6a9955;
+  }
+  
+  .keyword {
+    color: #569cd6;
+  }
+  
+  .variable {
+    color: #9cdcfe;
+  }
+  
+  .string {
+    color: #ce9178;
+  }
+  
+  .function {
+    color: #dcdcaa;
+  }
+  
+  .method {
+    color: #d16969;
+  }
+  
+  .details {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #9cdcfe;
+  }
+  
+  .highlight {
+    color: #ce9178;
+  }
+  
+  .projectList {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .projectList li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  

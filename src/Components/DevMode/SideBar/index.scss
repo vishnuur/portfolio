@@ -1,0 +1,18 @@
+.ant-tree-node-content-wrapper {
+  color: white !important;
+}
+.ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background-color: rgb(66, 66, 66) !important;
+}
+.ant-tree-switcher {
+  color: grey !important;
+}
+.ant-tree-show-line .ant-tree-indent-unit:before {
+  border-inline-end: 1px solid rgb(76, 76, 76) !important;
+}
+.ant-tree .ant-tree-switcher-leaf-line:after {
+  border-bottom: 1px solid rgb(76, 76, 76) !important;
+}
+.ant-tree .ant-tree-switcher-leaf-line:before {
+  border-inline-end: 1px solid rgb(76, 76, 76) !important;
+}
