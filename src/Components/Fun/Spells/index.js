@@ -16,6 +16,7 @@ const Index = () => {
         src={letterpad}
         alt="letterpad"
         className={`letterpad ${spellsList && harryTheme ? "active" : ""}`}
+        loading="lazy"
       />
       <ul
         className={`custom-font-harrypotter listofspells ${

@@ -60,6 +60,7 @@ const Index = () => {
             top: `${y}px`,
             left: `${x}px`,
           }}
+          loading="lazy"
         />
       );
     }

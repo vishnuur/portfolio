@@ -1,10 +1,10 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import "./index.scss";
-import coverimage from "../../Assets/Images/coverimage.png";
-import coverimageTheme from "../../Assets/Images/coverimage-harry.png";
-import quidditch from "../../Assets/Images/quidditch.png";
-import nimbus from "../../Assets/Images/nimbus.png";
+import coverimage from "../../Assets/Images/coverimage.webp";
+import coverimageTheme from "../../Assets/Images/coverimage-harry.webp";
+import quidditch from "../../Assets/Images/quidditch.webp";
+import nimbus from "../../Assets/Images/nimbus.webp";
 import float1 from "../../Assets/Images/float1.png";
 import float2 from "../../Assets/Images/float2.webp";
 import float3 from "../../Assets/Images/float3.webp";
@@ -106,7 +106,12 @@ const Index = () => {
       <div className="coverimage">
         <span className={FloatingClass("image-container", "fly-to-top")}>
           {!harryTheme && (
-            <img alt="float1" className="floating-image1" src={float1} />
+            <img
+              alt="float1"
+              className="floating-image1"
+              src={float1}
+              loading="lazy"
+            />
           )}
           <img
             alt="float2"
@@ -117,6 +122,7 @@ const Index = () => {
               top: harryTheme ? "10%" : "15%",
               right: harryTheme ? "25%" : "15%",
             }}
+            loading="lazy"
           />
           <img
             alt="float3"
@@ -127,12 +133,14 @@ const Index = () => {
               top: harryTheme ? "25%" : "15%",
               right: harryTheme ? "18%" : "25%",
             }}
+            loading="lazy"
           />
         </span>
         <img
           className={FloatingClass("cover-main-image", "fly-to-top")}
           src={harryTheme ? coverimageTheme : coverimage}
           alt="coverimage"
+          loading="lazy"
         />
       </div>
     </div>

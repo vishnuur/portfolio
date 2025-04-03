@@ -1,5 +1,5 @@
 import React from "react";
-import hogwarts from "../../../Assets/Images/hogwartsDay.jpg";
+import hogwarts from "../../../Assets/Images/hogwartsDay.webp";
 import ThemeContext from "../../../context/ThemeContext";
 
 const Index = () => {

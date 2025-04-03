@@ -71,6 +71,7 @@ const PostLettersAnimation = () => {
                 opacity: letter.fading ? 0 : 1,
               }}
               alt="postcards"
+              loading="lazy"
             />
           ))}
         </div>

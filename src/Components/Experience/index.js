@@ -11,7 +11,7 @@ import reactjs from "../../Assets/Images/reactjs.png";
 import reactnative from "../../Assets/Images/react-native.png";
 import redux from "../../Assets/Images/redux.png";
 import sass from "../../Assets/Images/sass.png";
-import expIcon from "../../Assets/Images/expIcon.png";
+import expIcon from "../../Assets/Images/expIcon.webp";
 import azure from "../../Assets/Images/azure.png";
 import vite from "../../Assets/Images/Vitejs.webp";
 import vitest from "../../Assets/Images/vitest.svg";
@@ -117,6 +117,7 @@ const Index = () => {
                 alt={role.title}
                 style={{ width: "30px" }}
                 className={FloatingClass("skills-icon", "fly-to-top6")}
+                loading="lazy"
               />
             }
           >
@@ -174,6 +175,7 @@ const Index = () => {
                       src={skill}
                       alt={skill}
                       className={FloatingClass("skills-icon", "fly-to-top6")}
+                      loading="lazy"
                     />
                   ) : (
                     <SiNextdotjs

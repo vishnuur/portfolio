@@ -22,7 +22,11 @@ const Index = ({
         </div>
         <div className="blog-slider__item swiper-slide">
           <div className="blog-slider__img">
-            <img src={selectedData?.image ?? modalBg} alt={selectedData.name} />
+            <img
+              src={selectedData?.image ?? modalBg}
+              alt={selectedData.name}
+              loading="lazy"
+            />
           </div>
           <div className="blog-slider__content" style={{ textAlign: "left" }}>
             <div className="blog-slider__title">{selectedData.name}</div>

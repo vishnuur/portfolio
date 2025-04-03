@@ -81,6 +81,7 @@ const Index = () => {
               src={res.image}
               alt={res.id}
               className={FloatingClass("", "fly-to-top3")}
+              loading="lazy"
             />
           </a>
         ))}
@@ -114,6 +115,7 @@ const Index = () => {
               src={res.image}
               alt={res.id}
               className={FloatingClass("", "fly-to-top3")}
+              loading="lazy"
             />
           </a>
         ))}
