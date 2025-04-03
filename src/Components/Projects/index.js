@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-import "./index.scss";
-import "./modal.scss";
-import "./newModal.scss";
-import ThemeContext from "../../context/ThemeContext";
-import FloatingClass from "../../context/utils";
-import Modal from "./modal";
-import expList from "./dataFile";
+import React, { lazy, Suspense, useEffect, useState } from "react";
+import "./index.scss"; // ✅ Keep styles at the top
+import "./modal.scss"; // ✅ Keep styles at the top
+import "./newModal.scss"; // ✅ Keep styles at the top
 
-function Index() {
+import ThemeContext from "../../context/ThemeContext"; // ✅ Context at the top
+import FloatingClass from "../../context/utils"; // ✅ Utility functions at the top
+import expList from "./dataFile"; // ✅ Data files at the top
+
+const Modal = lazy(() => import("./modal")); // ✅ Lazy loading after all imports
+
+const Index = () => {
   const { dark } = React.useContext(ThemeContext);
   const [modalClass, setModalClass] = useState("");
   const [isModalActive, setIsModalActive] = useState(false);
@@ -90,16 +92,18 @@ function Index() {
       <span className="container">{cardElements}</span>
       {isModalActive && (
         <div id="modal-container" className={modalClass}>
-          <Modal
-            selectedData={selectedData}
-            setselectedData={setselectedData}
-            dataList={expList}
-            handleModalContainerClick={handleModalContainerClick}
-          />
+          <Suspense fallback={<div>Loading Modal</div>}>
+            <Modal
+              selectedData={selectedData}
+              setselectedData={setselectedData}
+              dataList={expList}
+              handleModalContainerClick={handleModalContainerClick}
+            />
+          </Suspense>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default Index;

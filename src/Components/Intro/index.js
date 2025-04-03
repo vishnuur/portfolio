@@ -110,7 +110,6 @@ const Index = () => {
               alt="float1"
               className="floating-image1"
               src={float1}
-              loading="lazy"
             />
           )}
           <img
@@ -122,7 +121,6 @@ const Index = () => {
               top: harryTheme ? "10%" : "15%",
               right: harryTheme ? "25%" : "15%",
             }}
-            loading="lazy"
           />
           <img
             alt="float3"
@@ -133,14 +131,12 @@ const Index = () => {
               top: harryTheme ? "25%" : "15%",
               right: harryTheme ? "18%" : "25%",
             }}
-            loading="lazy"
           />
         </span>
         <img
           className={FloatingClass("cover-main-image", "fly-to-top")}
           src={harryTheme ? coverimageTheme : coverimage}
           alt="coverimage"
-          loading="lazy"
         />
       </div>
     </div>
