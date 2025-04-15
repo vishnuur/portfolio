@@ -7,10 +7,12 @@ import { handleMouseDown } from "./utils/resizeHandlers";
 import AboutMe from "../../Components/DevMode/Tabs/Pages/About";
 import IDEOpen from "../../Components/DevMode/IDE";
 import { FaCode } from "react-icons/fa6";
+import ThemeContext from "../../context/ThemeContext";
 
 const initialItems = [{ label: "About", children: <AboutMe />, key: "About" }];
 
 export default function DevMode() {
+  const { changeDevTheme } = React.useContext(ThemeContext);
   const [sidebarWidth, setSidebarWidth] = useState(20);
   const sidebarRef = useRef(null);
   const isResizing = useRef(false);
@@ -18,13 +20,19 @@ export default function DevMode() {
   const [items, setItems] = useState(initialItems);
   const newTabIndex = useRef(0);
   const [isIDEOpen, setisIDEOpen] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const openIDE = () => {
     setisIDEOpen(true);
+    setClicked(true);
   };
 
   const closeIDE = () => {
     setisIDEOpen(false);
+  };
+
+  const onClose = () => {
+    changeDevTheme();
   };
 
   return (
@@ -56,7 +64,13 @@ export default function DevMode() {
           items={items}
         />
       </div>
-      <button className="noselect modal-button" onClick={openIDE}>
+      <button onClick={onClose} className="close-button" aria-label="Close">
+        ×
+      </button>
+      <button
+        className={`noselect modal-button ${!clicked ? "shiver" : ""}`}
+        onClick={openIDE}
+      >
         <span className="text">IDE</span>
         <span className="icon">
           <FaCode />

@@ -38,6 +38,7 @@ export function ThemeProvider(props) {
   const [postcardsactive, setpostcardsactive] = useState(false);
   const [harryFont, setharryFont] = useState(false);
   const [spellsList, setspellsList] = useState(false);
+  const [devTheme, setdevTheme] = useState(false);
 
   let audio = new Audio("/leviosa.mp3");
   let audioWrong = new Audio("/leviosawrong.mp3");
@@ -178,6 +179,10 @@ export function ThemeProvider(props) {
     }
   };
 
+  const changeDevTheme = (value) => {
+    setdevTheme(!devTheme);
+  };
+
   return (
     <ThemeContext.Provider
       value={{
@@ -203,6 +208,8 @@ export function ThemeProvider(props) {
         showSpells,
         spellsList,
         castRictusempra,
+        devTheme,
+        changeDevTheme,
       }}
     >
       {props.children}

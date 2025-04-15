@@ -63,7 +63,7 @@
 .ant-modal-close {
   display: none !important;
 }
-/* From Uiverse.io by cssbuttons-io */ 
+/* From Uiverse.io by cssbuttons-io */
 .modal-button {
   width: 180px;
   height: 50px;
@@ -73,29 +73,30 @@
   background: red;
   border: none;
   border-radius: 5px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-  background: #222222;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: #5c5b5b;
   position: fixed;
-  &:focus{
+  &:focus {
     background-color: #222222;
   }
-  svg{
+  svg {
     height: 50px;
     width: 50px;
   }
- }
- 
- .modal-button, .modal-button span {
+}
+
+.modal-button,
+.modal-button span {
   transition: 200ms;
- }
- 
- .modal-button .text {
+}
+
+.modal-button .text {
   transform: translateX(35px);
   color: white;
   font-weight: bold;
- }
- 
- .modal-button .icon {
+}
+
+.modal-button .icon {
   position: absolute;
   border-left: 1px solid #c41b1b;
   transform: translateX(110px);
@@ -104,31 +105,121 @@
   display: flex;
   align-items: center;
   justify-content: center;
- }
- 
- .modal-button svg {
+}
+
+.modal-button svg {
   width: 25px;
   fill: #eee;
- }
- 
- .modal-button:hover {
+}
+
+.modal-button:hover {
   background: #ff3636;
- }
- 
- .modal-button:hover .text {
+}
+
+.modal-button:hover .text {
   color: transparent;
- }
- 
- .modal-button:hover .icon {
+}
+
+.modal-button:hover .icon {
   width: 150px;
   border-left: none;
   transform: translateX(0);
- }
- 
- .modal-button:focus {
+}
+
+.modal-button:focus {
   outline: none;
- }
- 
- .modal-button:active .icon svg {
+}
+
+.modal-button:active .icon svg {
   transform: scale(0.8);
- }
+}
+@keyframes shiver {
+  0%,
+  50%,
+  100% {
+    transform: none;
+  } /* pause phase */
+
+  51% {
+    transform: rotate(2deg);
+  }
+  52% {
+    transform: rotate(-2deg);
+  }
+  53% {
+    transform: rotate(2.5deg);
+  }
+  54% {
+    transform: rotate(-2.5deg);
+  }
+  55% {
+    transform: rotate(3deg);
+  }
+  56% {
+    transform: rotate(-3deg);
+  }
+  57% {
+    transform: rotate(2.5deg);
+  }
+  58% {
+    transform: rotate(-2.5deg);
+  }
+  59% {
+    transform: rotate(2deg);
+  }
+  60% {
+    transform: rotate(-2deg);
+  }
+  61% {
+    transform: rotate(1deg);
+  }
+  62% {
+    transform: rotate(-1deg);
+  }
+  63% {
+    transform: rotate(1deg);
+  }
+  64% {
+    transform: rotate(-1deg);
+  }
+  70% {
+    transform: none;
+  } /* ease back to calm */
+}
+
+.shiver {
+  animation: shiver 4s infinite;
+  transition: transform 2s ease;
+}
+
+/* Optional: Smooth transform on stop */
+.modal-button {
+  transition: transform 0.2s ease;
+}
+
+.close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border: none;
+  color: #ccc;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 3px;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+}
+
+.close-button:hover {
+  background-color: #e90000d6; /* soft red bg */
+  color: white;
+}
+.close-button:active {
+  background-color: #a80000; /* darker red for click press effect */
+  color: white;
+}

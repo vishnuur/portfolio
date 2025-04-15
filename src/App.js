@@ -24,27 +24,10 @@ import DevMode from "./Pages/DevMode";
 export const UserContext = React.createContext();
 
 function App() {
-  const { engorgio, harryTheme, snapeTheme, harryFont } =
+  const { engorgio, harryTheme, snapeTheme, harryFont, devTheme } =
     React.useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [rainCount, setrainCount] = useState(0);
-  const [theme, setTheme] = useState("light"); // light | dark | developer
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === "d") {
-        event.preventDefault(); // Ensures no unwanted browser behavior
-        setTheme((prevTheme) =>
-          prevTheme === "developer" ? "dark" : "developer"
-        );
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
 
   useEffect(() => {
     const incrementCount = () => {
@@ -72,7 +55,7 @@ function App() {
       className={`App ${harryFont ? "custom-font-harrypotter" : ""}`}
       style={{ fontSize: `${engorgio}px` }}
     >
-      {theme === "developer" ? (
+      {devTheme ? (
         <DevMode />
       ) : (
         <>
