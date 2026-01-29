@@ -143,6 +143,20 @@ body {
 .container .box:nth-child(8):after {
   background: linear-gradient(315deg, #7403f5, #fd0dc5);
 }
+.container .box:nth-child(9):before,
+.container .box:nth-child(9):after {
+  background: linear-gradient(315deg, #fd0dc5, #ff8a00);
+}
+
+.container .box:nth-child(10):before,
+.container .box:nth-child(10):after {
+  background: linear-gradient(315deg, #ff8a00, #00ffcc);
+}
+
+.container .box:nth-child(11):before,
+.container .box:nth-child(11):after {
+  background: linear-gradient(315deg, #00ffcc, #0158fb);
+}
 
 .container .box span {
   display: block;

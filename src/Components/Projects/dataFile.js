@@ -6,8 +6,70 @@ import ifc from "../../Assets/Images/ifc.webp";
 import stellantis from "../../Assets/Images/stellantis.webp";
 import esg from "../../Assets/Images/esg.webp";
 import mali from "../../Assets/Images/mali.jpg";
+import mezzo from "../../Assets/Images/mezzo.png";
+import rentd from "../../Assets/Images/rentd.png";
+import maphabit from "../../Assets/Images/maphabit.png";
+
 
 const expList = [
+  {
+  name: "Mezzo",
+  image: mezzo, // add image import
+  content:
+    "A middleware platform acting as an operational bridge between brokers and service providers, streamlining communication, data exchange, and workflow coordination across systems.",
+  techused: [
+    "ReactJs",
+    "JavaScript",
+    "REST APIs",
+    "GitHub",
+    "Jira"
+  ],
+  roles: [
+    "Worked on core frontend features and system workflows in a broker-facing platform",
+    "Diagnosed and resolved complex UI and integration issues beyond automated tool suggestions",
+    "Improved data handling and interface reliability across broker-service communication flows",
+    "Collaborated with backend teams to ensure seamless API integration and data consistency"
+  ],
+},
+{
+  name: "MapHabit",
+  image: maphabit, // add image import
+  content:
+    "A React Native mobile application designed to assist individuals with cognitive or developmental challenges in completing daily routines through guided task flows, caregiver monitoring, and real-time progress tracking.",
+  techused: [
+    "React Native",
+    "Firebase",
+    "GitHub",
+    "JavaScript",
+    "Push Notifications"
+  ],
+  roles: [
+    "Built and enhanced mobile features focused on task guidance and user accessibility",
+    "Integrated Firebase for real-time data sync and user activity tracking",
+    "Implemented caregiver-side visibility into user progress and updates",
+    "Worked on performance and stability improvements for diverse user needs"
+  ],
+},
+{
+  name: "Rent 2.0",
+  image: rentd, // add image import
+  content:
+    "A rental marketplace mobile application enabling users to list, discover, and rent apartments, manage payments, transfer funds, and earn rewards within a unified financial ecosystem.",
+  techused: [
+    "React Native",
+    "Stripe",
+    "Apple Pay",
+    "Socket.io",
+    "Secure Payment APIs"
+  ],
+  roles: [
+    "Developed core mobile features for property listing, booking, and in-app transactions",
+    "Integrated Stripe and Apple Pay for secure rent payments and fund transfers",
+    "Implemented real-time communication and balance updates using Socket.io",
+    "Applied secure data handling and encryption practices for financial and user data privacy"
+  ],
+},
+
   {
     name: "ESG Playbook",
     image: esg,
