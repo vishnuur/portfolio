@@ -1,11 +1,24 @@
 import AboutMe from "../../../Components/DevMode/Tabs/Pages/About";
 import Projects from "../../../Components/DevMode/Tabs/Pages/Projects/projects";
+import WebApps from "../../../Components/DevMode/Tabs/Pages/Projects/WebApps";
+import MobileApps from "../../../Components/DevMode/Tabs/Pages/Projects/MobileApps";
+import Experience from "../../../Components/DevMode/Tabs/Pages/Experience";
+import Skills from "../../../Components/DevMode/Tabs/Pages/Skills";
+import FrontEnd from "../../../Components/DevMode/Tabs/Pages/Skills/FrontEnd";
+import Backend from "../../../Components/DevMode/Tabs/Pages/Skills/Backend";
+import Devops from "../../../Components/DevMode/Tabs/Pages/Skills/Devops";
 import UnderConstruction from "../../../Components/DevMode/Tabs/Pages/UnderConstruction";
 
 const tabComponents = {
   About: AboutMe,
   Projects: Projects,
-  // Add more tabs here as needed
+  "Web Apps": WebApps,
+  "Mobile Apps": MobileApps,
+  Experience: Experience,
+  Skills: Skills,
+  FrontEnd: FrontEnd,
+  Backend: Backend,
+  Devops: Devops,
 };
 
 export const onSelectSideBar = (value, setItems, setActiveKey) => {
