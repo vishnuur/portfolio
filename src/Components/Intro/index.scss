@@ -31,7 +31,7 @@
       text-align: left;
     }
     p {
-      color: #9f55ff;
+      color: var(--accent, #9f55ff);
       margin: 0;
     }
   }

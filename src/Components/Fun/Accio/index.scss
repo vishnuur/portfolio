@@ -1,0 +1,278 @@
+@use "../../../styles/parchment" as *;
+
+// Light streaks rushing past as a section is summoned.
+.accio-streaks {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  z-index: 997;
+  pointer-events: none;
+  opacity: 0;
+  span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 38vmax;
+    height: 2px;
+    transform-origin: 0 50%;
+    transform: rotate(var(--angle)) translateX(7vmax);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 240, 200, 0),
+      rgba(255, 240, 200, 0.85),
+      rgba(255, 240, 200, 0)
+    );
+  }
+}
+
+// ---- "Accio résumé" -------------------------------------------------------
+
+.letter-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1002;
+}
+
+.letter-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 4, 12, 0.7);
+}
+
+.letter-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  pointer-events: none;
+  > * {
+    grid-area: 1 / 1;
+    pointer-events: auto;
+  }
+}
+
+.letter-envelope {
+  position: relative;
+  z-index: 2;
+  width: min(440px, 86vw);
+  aspect-ratio: 1.6;
+  perspective: 900px;
+}
+
+.letter-envelope-body {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: linear-gradient(160deg, #f1e2bd, #dcc08a);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55),
+    inset 0 0 30px rgba(120, 72, 28, 0.35);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 9%;
+  box-sizing: border-box;
+}
+
+.letter-address {
+  font-size: clamp(14px, 2.6vw, 19px);
+  line-height: 1.3;
+  text-align: center;
+  color: #2a4a8a; // emerald-green ink would be canon; blue ink reads better here
+}
+
+.letter-flap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 58%;
+  z-index: 3;
+  transform-origin: 50% 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, #e6d2a2, #cfb07a);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+.letter-seal {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  z-index: 4;
+  width: 70px;
+  height: 70px;
+  margin: -35px 0 0 -35px;
+  font-size: 70px;
+  line-height: 1;
+  color: #8c1c1c;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.45));
+  svg {
+    display: block;
+  }
+}
+
+.letter-sheet {
+  @include parchment;
+  position: relative;
+  z-index: 1;
+  width: min(720px, 92vw);
+  max-height: 86vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+  padding: 40px 44px 32px;
+  border-radius: 4px;
+  text-align: left;
+  opacity: 0;
+  font-family: Georgia, "Times New Roman", serif;
+
+  // Reset the site-wide button style from Experience/index.scss.
+  button {
+    font: inherit;
+    letter-spacing: normal;
+    border-radius: 0;
+    transition: none;
+  }
+}
+
+.letter-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  font-size: 30px !important;
+  color: $ink-faded !important;
+  cursor: pointer;
+  &:hover,
+  &:focus-visible {
+    color: $ink !important;
+  }
+}
+
+.letter-content {
+  font-size: 15px;
+  line-height: 1.55;
+  color: $ink;
+
+  h3 {
+    margin: 22px 0 8px;
+    font-size: 24px;
+    font-weight: normal;
+    border-bottom: 1px solid rgba(59, 36, 18, 0.3);
+  }
+  a {
+    color: #7a3a12;
+  }
+}
+
+.letter-greeting {
+  margin: 0 0 6px;
+  font-style: italic;
+}
+.letter-intro {
+  margin: 0 0 18px;
+}
+
+.letter-header {
+  text-align: center;
+  h2 {
+    margin: 0;
+    font-size: clamp(30px, 5vw, 42px);
+    font-weight: normal;
+  }
+  p {
+    margin: 2px 0 0;
+    color: $ink-faded;
+  }
+}
+
+.letter-roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin-bottom: 14px;
+  }
+  p {
+    margin: 4px 0 0;
+    color: $ink-faded;
+  }
+}
+.letter-role-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px 12px;
+  span {
+    color: $ink-faded;
+    font-size: 13px;
+  }
+}
+.letter-role-company {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.letter-skills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  li {
+    padding: 2px 10px;
+    border: 1px solid rgba(59, 36, 18, 0.4);
+    border-radius: 999px;
+    font-size: 13px;
+  }
+}
+
+.letter-contact {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.letter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+  button,
+  a {
+    padding: 8px 18px !important;
+    border: 1px solid #3b2412 !important;
+    border-radius: 999px !important;
+    background: #3b2412 !important;
+    color: #fbe9c0 !important;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover,
+    &:focus-visible {
+      background: #5a3518 !important;
+    }
+  }
+}
+
+.letter-signoff {
+  margin: 22px 0 0;
+  text-align: right;
+  span {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .letter-sheet {
+    padding: 34px 20px 24px;
+  }
+}

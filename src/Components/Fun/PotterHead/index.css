@@ -36,12 +36,16 @@ body {
   text-align: center;
 }
 
-.adminButtons a {
+.adminButtons .adminButton {
   display: flex;
   width: 45px;
   height: 45px;
+  padding: 0;
+  border: none;
   border-radius: 50%;
-  text-decoration: none;
+  letter-spacing: normal;
+  font: inherit;
+  cursor: pointer;
   margin: 10px auto 0;
   line-height: 1.15;
   color: #fff;
@@ -51,25 +55,220 @@ body {
   box-shadow: 0 0 5px 1px rgba(51, 51, 51, 0.3);
 }
 
-.adminButtons a:hover {
+.adminButtons .adminButton:hover,
+.adminButtons .adminButton:focus-visible {
+  color: #fff;
+  border: none;
   transform: scale(1.05);
 }
 
-.adminButtons a:nth-child(1) {
+/* Spell book */
+.adminButtons .adminButton:nth-child(1),
+.adminButtons .adminButton:nth-child(1):hover,
+.adminButtons .adminButton:nth-child(1):focus {
+  background-color: #7e57c2;
+  transition: opacity 0.2s ease-in-out 0.35s, transform 0.15s ease-in-out;
+}
+/* Wingardium Leviosa */
+.adminButtons .adminButton:nth-child(2),
+.adminButtons .adminButton:nth-child(2):hover,
+.adminButtons .adminButton:nth-child(2):focus {
   background-color: #ff5722;
   transition: opacity 0.2s ease-in-out 0.3s, transform 0.15s ease-in-out;
 }
-.adminButtons a:nth-child(2) {
+/* Patronus */
+.adminButtons .adminButton:nth-child(3),
+.adminButtons .adminButton:nth-child(3):hover,
+.adminButtons .adminButton:nth-child(3):focus {
   background-color: #03a9f4;
   transition: opacity 0.2s ease-in-out 0.25s, transform 0.15s ease-in-out;
 }
-.adminButtons a:nth-child(3) {
+/* Microphone */
+.adminButtons .adminButton:nth-child(4),
+.adminButtons .adminButton:nth-child(4):hover,
+.adminButtons .adminButton:nth-child(4):focus {
   background-color: #f44336;
   transition: opacity 0.2s ease-in-out 0.2s, transform 0.15s ease-in-out;
 }
-.adminButtons a:nth-child(4) {
+/* Font */
+.adminButtons .adminButton:nth-child(5),
+.adminButtons .adminButton:nth-child(5):hover,
+.adminButtons .adminButton:nth-child(5):focus {
   background-color: #4caf50;
   transition: opacity 0.2s ease-in-out 0.15s, transform 0.15s ease-in-out;
+}
+
+/* The mic pulses while it's listening. */
+.adminButtons .adminButton.listening {
+  animation: mic-pulse 1.2s ease-out infinite;
+}
+@keyframes mic-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgba(244, 67, 54, 0);
+  }
+}
+
+/* First-visit hints (MagicHint.js). */
+.magic-hint {
+  position: absolute;
+  right: calc(100% + 16px);
+  bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 130px));
+  padding: 10px 10px 10px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #fff4d6;
+  background: rgba(24, 20, 44, 0.92);
+  border: 1px solid rgba(255, 215, 120, 0.45);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4), 0 0 18px rgba(255, 210, 120, 0.15);
+  animation: caption-in 0.35s ease-out;
+  text-align: left;
+}
+.magic-hint strong {
+  color: #ffd98a;
+}
+/* Next to the spell book button, at the top of the stack of five. */
+.magic-hint--book {
+  bottom: 325px;
+  transform: translateY(50%);
+}
+.magic-hint button {
+  flex: none;
+  padding: 0 4px;
+  border: none;
+  background: none;
+  color: rgba(255, 244, 214, 0.7);
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+.magic-hint button:hover,
+.magic-hint button:focus {
+  color: #fff;
+  background: none;
+  border: none;
+}
+/* A little tail pointing at the button. */
+.magic-hint::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  bottom: 20px;
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  border-top: 1px solid rgba(255, 215, 120, 0.45);
+  border-right: 1px solid rgba(255, 215, 120, 0.45);
+  transform: rotate(45deg);
+}
+.magic-hint--book::after {
+  bottom: calc(50% - 6px);
+}
+
+/* The wand beckons: a soft pulsing ring and an orbiting sparkle. */
+.adminActions.beckon > .adminButton {
+  animation: wand-beckon 1.8s ease-in-out infinite;
+}
+.adminActions.beckon > .adminButton::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 215, 120, 0.7);
+  animation: wand-ring 1.8s ease-out infinite;
+}
+.adminActions.beckon > .adminButton::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff6d8;
+  box-shadow: 0 0 10px 3px rgba(255, 215, 120, 0.9);
+  top: 50%;
+  left: 50%;
+  margin: -4px;
+  animation: wand-orbit 2.4s linear infinite;
+}
+@keyframes wand-beckon {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 120, 0);
+  }
+  50% {
+    box-shadow: 0 0 22px 6px rgba(255, 215, 120, 0.55);
+  }
+}
+@keyframes wand-ring {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes wand-orbit {
+  from {
+    transform: rotate(0deg) translateX(38px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(38px) rotate(-360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .adminActions.beckon > .adminButton,
+  .adminActions.beckon > .adminButton::before,
+  .adminActions.beckon > .adminButton::after {
+    animation: none;
+  }
+}
+
+/* What the mic heard, and which spell was cast. */
+.spell-caption {
+  position: absolute;
+  right: calc(100% + 16px);
+  bottom: 10px;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 130px));
+  padding: 8px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #fff;
+  background: rgba(20, 22, 40, 0.88);
+  border: 1px solid rgba(255, 215, 120, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  animation: caption-in 0.25s ease-out;
+  pointer-events: none;
+}
+.spell-caption--cast {
+  color: #ffe9a8;
+  text-shadow: 0 0 8px rgba(255, 215, 120, 0.6);
+}
+.spell-caption--unknown {
+  color: #e8e8f0;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.spell-caption--listening {
+  font-style: italic;
+  border-color: rgba(244, 67, 54, 0.5);
+}
+@keyframes caption-in {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
 }
 
 .adminActions a i {
@@ -101,7 +300,7 @@ body {
   box-shadow: 0 3px 6px 2px rgba(51, 51, 51, 0.3);
 }
 
-.adminToggle:checked ~ .adminButtons a {
+.adminToggle:checked ~ .adminButtons .adminButton {
   opacity: 1;
   visibility: visible;
 }

@@ -9,15 +9,16 @@ import Experience from "../../Components/Experience";
 import Social from "../../Components/Social";
 
 const Index = () => {
-  const { dark, spellsList } = React.useContext(ThemeContext);
+  const { dark, spellsList, harryTheme } = React.useContext(ThemeContext);
 
   const gradient =
-    "linear-gradient(120deg,rgba(#e0c3fc, 0.75) 0%,rgba(#8ec5fc, 0.75) 100%,)";
+    "linear-gradient(120deg, rgba(224, 195, 252, 0.75) 0%, rgba(142, 197, 252, 0.75) 100%)";
 
   return (
     <div
       className={`home-wrap ${spellsList ? "blur-screen" : ""}`}
-      style={{ background: dark ? "" : gradient }}
+      // In Harry Potter light mode the Hogwarts backdrop shows instead.
+      style={{ background: dark || harryTheme ? "" : gradient }}
     >
       <div className="header">
         <div className="progress-container">

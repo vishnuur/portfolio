@@ -1,0 +1,119 @@
+.sorting-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  cursor: default;
+}
+
+.sorting-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(40, 28, 18, 0.82) 0%,
+    rgba(6, 4, 10, 0.94) 70%
+  );
+}
+
+.sorting-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.sorting-hat {
+  font-size: clamp(130px, 26vmin, 230px);
+  line-height: 1;
+  opacity: 0;
+  .sorting-hat-body {
+    color: #6b4a2b;
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.6))
+      drop-shadow(0 0 2px rgba(255, 220, 160, 0.4));
+  }
+  svg {
+    display: block;
+  }
+}
+
+.sorting-speech {
+  position: relative;
+  min-height: 9em;
+  max-width: 640px;
+  color: #f3e2bb;
+  font-size: clamp(22px, 3.4vw, 32px);
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.sorting-line {
+  margin: 0 0 10px;
+  opacity: 0;
+}
+
+.sorting-reveal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.sorting-house {
+  margin: 0;
+  font-size: clamp(42px, 8vw, 76px);
+  color: var(--house-secondary);
+  -webkit-text-stroke: 1px var(--house-primary);
+  text-shadow: 0 0 24px var(--house-secondary), 0 4px 16px rgba(0, 0, 0, 0.7);
+}
+
+.sorting-note {
+  margin: 4px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(243, 226, 187, 0.8);
+}
+
+.sorting-sparks {
+  position: absolute;
+  left: 50%;
+  top: 55px;
+}
+.sorting-spark {
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--house-secondary);
+  box-shadow: 0 0 10px 3px var(--house-secondary);
+  opacity: 0;
+}
+
+// Navbar badge for the visitor's house.
+.house-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 14px;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+  transition: transform 0.2s ease !important;
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.1) rotate(-4deg);
+  }
+  .house-crest {
+    display: block;
+  }
+}

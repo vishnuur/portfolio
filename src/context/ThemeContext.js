@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const ThemeContext = React.createContext({
   dark: false,
@@ -7,7 +7,6 @@ const ThemeContext = React.createContext({
   animate: () => {},
   animatesound: () => {},
   animateWrong: () => {},
-  castRictusempra: () => {},
   petronama: () => {},
   petronamaLight: false,
   petronaOn: false,
@@ -27,6 +26,19 @@ const ThemeContext = React.createContext({
 
 export default ThemeContext;
 
+const SOUND_FILES = {
+  leviosa: "/leviosa.mp3",
+  leviosaWrong: "/leviosawrong.mp3",
+  dementors: "/dementors.mp3",
+  expecto: "/expecto.mp3",
+  expectoFull: "/expectoFull.mp3",
+  snapeSong: "/snape.mp3",
+  snapeSound: "/snapesound.mp3",
+  iamwhat: "/iamwhat.mp3",
+  harryPost: "/harryPost.mp3",
+  spells: "/spell.mp3",
+};
+
 export function ThemeProvider(props) {
   const [dark, setDark] = useState(true);
   const [animatevalue, setAnimate] = useState(false);
@@ -40,62 +52,101 @@ export function ThemeProvider(props) {
   const [spellsList, setspellsList] = useState(false);
   const [devTheme, setdevTheme] = useState(false);
 
-  let audio = new Audio("/leviosa.mp3");
-  let audioWrong = new Audio("/leviosawrong.mp3");
-  let dementors = new Audio("/dementors.mp3");
-  let expecto = new Audio("/expecto.mp3");
-  let expectoFull = new Audio("/expectoFull.mp3");
-  let snapeSong = new Audio("/snape.mp3");
-  let snapeSound = new Audio("/snapesound.mp3");
-  let iamwhat = new Audio("/iamwhat.mp3");
-  let harryPost = new Audio("/harryPost.mp3");
-  let spellsSound = new Audio("/spell.mp3");
-  // let harrypottertheme = new Audio("/harrypotter.mp3");
+  // Each sound is created once and reused, so pausing a sound stops the
+  // instance that is actually playing.
+  const soundsRef = useRef(null);
+  const getSound = (name) => {
+    if (!soundsRef.current) soundsRef.current = {};
+    if (!soundsRef.current[name]) {
+      soundsRef.current[name] = new Audio(SOUND_FILES[name]);
+    }
+    return soundsRef.current[name];
+  };
+  const play = (name, volume) => {
+    const sound = getSound(name);
+    if (volume !== undefined) sound.volume = volume;
+    sound.play().catch(() => {});
+    return sound;
+  };
+  const stop = (...names) => {
+    names.forEach((name) => {
+      const sound = soundsRef.current?.[name];
+      if (sound) {
+        sound.pause();
+        sound.currentTime = 0;
+      }
+    });
+  };
 
-  const start = () => {
-    audio.play();
+  // Pending timers per effect, so turning an effect off cancels them.
+  const timersRef = useRef({});
+  const addTimer = (group, fn, ms) => {
+    const id = setTimeout(fn, ms);
+    (timersRef.current[group] ||= []).push(id);
   };
-  const startWrong = () => {
-    audioWrong.play();
+  const clearTimers = (group) => {
+    (timersRef.current[group] || []).forEach(clearTimeout);
+    timersRef.current[group] = [];
   };
+
+  useEffect(() => {
+    const timers = timersRef.current;
+    const sounds = soundsRef;
+    return () => {
+      Object.values(timers).flat().forEach(clearTimeout);
+      Object.values(sounds.current || {}).forEach((sound) => sound.pause());
+    };
+  }, []);
 
   const toggle = (value) => {
     setDark(value);
   };
 
-  const animate = () => {
-    !animatevalue && start();
-    setTimeout(() => {
-      setAnimate(!animatevalue);
-    }, 3000);
+  // Wingardium Leviosa: things lift off once the incantation has been said,
+  // and land again as soon as the spell is released.
+  const castLeviosa = (liftDelayMs) => {
+    clearTimers("leviosa");
+    if (animatevalue) {
+      setAnimate(false);
+    } else {
+      addTimer("leviosa", () => setAnimate(true), liftDelayMs);
+    }
   };
 
-  const animatesound = () => {
-    setTimeout(() => {
-      setAnimate(!animatevalue);
-    }, 1000);
+  const animate = () => {
+    if (!animatevalue) play("leviosa");
+    castLeviosa(3000);
   };
+
+  // Voice-cast: the user has just said the incantation themselves.
+  const animatesound = () => castLeviosa(1000);
 
   const petronama = ({ value, full }) => {
-    setpetronaOn(value);
+    clearTimers("petronus");
     if (value) {
-      dementors.play();
-      setTimeout(() => {
-        !full ? expecto.play() : expectoFull.play();
-        setTimeout(() => {
-          setpetronamaLight(true);
-        }, 1000);
-      }, 7000);
-      setTimeout(() => {
-        setpetronaOn(false);
-        dementors.pause();
-        setpetronamaLight(false);
-        value ? expecto.pause() : expectoFull.pause();
-      }, 22000);
+      setpetronaOn(true);
+      play("dementors");
+      addTimer(
+        "petronus",
+        () => {
+          play(full ? "expectoFull" : "expecto");
+          addTimer("petronus", () => setpetronamaLight(true), 1000);
+        },
+        7000
+      );
+      addTimer(
+        "petronus",
+        () => {
+          setpetronaOn(false);
+          setpetronamaLight(false);
+          stop("dementors", "expecto", "expectoFull");
+        },
+        22000
+      );
     } else {
+      setpetronaOn(false);
       setpetronamaLight(false);
-      dementors.pause();
-      expectoFull.pause();
+      stop("dementors", "expecto", "expectoFull");
     }
   };
 
@@ -104,24 +155,7 @@ export function ThemeProvider(props) {
   };
 
   const animateWrong = () => {
-    startWrong();
-  };
-
-  const castRictusempra = () => {
-    const textElements = document.querySelectorAll(
-      "p, h1, h2, h3, h4, h5, h6, span, li, a"
-    );
-
-    textElements.forEach((element) => {
-      element.classList.add("wiggle-text");
-    });
-
-    // Stop wiggling after 3 seconds
-    setTimeout(() => {
-      textElements.forEach((element) => {
-        element.classList.remove("wiggle-text");
-      });
-    }, 3000);
+    play("leviosaWrong");
   };
 
   const harryThemetoggle = (value) => {
@@ -129,39 +163,38 @@ export function ThemeProvider(props) {
   };
 
   const snapeThemetoggle = (value) => {
+    clearTimers("snape");
     if (value) {
       setsnapeTheme(true);
-      snapeSong.play();
-      snapeSong.volume = 0.5;
-      setTimeout(() => {
-        snapeSound.play();
-        snapeSound.volume = 0.9;
-      }, 70000);
-      snapeSong.addEventListener("ended", function () {
+      const song = play("snapeSong", 0.5);
+      song.onended = () => {
         setsnapeTheme(false);
-      });
+        stop("snapeSound");
+      };
+      addTimer("snape", () => play("snapeSound", 0.9), 70000);
     } else {
-      snapeSong.pause();
       setsnapeTheme(false);
-      snapeSound.pause();
+      stop("snapeSong", "snapeSound");
     }
   };
 
   const postcardstoggle = (value) => {
+    clearTimers("postcards");
     if (value) {
-      iamwhat.play();
-      setTimeout(() => {
-        setpostcardsactive(value);
-        harryPost.play();
-        harryPost.volume = 0.3;
-      }, 3000);
-      iamwhat.addEventListener("ended", function () {
-        setpostcardsactive(false);
-      });
+      play("iamwhat");
+      addTimer(
+        "postcards",
+        () => {
+          setpostcardsactive(true);
+          // The letter rain lasts as long as its music (~16s).
+          const music = play("harryPost", 0.3);
+          music.onended = () => setpostcardsactive(false);
+        },
+        3000
+      );
     } else {
       setpostcardsactive(false);
-      harryPost.pause();
-      iamwhat.pause();
+      stop("harryPost", "iamwhat");
     }
   };
 
@@ -172,15 +205,14 @@ export function ThemeProvider(props) {
   const showSpells = (value) => {
     setspellsList(value);
     if (value) {
-      spellsSound.play();
-      spellsSound.volume = 0.5;
+      play("spells", 0.5);
     } else {
-      spellsSound.pause();
+      stop("spells");
     }
   };
 
-  const changeDevTheme = (value) => {
-    setdevTheme(!devTheme);
+  const changeDevTheme = () => {
+    setdevTheme((value) => !value);
   };
 
   return (
@@ -207,7 +239,6 @@ export function ThemeProvider(props) {
         harryFont,
         showSpells,
         spellsList,
-        castRictusempra,
         devTheme,
         changeDevTheme,
       }}

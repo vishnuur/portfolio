@@ -11,7 +11,7 @@
     padding: 24px 0;
   }
   h5 {
-    color: #9f55ff;
+    color: var(--accent, #9f55ff);
     margin: 0;
     font-size: 42px;
     padding-bottom: 12px;
@@ -37,18 +37,9 @@
   }
 }
 
-.fly-to-top3 {
-  animation: flyToTop3 5s ease-in-out forwards;
-}
 
-@keyframes flyToTop3 {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-400vh) rotate(360deg); /* Move elements to the top and make a full rotation */
-  }
-}
+
+
 
 @media (max-width: 768px) {
   .skills-wrap {

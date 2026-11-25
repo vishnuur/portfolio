@@ -1,0 +1,85 @@
+// Lumos: everything is dark except a warm pool of light around the pointer.
+// --x / --y / --r are updated every frame from JS.
+
+.wand-light {
+  --x: 50vw;
+  --y: 45vh;
+  --r: 180px;
+  position: fixed;
+  inset: 0;
+  // Below the Patronus scene (999), navbar and wand menu (1000).
+  z-index: 998;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  background: radial-gradient(
+    circle at var(--x) var(--y),
+    rgba(255, 228, 170, 0.12) 0,
+    rgba(255, 220, 160, 0.05) calc(var(--r) * 0.45),
+    rgba(0, 0, 0, 0) calc(var(--r) * 0.6),
+    rgba(3, 4, 10, 0.55) calc(var(--r) * 1.15),
+    rgba(3, 4, 10, 0.9) calc(var(--r) * 1.9),
+    rgba(2, 3, 8, 0.96) calc(var(--r) * 3)
+  );
+
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+// The bright point at the tip of the wand.
+.wand-light-tip {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 10px 4px rgba(255, 244, 214, 0.95),
+    0 0 34px 14px rgba(255, 214, 140, 0.55),
+    0 0 80px 30px rgba(255, 200, 120, 0.22);
+}
+
+// A way out of the dark that doesn't need the microphone.
+.wand-light-off {
+  position: fixed;
+  top: calc(84px + env(safe-area-inset-top, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 7px 18px !important;
+  border: 1px solid rgba(255, 220, 150, 0.55) !important;
+  border-radius: 999px !important;
+  background: rgba(20, 16, 30, 0.85) !important;
+  color: #ffe9b8 !important;
+  font-size: 14px;
+  font-weight: normal !important;
+  letter-spacing: 0.02em !important;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(255, 210, 130, 0.25);
+  animation: wand-light-off-in 0.6s ease-out 0.4s both;
+  span {
+    font-size: 18px;
+  }
+  &:hover,
+  &:focus-visible {
+    background: rgba(40, 30, 50, 0.95) !important;
+    color: #fff !important;
+  }
+}
+@keyframes wand-light-off-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -6px);
+  }
+}
+
+@media (hover: none) {
+  // On touch screens the light sits under the finger, so keep the tip subtle.
+  .wand-light-tip {
+    opacity: 0.6;
+  }
+}
