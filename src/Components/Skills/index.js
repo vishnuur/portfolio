@@ -73,6 +73,7 @@ const Index = () => {
       <div className="langauges">
         {dataSkills.tools.map((res) => (
           <a
+            key={res.id}
             data-tooltip-id={res.id}
             data-tooltip-content={res.name}
             href={res.id}
@@ -107,6 +108,7 @@ const Index = () => {
         </a>
         {dataSkills.library.map((res) => (
           <a
+            key={res.id}
             data-tooltip-id={res.id}
             data-tooltip-content={res.name}
             href={res.id}
@@ -121,7 +123,7 @@ const Index = () => {
         ))}
       </div>
       {combinedSkills?.map((res) => (
-        <Tooltip id={res.id} />
+        <Tooltip key={res.id} id={res.id} />
       ))}
       <Tooltip id="github" />
       <Tooltip id="nextjs" />

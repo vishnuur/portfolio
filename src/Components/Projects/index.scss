@@ -25,7 +25,7 @@
     left: 0;
     top: 120px;
     h5 {
-      color: #9f55ff;
+      color: var(--accent, #9f55ff);
       margin: 0;
       font-size: 42px;
       padding-bottom: 12px;
@@ -277,16 +277,33 @@ body {
   box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
 }
 
-.fly-to-top2 {
-  animation: flyToTop2 5s ease-in-out forwards;
-}
 
-@keyframes flyToTop2 {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-700vh) translateX(40vw) rotate(360deg); /* Move elements to the top and make a full rotation */
+
+
+
+// Desktop: keep the intro pinned on the left while the card deck scrolls on
+// the right, instead of leaving two thirds of the screen empty.
+@media (min-width: 1025px) {
+  #projects-id.experience-wrap {
+    box-sizing: border-box;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 48px;
+    .text-wrap {
+      position: sticky;
+      top: 120px;
+      flex: 0 0 38%;
+      padding-top: 24px;
+      h6 {
+        width: auto;
+      }
+    }
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
 
@@ -336,12 +353,5 @@ body {
   .gradient-blur {
     height: unset !important;
   }
-  @keyframes flyToTop2 {
-    0% {
-      transform: translateY(0) translateX(0) rotate(0deg);
-    }
-    100% {
-      transform: translateY(-600vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
-    }
-  }
+
 }

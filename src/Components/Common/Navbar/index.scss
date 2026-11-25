@@ -1,15 +1,44 @@
 .navbar-wrap {
-  background: transparent;
-  backdrop-filter: blur(1px);
-  height: 54px;
+  box-sizing: border-box;
+  height: 72px;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 24px 54px;
+  padding: 0 54px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  transition: background-color 0.3s ease;
+  &.navbar-dark {
+    background-color: rgba(0, 0, 0, 0.2);
+    .navbar-content button,
+    .navbar-menu-toggle {
+      color: white;
+    }
+  }
+  &.navbar-light {
+    background-color: rgba(255, 255, 255, 0.35);
+    .navbar-content button,
+    .navbar-menu-toggle {
+      color: black;
+    }
+  }
+  .navbar-menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    padding: 8px;
+    font-size: 22px;
+    line-height: 0;
+    &:hover,
+    &:focus {
+      background: transparent;
+    }
+  }
   .festive {
     position: fixed;
     right: 24px;
@@ -30,16 +59,9 @@
       align-items: center;
       &:hover {
         border-radius: 25px;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(127, 127, 127, 0.25);
       }
     }
-  }
-
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
   }
 
   .toggle-button {
@@ -129,12 +151,39 @@
 }
 @media (max-width: 768px) {
   .navbar-wrap {
+    height: 60px;
+    padding: 0 24px;
     .festive {
       width: 70px;
       top: 0;
     }
+    .navbar-menu-toggle {
+      display: block;
+    }
     .navbar-content {
       display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 8px 24px 16px;
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+      &.open {
+        display: flex;
+      }
+      button {
+        height: 44px;
+        justify-content: flex-start;
+      }
+    }
+    &.navbar-dark .navbar-content {
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+    &.navbar-light .navbar-content {
+      background-color: rgba(255, 255, 255, 0.92);
     }
   }
 }

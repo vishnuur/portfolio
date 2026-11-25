@@ -1,0 +1,49 @@
+// House colours. MagicContext sets <html data-house="…"> once the visitor is
+// sorted (only inside the magical world) and <html class="theme-light"> in
+// light mode. Components use these variables for their accent colours.
+
+:root {
+  --accent: #9f55ff; // section headings (the site's default purple)
+  --accent-soft: #698aee; // hover tints
+}
+
+// Each house: an accent readable on the dark theme, and one for light mode.
+@mixin house($accent-dark, $accent-light, $primary, $secondary) {
+  --accent: #{$accent-dark};
+  --accent-soft: #{$accent-dark};
+  --house-primary: #{$primary};
+  --house-secondary: #{$secondary};
+  &.theme-light {
+    --accent: #{$accent-light};
+    --accent-soft: #{$accent-light};
+  }
+}
+
+html[data-house="gryffindor"] {
+  @include house(#eeba30, #ae0001, #ae0001, #eeba30);
+}
+html[data-house="slytherin"] {
+  @include house(#5fbf7f, #1a472a, #1a472a, #aaaaaa);
+}
+html[data-house="ravenclaw"] {
+  @include house(#7f9ee6, #222f5b, #222f5b, #946b2d);
+}
+html[data-house="hufflepuff"] {
+  @include house(#ecb939, #8a6a12, #ecb939, #372e29);
+}
+
+// Small touches once sorted: the wand button in house colours, and text
+// selection. (The crest in the navbar shows the house.)
+html[data-house] {
+  .adminActions > .adminButton {
+    background: linear-gradient(
+      135deg,
+      var(--house-primary),
+      var(--house-secondary)
+    );
+  }
+  ::selection {
+    background: var(--accent);
+    color: #111;
+  }
+}

@@ -15,6 +15,12 @@ html{
   overscroll-behavior: none;
 }
 
+/* Keep section headings clear of the fixed navbar when jumping to them. */
+#projects-id,
+#experience-id {
+  scroll-margin-top: 72px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

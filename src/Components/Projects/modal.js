@@ -36,7 +36,7 @@ const Index = ({
               </span>
               <br />
               {selectedData.techused?.map((res) => (
-                <span className="modal-subcontent"> {res},</span>
+                <span key={res} className="modal-subcontent"> {res},</span>
               ))}
             </span>
             <span
@@ -47,6 +47,7 @@ const Index = ({
               <ul>
                 {selectedData?.roles?.map((res) => (
                   <li
+                    key={res}
                     className="modal-subcontent"
                     style={{ fontWeight: "400" }}
                   >

@@ -1,0 +1,15 @@
+/* While levitating, GSAP drives the transform every frame. CSS transitions on
+   those elements would lag behind it and make the motion stutter. */
+/* Floating elements may drift past the screen edge; don't let that widen the
+   page (on phones it would shift fixed elements like the wand menu). */
+/* Clipped on the app wrapper rather than <html>/<body>: `clip` doesn't create a
+   scroll container, so window scrolling and sticky elements keep working, and
+   fixed elements (navbar, wand menu) aren't affected. */
+.leviosa-active .App {
+  overflow-x: clip;
+}
+
+.leviosa-active .levitate {
+  transition: none !important;
+  will-change: transform;
+}

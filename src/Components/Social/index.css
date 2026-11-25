@@ -202,18 +202,9 @@ section {
   border-radius: 20px;
 }
 
-.fly-to-top6 {
-  animation: flyToTop6 10s ease-in-out forwards;
-}
 
-@keyframes flyToTop6 {
-  0% {
-    transform: translateY(0) translateX(0) (0deg);
-  }
-  100% {
-    transform: translateY(-1500vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
-  }
-}
+
+
 
 @media (max-width: 768px) {
   .socialwrap {
@@ -259,12 +250,5 @@ section {
   .contact-form .input-box textarea {
     font-size: 12px;
   }
-  @keyframes flyToTop6 {
-    0% {
-      transform: translateY(0) translateX(0) (0deg);
-    }
-    100% {
-      transform: translateY(-1000vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
-    }
-  }
+
 }

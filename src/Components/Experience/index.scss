@@ -12,7 +12,7 @@
     padding: 24px 0;
   }
   h5 {
-    color: #9f55ff;
+    color: var(--accent, #9f55ff);
     margin: 0;
     font-size: 42px;
     padding-bottom: 12px;
@@ -403,17 +403,8 @@ button:focus + .design-container {
 #letterContainer {
   display: flex;
 }
-.fly-to-top1 {
-  animation: flyToTop 8s ease-in-out forwards;
-}
-@keyframes flyToTop {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-1000vh) translateX(20vw) rotate(360deg); /* Move elements to the top and make a full rotation */
-  }
-}
+
+
 
 @media (max-width: 768px) {
   .flip-card-container {
@@ -465,14 +456,7 @@ button:focus + .design-container {
   .card_wrap {
     flex-direction: column;
   }
-  @keyframes flyToTop {
-    0% {
-      transform: translateY(0) translateX(0) rotate(0deg);
-    }
-    100% {
-      transform: translateY(-1000vh) translateX(0) rotate(360deg); /* Move elements to the top and make a full rotation */
-    }
-  }
+
 }
 .skills-wrap1 {
   display: flex;

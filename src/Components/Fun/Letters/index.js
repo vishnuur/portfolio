@@ -1,82 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import "./index.scss";
-import postcard from "../../../Assets/Images/postcard.webp";
 import ThemeContext from "../../../context/ThemeContext";
+
+// Loaded on demand, so the particle engine only downloads when the spell is cast.
+const LetterRain = lazy(() => import("./LetterRain"));
+
+// How long to keep the canvas after the spell ends, so letters already in the
+// air can finish falling instead of vanishing.
+const SETTLE_MS = 7000;
 
 const PostLettersAnimation = () => {
   const { harryTheme, postcardsactive } = React.useContext(ThemeContext);
-  const [letters, setLetters] = useState([]);
+  const active = harryTheme && postcardsactive;
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const letterCount = 100; // Total letter count
-    const maxLetterSpeed = 7;
+    if (active) {
+      setMounted(true);
+      return undefined;
+    }
+    // Leaving the magical world clears the screen right away.
+    if (!harryTheme) {
+      setMounted(false);
+      return undefined;
+    }
+    const timer = setTimeout(() => setMounted(false), SETTLE_MS);
+    return () => clearTimeout(timer);
+  }, [active, harryTheme]);
 
-    const createRandomLetter = () => {
-      return {
-        x: Math.random() * window.innerWidth,
-        y: -20, // Start above the screen
-        speed: Math.random() * maxLetterSpeed + 1,
-      };
-    };
-
-    const moveLetters = () => {
-      setLetters((prevLetters) =>
-        prevLetters.map((letter) => {
-          const newY = letter.y + letter.speed;
-          if (newY > window.innerHeight) {
-            return createRandomLetter();
-          }
-          return { ...letter, y: newY };
-        })
-      );
-    };
-
-    // Initialize letters
-    const initialLetters = Array.from(
-      { length: letterCount },
-      createRandomLetter
-    );
-    setLetters(initialLetters);
-
-    // Start animation loop
-    const animationInterval = setInterval(moveLetters, 50);
-
-    // After 30 seconds, start fading out the letters
-    setTimeout(() => {
-      clearInterval(animationInterval);
-      setLetters((prevLetters) => {
-        return prevLetters.map((letter) => {
-          return { ...letter, fading: true };
-        });
-      });
-    }, 17000);
-
-    return () => {
-      clearInterval(animationInterval);
-    };
-  }, []);
+  if (!mounted) return null;
 
   return (
-    <>
-      {postcardsactive && harryTheme && (
-        <div className="post-letters-container">
-          {letters.map((letter, index) => (
-            <img
-              src={postcard}
-              key={index}
-              style={{
-                position: "absolute",
-                left: letter.x + "px",
-                top: letter.y + "px",
-                opacity: letter.fading ? 0 : 1,
-              }}
-              alt="postcards"
-              loading="lazy"
-            />
-          ))}
-        </div>
-      )}
-    </>
+    <Suspense fallback={null}>
+      <LetterRain emitting={active} />
+    </Suspense>
   );
 };
 

@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
 import ThemeContext from "../../../context/ThemeContext";
+import { useMagic } from "../../../magic/MagicContext";
+import MagicHint from "./MagicHint";
 import {
   FaWandMagicSparkles,
   FaFeather,
@@ -8,265 +10,177 @@ import {
   FaStop,
   FaFont,
 } from "react-icons/fa6";
-import { GiDeer } from "react-icons/gi";
+import { GiDeer, GiSpellBook } from "react-icons/gi";
 import { TbFeatherOff } from "react-icons/tb";
 
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+const CAPTION_MS = 2800;
 
 const Index = () => {
   const {
-    animate,
     animatevalue,
-    animatesound,
-    animateWrong,
-    toggle,
-    petronama,
     petronaOn,
-    engorigoToggle,
-    engorgio,
-    castRictusempra,
     harryTheme,
     harryThemetoggle,
-    snapeThemetoggle,
-    snapeTheme,
-    postcardsactive,
-    postcardstoggle,
     changeFont,
     harryFont,
     showSpells,
     spellsList,
   } = React.useContext(ThemeContext);
-
-  const notify = () =>
-    toast.info("Say 'Reveal' to get the list of Spells", {
-      position: "bottom-center",
-      autoClose: 4000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: false,
-      theme: "dark",
-    });
-
-  const [isPlayinglumos, setIsPlayinglumos] = useState(false);
-  const [hideAction, sethideAction] = useState(false);
+  const { cast, castFromSpeech, stopAll, feedback, announce } = useMagic();
 
   const {
-    transcript,
+    interimTranscript,
+    finalTranscript,
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
+    isMicrophoneAvailable,
   } = useSpeechRecognition();
 
+  // Cast each finished phrase once, then clear it so it can't fire again.
+  const heardRef = useRef(false);
   useEffect(() => {
-    if (transcript === "Wingardium Leviosa") {
-      animatesound();
-      // setIsPlaying(true);
-    } else if (
-      (transcript?.toLocaleLowerCase().includes("leviosa") ||
-        transcript?.toLocaleLowerCase().includes("wingardium")) &&
-      transcript?.length > 13
-    ) {
-      animateWrong();
-    }
-    if (transcript.toLocaleLowerCase() === "lumos") {
-      setIsPlayinglumos(true);
-      setTimeout(() => {
-        toggle(false);
-        setTimeout(() => {
-          setIsPlayinglumos(false);
-        }, 1000);
-      }, 1000);
-    }
-    if (transcript.toLocaleLowerCase().includes("nox")) {
-      setIsPlayinglumos(true);
-      setTimeout(() => {
-        toggle(true);
-        setTimeout(() => {
-          setIsPlayinglumos(false);
-        }, 1000);
-      }, 1000);
-    }
-    if (
-      transcript.toLocaleLowerCase().includes("expect") ||
-      transcript.toLocaleLowerCase().includes("patronum")
-    ) {
-      petronama({ value: true, full: true });
-    }
-    console.log(transcript, "transcript");
-    if (
-      transcript.toLocaleLowerCase().includes("rectus") ||
-      transcript.toLocaleLowerCase().includes("empra")
-    ) {
-      castRictusempra({ value: true, full: true });
-    }
+    const phrase = finalTranscript.trim();
+    if (!phrase) return;
+    heardRef.current = true;
+    castFromSpeech(phrase);
+    resetTranscript();
+  }, [finalTranscript, castFromSpeech, resetTranscript]);
 
-    if (
-      transcript?.toLocaleLowerCase().includes("jio") ||
-      transcript?.toLocaleLowerCase().includes("gorgeous")
-    ) {
-      engorigoToggle(engorgio + 20);
-    } else if (transcript?.toLocaleLowerCase().includes("reduc")) {
-      engorigoToggle(engorgio - 20);
-    }
-
-    if (transcript?.toLocaleLowerCase().includes("all this time")) {
-      snapeThemetoggle(true);
-    }
-    if (
-      transcript?.toLocaleLowerCase().includes("you are a") ||
-      transcript?.toLocaleLowerCase().includes("you're a wizard") ||
-      transcript?.toLocaleLowerCase().includes("are a wizard")
-    ) {
-      postcardstoggle(true);
-    }
-    if (
-      transcript?.toLocaleLowerCase().includes("reveal") ||
-      transcript?.toLocaleLowerCase().includes("revealio") ||
-      transcript?.toLocaleLowerCase().includes("alohomora") ||
-      (transcript?.toLocaleLowerCase().includes("hello") &&
-        transcript?.toLocaleLowerCase().includes("mora"))
-    ) {
-      sessionStorage.setItem("spellsViewed", "true");
-      showSpells(true);
-    }
-  }, [transcript]);
-
+  // Listening ended without catching anything.
+  const wasListening = useRef(false);
   useEffect(() => {
-    const el = document.getElementById("harryThemesong");
-    if (el) {
-      if (
-        petronaOn ||
-        animatevalue ||
-        isPlayinglumos ||
-        listening ||
-        spellsList
-      ) {
-        el.volume = 0.2;
-      } else {
-        setTimeout(() => {
-          el.volume = 0.8;
-        }, 2000);
-      }
+    if (wasListening.current && !listening && !heardRef.current) {
+      announce(
+        isMicrophoneAvailable
+          ? "I didn't catch a spell. Try again, or pick one from the spell book"
+          : "Microphone is blocked. Pick a spell from the spell book instead",
+        "unknown"
+      );
     }
-  }, [petronaOn, animatevalue, listening, isPlayinglumos, spellsList]);
+    wasListening.current = listening;
+  }, [listening, isMicrophoneAvailable, announce]);
 
+  // Caption: what the mic hears while listening, then the result.
+  const [caption, setCaption] = useState(null);
   useEffect(() => {
-    if (animatevalue) {
-      setTimeout(() => {
-        sethideAction(true);
-      }, 2000);
-      setTimeout(() => {
-        sethideAction(false);
-      }, 8000);
-    }
-  }, [animatevalue]);
+    if (!feedback) return undefined;
+    setCaption(feedback);
+    const timer = setTimeout(() => setCaption(null), CAPTION_MS);
+    return () => clearTimeout(timer);
+  }, [feedback]);
 
+  const toggleListening = () => {
+    if (listening) {
+      SpeechRecognition.abortListening();
+      return;
+    }
+    heardRef.current = false;
+    resetTranscript();
+    if (spellsList) showSpells(false);
+    SpeechRecognition.startListening({ language: "en-GB" });
+  };
+
+  // The wand glows to invite first-time visitors (see MagicHint).
+  const [beckon, setBeckon] = useState(false);
+
+  // The Harry Potter experience is driven by voice spells, so it is hidden
+  // entirely on browsers without speech recognition (e.g. Firefox).
   if (!browserSupportsSpeechRecognition) {
-    return <span>Browser doesn't support speech recognition.</span>;
+    return null;
   }
 
+  const captionText = listening
+    ? interimTranscript
+      ? `“${interimTranscript}”`
+      : "Listening… say a spell"
+    : caption?.text;
+  const captionKind = listening ? "listening" : caption?.kind;
+
   return (
-    <div
-      className="adminActions"
-      style={{ display: hideAction ? "none" : "inline" }}
-    >
+    <div className={`adminActions ${beckon ? "beckon" : ""}`}>
+      <MagicHint
+        harryTheme={harryTheme}
+        bookOpen={spellsList}
+        onBeckon={setBeckon}
+      />
       <input
         type="checkbox"
         name="adminToggle"
         className="adminToggle"
+        title="Get in to the magical world"
+        aria-label="Get in to the magical world"
         onClick={() => {
-          harryThemetoggle(!harryTheme);
-          petronama({ value: false, full: false });
-          snapeThemetoggle(false);
-          postcardstoggle(false);
+          stopAll();
+          if (listening) SpeechRecognition.abortListening();
           resetTranscript();
-          animatevalue && animate();
-          showSpells(false);
+          harryThemetoggle(!harryTheme);
         }}
       />
-      <a
-        title="Get in to the magical world"
-        className="adminButton"
-        href="#harryPotter"
-      >
+      <div className="adminButton" aria-hidden="true">
         <FaWandMagicSparkles />
-      </a>
+      </div>
       <div className="adminButtons">
-        <a
-          title="Wingardium leviosa"
+        <button
+          type="button"
+          title="Spell book"
+          aria-label="Open the spell book"
           className="adminButton"
-          onClick={() => animate()}
-          href="#wingardium"
+          onClick={() => showSpells(!spellsList)}
+        >
+          <GiSpellBook />
+        </button>
+        <button
+          type="button"
+          title="Wingardium leviosa"
+          aria-label="Wingardium leviosa"
+          className="adminButton"
+          onClick={() => cast("leviosa")}
         >
           {!animatevalue ? <FaFeather /> : <TbFeatherOff />}
-        </a>
-        <a
+        </button>
+        <button
+          type="button"
           title="Patronus"
+          aria-label="Patronus"
+          aria-pressed={petronaOn}
           className="adminButton"
-          onClick={() =>
-            !petronaOn
-              ? petronama({ value: true, full: true })
-              : petronama({ value: false, full: false })
-          }
-          href="#petronas"
+          onClick={() => cast("patronus")}
         >
           <GiDeer />
-        </a>
-        <a
-          title="Spells (Spell Reveal for the list of spells)"
-          className="adminButton"
-          onClick={() => {
-            if (listening) {
-              SpeechRecognition.abortListening();
-            } else {
-              SpeechRecognition.startListening();
-              if (spellsList) {
-                showSpells(false);
-              }
-              if (sessionStorage.getItem("spellsViewed") !== "true") {
-                notify();
-              }
-            }
-          }}
-          href="#listen"
+        </button>
+        <button
+          type="button"
+          title={listening ? "Stop listening" : "Say a spell"}
+          aria-label={listening ? "Stop listening" : "Say a spell"}
+          aria-pressed={listening}
+          className={`adminButton ${listening ? "listening" : ""}`}
+          onClick={toggleListening}
         >
           {listening ? <FaStop /> : <FaMicrophone />}
-        </a>
-        <a
+        </button>
+        <button
+          type="button"
           title="Change Font Theme"
+          aria-label="Change Font Theme"
           className="adminButton"
-          href="#changefont"
           onClick={() => changeFont(!harryFont)}
         >
           <FaFont />
-        </a>
-        {/* <a
-          title="Spells"
-          className="adminButton"
-          href="#spells"
-          onClick={() => showSpells(!spellsList)}
-        >
-          <FaWandMagicSparkles />
-        </a> */}
+        </button>
       </div>
-      {window.innerWidth < 768 && <ToastContainer />}
-      {harryTheme && !snapeTheme && !postcardsactive && (
-        <audio id="harryThemesong" autoPlay loop>
-          <source src="/harrypotter.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      )}
-      {isPlayinglumos && (
-        <audio id="music1" autoPlay>
-          <source src="/lumos.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
+      {harryTheme && captionText && (
+        <div
+          className={`spell-caption spell-caption--${captionKind}`}
+          role="status"
+          aria-live="polite"
+        >
+          {captionText}
+        </div>
       )}
     </div>
   );

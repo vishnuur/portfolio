@@ -1,0 +1,186 @@
+// Expecto Patronum: dementors close in, then silvery light from the
+// bottom-left corner drives them away. Everything here is animated by GSAP
+// (see index.js); these styles only set up the layers and their look.
+
+$light-reach: 140vmax; // how far the Patronus light extends from the corner
+
+.patronus-scene {
+  position: fixed;
+  inset: 0;
+  // Below the navbar and wand menu (1000) so the spell can still be cancelled.
+  z-index: 999;
+  pointer-events: none;
+  overflow: hidden;
+  user-select: none;
+}
+
+// Cold, dark vignette as the dementors close in.
+.patronus-chill {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(8, 16, 30, 0.25) 0%,
+    rgba(6, 12, 24, 0.6) 55%,
+    rgba(2, 6, 14, 0.85) 100%
+  );
+}
+
+.patronus-dementor {
+  position: absolute;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
+  }
+}
+
+// Light layers only cover the visible quarter around the bottom-left corner,
+// with their gradients anchored on that corner.
+%from-corner {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform-origin: 0% 100%;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.patronus-glow {
+  @extend %from-corner;
+  width: $light-reach;
+  height: $light-reach;
+  background: radial-gradient(
+    circle $light-reach at 0% 100%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(228, 243, 255, 0.95) 7%,
+    rgba(180, 220, 255, 0.7) 18%,
+    rgba(140, 196, 255, 0.42) 34%,
+    rgba(110, 170, 255, 0.18) 55%,
+    rgba(100, 160, 255, 0.05) 75%,
+    rgba(100, 160, 255, 0) 100%
+  );
+}
+
+// Rays fan out from the corner. The layer is oversized past the corner so it
+// can turn a few degrees without exposing its edges.
+.patronus-rays {
+  @extend %from-corner;
+  $pad: 20vmax;
+  left: -$pad;
+  bottom: -$pad;
+  width: calc(#{$light-reach} + #{$pad});
+  height: calc(#{$light-reach} + #{$pad});
+  transform-origin: $pad calc(100% - #{$pad});
+  background: repeating-conic-gradient(
+    from 0deg at #{$pad} calc(100% - #{$pad}),
+    rgba(225, 240, 255, 0) 0deg,
+    rgba(225, 240, 255, 0.38) 2.5deg,
+    rgba(225, 240, 255, 0) 6deg,
+    rgba(225, 240, 255, 0) 11deg
+  );
+  -webkit-mask-image: radial-gradient(
+    circle $light-reach at #{$pad} calc(100% - #{$pad}),
+    #000 0%,
+    rgba(0, 0, 0, 0.6) 35%,
+    transparent 75%
+  );
+  mask-image: radial-gradient(
+    circle $light-reach at #{$pad} calc(100% - #{$pad}),
+    #000 0%,
+    rgba(0, 0, 0, 0.6) 35%,
+    transparent 75%
+  );
+}
+
+// White-hot source of the spell, centred on the corner.
+.patronus-core {
+  position: absolute;
+  left: -30vmin;
+  bottom: -30vmin;
+  width: 60vmin;
+  height: 60vmin;
+  opacity: 0;
+  mix-blend-mode: screen;
+  // One smooth falloff (no box-shadow), so the source has no visible edge.
+  background: radial-gradient(
+    circle closest-side,
+    #fff 0%,
+    rgba(240, 249, 255, 0.95) 18%,
+    rgba(205, 232, 255, 0.6) 38%,
+    rgba(170, 212, 255, 0.25) 62%,
+    rgba(160, 205, 255, 0.08) 82%,
+    rgba(160, 205, 255, 0) 100%
+  );
+}
+
+// Brief bloom when the spell is cast.
+.patronus-flash {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle at 0% 100%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(220, 238, 255, 0.85) 40%,
+    rgba(200, 228, 255, 0.5) 100%
+  );
+}
+
+.patronus-sparks {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.patronus-spark {
+  position: absolute;
+  left: -3px;
+  bottom: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 6px 2px rgba(210, 235, 255, 0.9),
+    0 0 16px 6px rgba(150, 200, 255, 0.5);
+  will-change: transform, opacity;
+}
+
+// The stag Patronus: a glowing, translucent silhouette.
+.patronus-stag {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 24vmin;
+  height: 24vmin;
+  opacity: 0;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  .patronus-stag-body {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 80%;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    color: rgba(232, 244, 255, 0.92);
+    filter: drop-shadow(0 0 6px rgba(220, 240, 255, 0.95))
+      drop-shadow(0 0 18px rgba(150, 205, 255, 0.85))
+      drop-shadow(0 0 42px rgba(110, 175, 255, 0.6));
+  }
+}
+
+@media (max-width: 768px) {
+  .patronus-stag {
+    width: 36vmin;
+    height: 36vmin;
+  }
+}
