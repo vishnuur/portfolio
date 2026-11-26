@@ -27,7 +27,7 @@ const Devops = () => {
       <div className={styles.container}>
         <pre className={styles.codeBlock}>
           <code>
-            <span className={styles.comment}>// DevOps & Tooling</span>
+            <span className={styles.comment}>{"// DevOps & Tooling"}</span>
             {"\n"}
             <span className={styles.keyword}>const</span>{" "}
             <span className={styles.variable}>devops</span> = [{"\n"}
