@@ -13,7 +13,7 @@ const AboutMe = () => {
               title: "Vishnu",
             },
             {
-              title: <a>About</a>,
+              title: <span>About</span>,
             },
           ]}
         />
@@ -22,7 +22,7 @@ const AboutMe = () => {
       <div className={styles.container}>
         <pre className={styles.codeBlock}>
           <code>
-            <span className={styles.comment}>// About Me</span> {"\n"}
+            <span className={styles.comment}>{"// About Me"}</span> {"\n"}
             <span className={styles.keyword}>const</span>{" "}
             <span className={styles.variable}>name</span> ={" "}
             <span className={styles.string}>"Vishnu UR"</span>; {"\n"}

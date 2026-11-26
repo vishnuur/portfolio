@@ -43,7 +43,7 @@ const Skills = () => {
       <div className={styles.container}>
         <pre className={styles.codeBlock}>
           <code>
-            <span className={styles.comment}>// My Skills</span>
+            <span className={styles.comment}>{"// My Skills"}</span>
             {"\n"}
             <span className={styles.keyword}>const</span>{" "}
             <span className={styles.variable}>tools</span> = [

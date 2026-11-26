@@ -26,7 +26,7 @@ const Backend = () => {
       <div className={styles.container}>
         <pre className={styles.codeBlock}>
           <code>
-            <span className={styles.comment}>// Backend & Integrations</span>
+            <span className={styles.comment}>{"// Backend & Integrations"}</span>
             {"\n"}
             <span className={styles.keyword}>const</span>{" "}
             <span className={styles.variable}>backend</span> = [{"\n"}

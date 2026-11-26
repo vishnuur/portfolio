@@ -24,7 +24,7 @@ const MobileApps = () => {
       <div className={styles.container}>
         <pre className={styles.codeBlock}>
           <code>
-            <span className={styles.comment}>// Mobile App Projects</span>
+            <span className={styles.comment}>{"// Mobile App Projects"}</span>
             {"\n"}
             <span className={styles.keyword}>const</span>{" "}
             <span className={styles.variable}>mobileApps</span> = [{"\n"}

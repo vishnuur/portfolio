@@ -7,7 +7,7 @@ const Projects = () => {
     <div className={styles.container}>
       <pre className={styles.codeBlock}>
         <code>
-          <span className={styles.comment}>// My Projects</span> {"\n"}
+          <span className={styles.comment}>{"// My Projects"}</span> {"\n"}
           <span className={styles.keyword}>const</span>{" "}
           <span className={styles.variable}>projects</span> = [ {"\n"}
           {expList?.map((project, index) => (

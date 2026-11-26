@@ -51,7 +51,7 @@ const Experience = () => {
       <div className={styles.container}>
         <pre className={styles.codeBlock}>
           <code>
-            <span className={styles.comment}>// My Experience</span>
+            <span className={styles.comment}>{"// My Experience"}</span>
             {"\n"}
             <span className={styles.keyword}>const</span>{" "}
             <span className={styles.variable}>experience</span> = [{"\n"}
